@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form" controllerName="stipAdmin.stipAdmin.controller.displayPeriodi">
+	<App>
+		<pages>
+			<Page title="{i18n>DISPLAY_PERIODI}">
+				<content>
+					<VBox class="sapUiSmallMargin" items="">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+							labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+							singleContainerFullSize="false">
+							<f:content >
+								<Label text="{i18n>Id}"/>
+								<Input id="name" class="grayBackground" value="{displayPeriodiModel>/ID_PERIODO}" editable="false"/>
+								<Label text="{i18n>Desc}"/>
+								<Input value="{displayPeriodiModel>/DESCR_PERIODO}" class="grayBackground" editable="false"/>
+								<Label text="{i18n>DAL}"/>
+							<!--	<DatePicker xmlns="sap.m" class="grayBackground"
+									value="{path: 'displayPeriodiModel>/VALE_DAL'}" id="periodiStartDate"
+									editable="false"  valueFormat="dd-MM-yyyy"/>-->
+								<Input value="{displayPeriodiModel>/VALE_DAL}" class="grayBackground" editable="false"/>
+								<Label text="{i18n>AI}"/>
+							<!--	<DatePicker xmlns="sap.m" class="grayBackground"
+									value="{path: 'displayPeriodiModel>/VALE_AL'}" editable="false"
+									id="periodiEndDate" valueFormat="dd-MM-yyyy"/>-->
+								<Input value="{displayPeriodiModel>/VALE_AL}" class="grayBackground" editable="false"/>
+								<Label text="{i18n>Note_Periodi}"/>
+								<TextArea xmlns="sap.m" editable="false" value="{displayPeriodiModel>/NOTA_SCHEDA}" class="grayBackground" width="100%" rows="4"/>
+								<Label text=""/>
+								<Button xmlns="sap.m" text="{i18n>CANCEL}" textAlign="Center" width="10rem" id="button3" press="cancelPeriodiDisplay"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

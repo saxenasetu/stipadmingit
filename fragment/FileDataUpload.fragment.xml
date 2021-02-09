@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"  xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<Dialog contentWidth="100%" contentHeight="100%" resizable="true" draggable="true">
+		<content>
+			<Page title="{i18n>Upload_Moltiplicatore}">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>UploadRisultati}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox>
+						<Label text="Caricamento moltiplicatore da Foglio Excel"/>
+						<Text text="1) Selezionare i Moltiplicatori per i quali si vuole operare" wrapping="true"/>
+						<Text text=" 2) Selezionare se si vuole effettuare un caricamento di Obiettivi o consuntivi" wrapping="true"/>
+						<Text
+							text="3) Accedere al file excel creato e aggiornare il seguente campo:Risultato: indicare il valore di consuntivo consentito (scelto tra quelli consentiti per la Curva Discreta di riferimento) "
+							wrapping="true"/>
+						<Text text="4) Procedere al caricamento con l’apposita funzione disponibile in questa pagina" wrapping="true"/>
+						<Text text="ATTENZIONE" wrapping="true"/>
+						<Text
+							text="Tutte le curve associate ai gate sono di tipo 'Discreta', pertanto i Risultati ammessi devono essere inclusi tra quelli consentiti per la Curva (tutti i risultati ammessi sono riportati nella stessa riga di excel)"
+							wrapping="true"/>
+						<Text text="Nel caso il Risultato non fosse tra quelli ammessi per la curva non sarà caricato" wrapping="true"/>
+						<Text text="N.B." wrapping="true"/>
+						<Text text="- Devono essere presenti le seguenti colonne:Id_Moltiplicatore , Fiscal Year, Risultato (le intestazioni delle colonne devono corrispondere) ."
+							wrapping="true"/>
+						<Text text="- Non modificare in alcun modo il campo “Id_Moltiplicatore ” e “Fiscal Year” scaricato." wrapping="true"/>
+						<Text text="- Solo i valori contenuti nelle colonne “Risultato” saranno considerati dal processo di caricamento" wrapping="true"/>
+					</VBox>
+					<Table>
+						<columns>
+							<Column id="simulato" width="15%">
+								<Label text="{i18n>Simulato}"/>
+							</Column>
+							<Column width="65%">
+								<Label text="{i18n>File}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<CheckBox id="sel"/>
+							<u:FileUploader width="700px" id="fileUploader" name="myFileUpload" icon="sap-icon://upload" iconFirst="true"
+								buttonText="{i18n>Upload_File}" fileType="XLSX,xlsx,xls,XLS,csv,CSV" change="onUpload"/>
+						</ColumnListItem>
+					</Table>
+				</content>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button xmlns="sap.m" width="200px" text="{i18n>CANCEL}" id="button1" press="onPressAnnulla"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</Page>
+		</content>
+	</Dialog>	
+</core:FragmentDefinition>

@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog visible="false" titleAlignment="Center" id="idScheda" title="{i18n>Id}" class="sapUiPopupWithPadding"
+		items="{SchedaMasterModel>/}" liveChange="handleIdValueSearch" search="handleIdValueSearch" confirm="handleIdValueconfirm"
+		cancel="handleIdValueHelpClose">
+		<StandardListItem title="{SchedaMasterModel>ID_SCHEDAMASTER}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idGate" title="Gate" class="sapUiPopupWithPadding"
+		items="{tmpModel>/}" confirm="handleIdGateconfirm" cancel="handleIdValueHelpClose">
+		<StandardListItem title="{tmpModel>id}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="descGate" title="Gate" class="sapUiPopupWithPadding"
+		items="{tmpModel>/}" confirm="handleDescGateconfirm" cancel="handleIdValueHelpClose">
+		<StandardListItem title="{tmpModel>desc}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

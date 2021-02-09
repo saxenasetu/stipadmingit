@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ViewSettingsDialog confirm="sort">
+		<sortItems selectedIndex = "-1">
+			<ViewSettingsItem text="ID" key="ID"/>
+			<ViewSettingsItem text="Descrizione" key="DESC"/>
+			<!--<ViewSettingsItem text="Tipo Gruppo" key="TIPO_GRUPPO"/>-->
+			<ViewSettingsItem text="Template Lettere" key="TEMPLATE_LETTERE"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

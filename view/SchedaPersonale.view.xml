@@ -1,0 +1,441 @@
+<mvc:View controllerName="stipAdmin.stipAdmin.controller.SchedaPersonale" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	displayBlock="true" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>AssegnazioneSchedaPersonali}">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button text="{i18n>HomePage}" type="Emphasized" press="onHome"></Button>
+							</contentLeft>
+							<contentMiddle>
+								<Text text="{i18n>AssegnazioneSchedaPersonali}"></Text>
+							</contentMiddle>
+							<contentRight>
+								<Text id="idtxtfiscalyear"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Label class="stipAdminSpace"/>
+						<VBox >
+							<HBox>
+								<Label width="1000px"/>
+								<Button id="Ricerca1" text="{i18n>Ricerca}" width="100px" press=".onSearch(0)"/>
+								<Label class="stipAdminSpace"/>
+								<Button id="Pulisci1" text="{i18n>Resetta}" width="100px" press="clear"/>
+							</HBox>
+							<HBox>
+								<Label class="stipAdminSpace"/>
+								<VBox>
+									<Label text="{i18n>sID}" design="Bold"/>
+									<Input id="sid" width="8rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>matricola}" design="Bold"/>
+									<Input id="matricola" width="8rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Cognome}" design="Bold"/>
+									<Input id="cognome" width="8rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Nome1}" design="Bold"/>
+									<Input id="Nome" width="8rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Dimessi}" design="Bold"/>
+									<Select id="Dimessi" maxWidth="8rem">
+										<core:Item key="" text=""/>
+										<core:Item key="2" text="Si"/>
+										<core:Item key="1" text="No"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Qualifica}" design="Bold"/>
+									<Select id="Qualifica" maxWidth="8rem" forceSelection="false">
+										<core:Item key="Q" text="Q"/>
+										<core:Item key="D" text="D"/>
+										<core:Item key="I" text="I"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Company}" design="Bold"/>
+									<Select forceSelection="false" id="Company" width="8rem" items="{SchedaPersonaleModel>/0/Filter/0/Company}">
+										<core:Item key="{SchedaPersonaleModel>COMPANY}" text="{SchedaPersonaleModel>DESCR_COMPANY}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>banda}" design="Bold"/>
+									<Select forceSelection="false" id="bb" width="8rem" items="{SchedaPersonaleModel>/0/Filter/1/BB}">
+										<core:Item key="{SchedaPersonaleModel>}" text="{SchedaPersonaleModel>}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>RespDiretto}" design="Bold"/>
+									<Input id="respdir" width="8rem"></Input>
+								</VBox>
+							</HBox>
+							<HBox>
+								<Label class="stipAdminSpace"/>
+								<VBox>
+									<Label text="{i18n>Dipartimento1}" design="Bold"/>
+									<HBox>
+										<Input id="idTree" editable="false" width="6rem"/>
+										<Label class="stipAdminSpace"/>
+										<!--<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" visible="true" press="onPressView"/>-->
+										<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" visible="true" press="handleTreeValueHelp"/>
+									</HBox>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Posizione}" design="Bold" width="6rem"/>
+									<HBox>
+										<Input id="pos" editable="false" width="6rem"/>
+										<Label class="stipAdminSpace"/>
+										<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" visible="true" press="onPosition"/>
+									</HBox>
+									<!--	<Select forceSelection="false" id="pos" width="6rem" items="{SchedaPersonaleModel>/0/Filter/2/POSIZIONE}" enabled="false">
+										<core:Item key="{SchedaPersonaleModel>POSITIONCODE}" text="{SchedaPersonaleModel>POSITIONDESCRIPTION}"/>
+									</Select>-->
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Ruolo}" design="Bold"/>
+									<HBox>
+										<Input id="ruolo" editable="false" width="6rem"/>
+										<Label class="stipAdminSpace"/>
+										<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" press="onRole"/>
+									</HBox>
+								</VBox >
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>cb}" design="Bold"/>
+									<Select id="cb" maxWidth="6rem">
+										<core:Item key="" text=""/>
+										<core:Item key="S" text="Si"/>
+										<core:Item key="N" text="No"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Scheda_KPI}" design="Bold"/>
+									<Input id="pisteid" width="6rem"/>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Tipo_KPI}" design="Bold"/>
+									<Select xmlns="sap.m" id="box1" width="6rem">
+										<core:Item xmlns:core="sap.ui.core" key="" text="" id="item1"/>
+										<core:Item xmlns:core="sap.ui.core" key="T1" text="1° Trim" id="item2"/>
+										<core:Item xmlns:core="sap.ui.core" key="T2" text="2° Trim" id="item3"/>
+										<core:Item xmlns:core="sap.ui.core" key="T3" text="3° Trim" id="item4"/>
+										<core:Item xmlns:core="sap.ui.core" key="T4" text="4° Trim" id="item5"/>
+										<core:Item xmlns:core="sap.ui.core" key="S1" text="1° Sem" id="item6"/>
+										<core:Item xmlns:core="sap.ui.core" key="S2" text="2° Sem" id="item7"/>
+										<core:Item xmlns:core="sap.ui.core" key="A" text="Annuali" id="item8"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpace"/>
+								<VBox>
+									<Label text="{i18n>ids}" design="Bold"/>
+									<Input id="idscheda" width="8rem"/>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>descs1}" design="Bold"/>
+									<Input id="descscheda" width="9rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="S.G" design="Bold"/>
+									<CheckBox id="checkBoxSG"/>
+								</VBox>
+							</HBox>
+							<HBox>
+								<Label class="stipAdminSpace"/>
+								<VBox>
+									<Label text="{i18n>Max_Payout}" design="Bold"/>
+									<Select forceSelection="false" width="8rem" id="maxpay" items="{SchedaPersonaleModel>/0/Filter/4/MAXPERCPAYOUT}">
+										<core:Item key="{SchedaPersonaleModel>}" text="{SchedaPersonaleModel>}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Gruppischede}" design="Bold"/>
+									<Select forceSelection="false" width="8rem" id="gruppo" items="{SchedaPersonaleModel>/0/Filter/6/DESCR_GRUPPOSCHEDA}">
+										<core:Item key="{SchedaPersonaleModel>ID_GRUPPOSCHEDA}" text="{SchedaPersonaleModel>DESCR_GRUPPOSCHEDA}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Mese_Inizio}" design="Bold"/>
+									<Select id="sdate" items="{SchedaPersonaleModel>/0/Filter/21/Month}">
+										<core:Item key="{SchedaPersonaleModel>month}" text="{SchedaPersonaleModel>month}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Mese_Fine}" design="Bold"/>
+									<Select id="edate" items="{SchedaPersonaleModel>/0/Filter/21/Month}">
+										<core:Item key="{SchedaPersonaleModel>month}" text="{SchedaPersonaleModel>month}"/>
+									</Select>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox >
+							<Label text=""/>
+						</VBox>
+						<VBox >
+							<Label text=""/>
+						</VBox>
+						<VBox >
+							<HBox>
+								<Label class="stipAdminSpace"/>
+								<VBox>
+									<Label text="{i18n>Protocollo}" design="Bold"/>
+									<Input id="Protocollo" width="8rem"/>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>TipiPckg}" design="Bold"/>
+									<Select forceSelection="false" width="8rem" id="TipiPckg" items="{SchedaPersonaleModel>/0/Filter/8/TIPOPACKAGEDS}">
+										<core:Item key="{SchedaPersonaleModel>ID_TIPOPACKAGEDS}" text="{SchedaPersonaleModel>TIPOPACKAGEDS}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>statoPckg}" design="Bold"/>
+									<Select forceSelection="false" width="8rem" id="statoPckg" items="{SchedaPersonaleModel>/0/Filter/9/DESCR_STATOINVIO}">
+										<core:Item key="{SchedaPersonaleModel>ID_STATOINVIO}" text="{SchedaPersonaleModel>DESCR_STATOINVIO}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>datadellostato}" design="Bold"/>
+									<DatePicker id="DataStato" width="8rem" valueFormat="dd-MM-yyyy" displayFormat="dd-MM-yyyy"/>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>TipiFlow}" design="Bold"/>
+									<Select forceSelection="false" width="8rem" id="TipiFlow" items="{SchedaPersonaleModel>/0/Filter/7/FLOW}">
+										<core:Item key="{SchedaPersonaleModel>ID_TIPOFLOW}" text="{SchedaPersonaleModel>TIPOFLOW}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>TemplateLettere}" design="Bold"/>
+									<Select forceSelection="false" id="TemplateLettere" width="8rem" items="{SchedaPersonaleModel>/0/Filter/5/LETTER}">
+										<core:Item key="{SchedaPersonaleModel>id}" text="{SchedaPersonaleModel>desc}"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>TipoTemplate}" design="Bold"/>
+									<Select forceSelection="false" id="ltr" width="8rem" items="" change="letterType">
+										<core:Item key="" text=""/>
+										<!--<core:Item key="Tutti" text="Tutti"/>-->
+										<core:Item key="Auto" text="Auto"/>
+										<core:Item key="Man" text="Man"/>
+										<core:Item key="Mod" text="Mod"/>
+									</Select>
+								</VBox>
+							</HBox>
+							<VBox >
+								<Label text=""/>
+							</VBox>
+							<VBox >
+								<Label text=""/>
+							</VBox>
+							<HBox>
+								<Label class="stip8Space"/>
+								<Select id="matricole" change="matricoleFn">
+									<core:Item key="" text="{i18n>AzioneSulleMatricoleSelezionate}"/>
+									<!--<core:Item key="sel" text="{i18n>SelezionaTutti}"/>
+										<core:Item key="desel" text="{i18n>DeselezionaTutti}"/>-->
+									<core:Item key="scheda" text="{i18n>AssegnaSchedaMaster}"/>
+									<core:Item key="gestione" text="{i18n>AssegnaSchedaGestionale}"/>
+									<core:Item key="letter_asseg" text="{i18n>AssegnaLetterediAssegnazione}"/>
+									<core:Item key="letter_consun" text="{i18n>AssegnaLettereDiConsuntivazione}"/>
+									<core:Item key="inattivo" text="{i18n>AssegnaStatoInattivo}"/>
+								</Select>
+								<Label class="stipAdminSpace"/><Label class="stipAdminSpace"/>
+								<!--<Button id="Ricerca" text="{i18n>Ricerca}" width="200px" press=".onSearch(0)"/>
+								
+								<Label class="stipAdminSpace"/>
+								<Button id="Pulisci" text="{i18n>Resetta}" width="200px" press="clear"/>-->
+								<Label class="stip8Space"/><Label class="stip8Space"/><Label class="stipAdminSpace"/>
+								<Select id="package" change="onChangePackage">
+									<core:Item key="pck1" text="{i18n>AzioniSuiPackage_Selezionati}"/>
+									<!--	<core:Item key="sel" text="{i18n>Seleziona_Tutti_Package}"/>
+										<core:Item key="desel" text="{i18n>Deseleziona_Tutti_Package}"/>-->
+									<core:Item key="selInactive" text="{i18n>Seleziona_Tutti_gli_stati_inattivi}"/>
+									<core:Item key="rendiVisible" text="{i18n>Rendi_Visibili_adHR}" enabled="false"/>
+									<core:Item key="rendiNascosto" text="{i18n>Rendi_Nascosto_adHR}" enabled="false"/>
+									<core:Item key="eliminaStati" text="{i18n>Elimina_stati_inattivi_selezionati}" enabled="false"/>
+									<!--<core:Item key="stampaLettre" text="{i18n>Stampa_lettere}" enabled="false"/>-->
+									<core:Item key="invia" text="{i18n>Invia_in_approvazione_Al_Manager}" enabled="false"/>
+									<!--<core:Item key="sblocca" text="{i18n>Sblocca_per_Reinvio}" enabled="false"/>-->
+									<core:Item key="scegli" text="{i18n>Scegli_Flusso}" enabled="false"/>
+									<core:Item key="assegnaResp" text="{i18n>Assegna_Resp_Diretto}" enabled="false"/>
+									<!--<core:Item key="assegna" text="{i18n>Assegna_resp_HR}" enabled="false"/>-->
+									<core:Item key="letter_consun_change" text="{i18n>Modifica_template_lettera_consunt}" enabled="false"/>
+									<core:Item key="letter_asseg_change" text="{i18n>Assegna_lettere_di_assegnazione}" enabled="false"/>
+									<core:Item key="eliminaScheda" text="{i18n>Elimina_schede_assegnate}" enabled="false"/>
+									<core:Item key="annullaSel" text="{i18n>Annulla_pratiche_selezionati}" enabled="false"/>
+									<core:Item key="chiusuraCartacea" text="{i18n>inviaCartacea}" enabled="false"/>
+									<core:Item key="AnnullaReinvio" text="{i18n>AnnullaPerReinvio}" enabled="false"/>
+									<core:Item key="InvioPost" text="{i18n>InvioPostAnnullamento}" enabled="false"/>
+								</Select>
+							</HBox>
+						</VBox >
+						<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+							<!--	<Table id="schedaPersonaleTable" class="stipAdmin" items="{path : 'SchedaPersonaleModel>/1/Main/',sorter: {path: 'SID2',ascending: true}}"
+								sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100%">		-->
+							<Table id="schedaPersonaleTable" class="stipAdmin" items="{path : 'SchedaPersonaleModel>/1/Main/'}"
+								sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100%">
+								<headerToolbar>
+									<OverflowToolbar height="50px">
+										<Text id="matCount"/>
+										<ToolbarSpacer/>
+										<SearchField id="idSearchBox" width="15rem" search="onTableSearch"/>
+										<Button icon="sap-icon://action-settings" press="onColumnHide"/>
+										<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+										<!--<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+										<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>-->
+										<Button icon="sap-icon://download" press="onDataExport"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="6rem" id="col0">
+										<CheckBox id="chmain" text="{i18n>SelDesel}" select="allCheck" wrapping="true"/>
+									</Column>
+									<Column width="6.5rem" id="col1">
+										<Label design="Bold" text="{i18n>sID}" wrapping="true"/>
+									</Column>
+									<Column width="6rem" id="col2">
+										<Label design="Bold" text="{i18n>Matricola}" wrapping="true"/>
+									</Column>
+									<Column width="8rem" id="col3">
+										<Label design="Bold" text="{i18n>Dipendente}" wrapping="true"/>
+									</Column>
+									<Column width="7rem" id="col4">
+										<Label design="Bold" text="{i18n>StatoDipendente}" wrapping="true"/>
+									</Column>
+									<Column width="6rem" id="col5">
+										<CheckBox id="chmain1" select="allCheck1" text="{i18n>SelDesel}" wrapping="true"/>
+									</Column>
+									<Column width="4rem" id="col6">
+										<Label design="Bold" text="{i18n>S}" wrapping="true"/>
+									</Column>
+									<Column width="8rem" id="col7">
+										<Label design="Bold" text="{i18n>Flow}" wrapping="true"/>
+									</Column>
+									<Column width="6rem" id="col8">
+										<Label design="Bold" text="{i18n>Protocollo}" wrapping="true"/>
+									</Column>
+									<Column width="3rem" id="col9">
+										<Label design="Bold" text="{i18n>Id}"/>
+									</Column>
+									<Column width="8rem" id="col10">
+										<Label design="Bold" text="{i18n>Scheda}" wrapping="true"/>
+									</Column>
+									<Column width="4rem" id="col11">
+										<Label text="{i18n>Tab}" wrapping="true" design="Bold"/>
+									</Column>
+									<Column width="6rem" id="col12">
+										<Label design="Bold" text="{i18n>Mese_Inizio}" wrapping="true"/>
+									</Column>
+									<Column width="6rem" id="col13">
+										<Label design="Bold" text="{i18n>Mese_Fine}" wrapping="true"/>
+									</Column>
+									<Column width="7rem" id="col14">
+										<Label design="Bold" text="{i18n>RespDiretto}" wrapping="true"/>
+									</Column>
+									<Column width="9rem" id="col15">
+										<Label design="Bold" text="{i18n>LetteraAssignazioneAutomatica}" wrapping="true"/>
+									</Column>
+									<Column width="9rem" id="col16">
+										<Label design="Bold" text="{i18n>LetteraAssignazioneManuale}" wrapping="true"/>
+									</Column>
+									<Column width="8rem" id="col17">
+										<Label design="Bold" text="{i18n>TemplateModificato}" wrapping="true"/>
+									</Column>
+									<Column width="8rem" id="col18">
+										<Label design="Bold" text="{i18n>Status}" wrapping="true"/>
+									</Column>
+									<Column width="8rem" id="col19">
+										<Label design="Bold" text="{i18n>datadellostato}" wrapping="true"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<customData>
+											<core:CustomData id="custm1" key="mydata" value="{SchedaPersonaleModel>COLORSET}" writeToDom="true"></core:CustomData>
+										</customData>
+										<cells>
+											<CheckBox id="ch" visible="{SchedaPersonaleModel>DISPLAY_CHECKBOX}" selected="{SchedaPersonaleModel>Check_CHECKBOX}"
+												select=".selectSingle($event,${path: 'SchedaPersonaleModel>MATRICOLA'})" enabled="{SchedaPersonaleModel>Enable_CHECKBOX}"/>
+											<Text text="{SchedaPersonaleModel>SID}"/>
+											<Text text="{SchedaPersonaleModel>MATRICOLA}"/>
+											<Text
+												text="{parts: [{path: 'SchedaPersonaleModel>COGNOME'}, {path: 'SchedaPersonaleModel>NOME'},{path: 'SchedaPersonaleModel>date'}], formatter:'stipAdmin.stipAdmin.util.Formatter.formatTableCell1'}"
+												class="lineThrough"></Text>
+											<!--<Text text="{SchedaPersonaleModel>COGNOME} {SchedaPersonaleModel>NOME}" wrapping="true"/>-->
+											<Text text="{SchedaPersonaleModel>STATODIPENDENTE}" wrapping="true"/>
+											<!--<CheckBox id="ch2" selected="{SchedaPersonaleModel>Check_Pck_CHECKBOX}"
+												select=".packageSel($event,${path: 'SchedaPersonaleModel>STATODIPENDENTE'},${path: 'SchedaPersonaleModel>ID_SCHEDAPERSONALE'},${path: 'SchedaPersonaleModel>MATRICOLA'},${path: 'SchedaPersonaleModel>ID_STATOINVIO'})"
+												enabled="true"/>-->
+											<CheckBox id="ch2" selected="{SchedaPersonaleModel>Check_Pck_CHECKBOX}"
+												select=".packageSel($event,${path: 'SchedaPersonaleModel>ID_PACKAGEDS'})" enabled="true"/>
+											<Button icon="sap-icon://inspection"
+												press=".openPdfDetails(${path: 'SchedaPersonaleModel>ID_LETTERE_AUTOMATICA'},${path: 'SchedaPersonaleModel>ID_LETTERE_MANUALE'},${path: 'SchedaPersonaleModel>ID_SCHEDAMASTER'},${path: 'SchedaPersonaleModel>ID_SCHEDAPERSONALE'},${path: 'SchedaPersonaleModel>ID_PROTOCOLLO2'})"
+												visible="{SchedaPersonaleModel>PDF1_Visible}"/>
+											<Text text="{SchedaPersonaleModel>FLOW}" wrapping="true"/>
+											<Text text="{SchedaPersonaleModel>ID_PROTOCOLLO}" wrapping="true"/>
+											<!--<Text text="{parts: [{path: 'SchedaPersonaleModel>ID_PROTOCOLLO'},{path: 'SchedaPersonaleModel>SN_VISIBILEHR'}], formatter:'stipAdmin.stipAdmin.util.Formatter.formatTableCell'}" class="grayFont"></Text>                    -->
+											<Text text="{SchedaPersonaleModel>ID_SCHEDAMASTER}"/>
+											<Link text="{SchedaPersonaleModel>DESCR_SCHEDA}" wrapping="true"
+												press=".singleScheda($event,${path: 'SchedaPersonaleModel>MATRICOLA'},${path: 'SchedaPersonaleModel>DESCR_SCHEDA'},${path: 'SchedaPersonaleModel>MAXPERCPAYOUT'},${path: 'SchedaPersonaleModel>ID_PACKAGEDS'})"/>
+											<Button icon="sap-icon://inspection"
+												press=".openPdfDetails1(${path: 'SchedaPersonaleModel>ID_SCHEDAMASTER'},${path: 'SchedaPersonaleModel>ID_SCHEDAPERSONALE'})"
+												visible="{SchedaPersonaleModel>PDF2_Visible}"/>
+											<!--<Button icon="sap-icon://inspection"
+												press=".getPDF($event,${path: 'SchedaPersonaleModel>ID_SCHEDAPERSONALE'},${path: 'SchedaPersonaleModel>ID_PROTOCOLLO2'})" visible="{SchedaPersonaleModel>PDF2_Visible}"/>
+											-->
+											<Text text="{SchedaPersonaleModel>INIZIO_ASSEGNAZIONE}" wrapping="true"/>
+											<Text text="{SchedaPersonaleModel>FINE_ASSEGNAZIONE}" wrapping="true"/>
+											<Text text="{SchedaPersonaleModel>PERS_MGR_COGNOME} {SchedaPersonaleModel>PERS_MGR_NOME}" wrapping="true"/>
+											<Link text="{SchedaPersonaleModel>LETTERE_DESCRIZIONE_AUTOMATICA}" wrapping="true"
+												press="._GetTemplateLetter(${path: 'SchedaPersonaleModel>ID_LETTERE_AUTOMATICA'},${path: 'SchedaPersonaleModel>ID_SCHEDAPERSONALE'})"/>
+											<Link text="{SchedaPersonaleModel>LETTERE_DESCRIZIONE_MANUALE}" wrapping="true"
+												press="._GetTemplateLetter(${path: 'SchedaPersonaleModel>ID_LETTERE_MANUALE'},${path: 'SchedaPersonaleModel>ID_SCHEDAPERSONALE'})"/>
+											<Text text="{SchedaPersonaleModel>SN_MODIFICATA}" wrapping="true"/>
+											<Link text="{SchedaPersonaleModel>DESCR_STATOINVIO}" press=".onShowStatus(${path: 'SchedaPersonaleModel>ID_PACKAGEDS'})" wrapping="true"/>
+											<Text text="{SchedaPersonaleModel>DATETIME_CR}" wrapping="true"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+						<Bar design="SubHeader">
+							<contentMiddle>
+								<Button press="_prev" icon="sap-icon://close-command-field" visible="false" id="prev"/>
+								<Button press="_next" icon="sap-icon://open-command-field" visible="false" id="next"/>
+							</contentMiddle>
+						</Bar>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

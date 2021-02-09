@@ -1,0 +1,107 @@
+{
+	"data": [{
+		"ShowTrimese": "false",
+		"MATRICOLA": "90071C10835142",
+		"Cognome Nome": "Macca' Gian Luca",
+		"Descr_CdC": "IT01005186",
+		"N": "9",
+		"image": "sap-icon://pdf-attachment",
+		"TipoFlow": "AS",
+		"ID_Protocollo": "89684",
+		"BodyLetteraInviata": "sap-icon://email",
+		"Id_SchedaMaster": "8631",
+		"Calculated_item": "4000000",
+		"Descr_Scheda": "CUSTOMER CARE MGR MOBILE-PRIMO TRIM ESTRE",
+		"inspection": "sap-icon://inspection",
+		"InizioAssegnazione": "April 2019",
+		"FineAssegnazione": "Giugno 2019",
+		"Cognome Nome1": "Franchino Antonio",
+		"Cognome Nome2": "Rumi Matteo"
+
+	}, {
+		"ShowTrimese": "true",
+		"MATRICOLA": "90071C10835142",
+		"Cognome Nome": "Macca' Gian Luca",
+		"Descr_CdC": "IT01005186",
+		"N": "9",
+		"image": "",
+		"TipoFlow": "",
+		"ID_Protocollo": "89684",
+		"BodyLetteraInviata": "sap-icon://email",
+		"Id_SchedaMaster": "",
+		"Calculated_item": "",
+		"Descr_Scheda": "1^ Trimestre FY 19-20_Impiegati/Quadri",
+		"": "",
+		"InizioAssegnazione": "",
+		"FineAssegnazione": "",
+		"Cognome Nome1": "Franchino Antonio",
+		"Cognome Nome2": "Rumi Matteo"
+
+	}, {
+		"ShowTrimese": "true",
+		"MATRICOLA": "90071C10835142",
+		"Cognome Nome": "Macca' Gian Luca",
+		"Descr_CdC": "IT01005186",
+		"N": "9",
+		"image": "sap-icon://pdf-attachment",
+		"TipoFlow": "AS",
+		"ID_Protocollo": "90754",
+		"BodyLetteraInviata": "sap-icon://email",
+		"Id_SchedaMaster": "8709",
+		"Calculated_item": "0400000",
+		"Descr_Scheda": "CUSTOMER CARE MGR MOBILE-SECONDO TRIM ESTRE",
+		"inspection": "sap-icon://inspection",
+		"InizioAssegnazione": "Luglio 2019",
+		"FineAssegnazione": "Settembre 2019",
+		"Cognome Nome1": "Franchino Antonio",
+		"Cognome Nome2": "Rumi Matteo"
+	}, {
+		"ShowTrimese": "true",
+		"MATRICOLA": "90071C10835142",
+		"Cognome Nome": "Macca' Gian Luca",
+		"Descr_CdC": "IT01005186",
+		"N": "9",
+		"image": "sap-icon://pdf-attachment",
+		"TipoFlow": "AS",
+		"ID_Protocollo": "90240",
+		"BodyLetteraInviata": "sap-icon://email",
+		"Id_SchedaMaster": "8762",
+		"Calculated_item": "0040000",
+		"Descr_Scheda": "CUSTOMER CARE MGR MOBILE-TERZO TRIM ESTRE",
+		"inspection": "sap-icon://inspection",
+		"InizioAssegnazione": "Ottobre 2019",
+		"FineAssegnazione": "Dicembre 2019",
+		"Cognome Nome1": "Franchino Antonio",
+		"Cognome Nome2": "Rumi Matteo"
+
+	}],
+
+	"data1": {
+		"Organization": [{
+			"text": "Amministratore Delegato",
+			"ref": "sap-icon://folder-full",
+			"nodes": [{
+				"text": "10011001 – Vodafone Italy Chief Executive",
+				"ref": "sap-icon://folder-full",
+				"nodes": [{
+					"text": "10002959-Africa, Middle East & Asia Pac",
+					"ref": "sap-icon://folder-full"
+				}, {
+					"text": "10011002-Human Resources & Organization",
+					"ref": "sap-icon://folder-full"
+
+				}, {
+					"text": "10011063-Finance",
+					"ref": "sap-icon://folder-full"
+
+				}]
+			}, {
+				"text": "10011002 – Human Resources & organization",
+				"ref": "sap-icon://folder-full"
+			}, {
+				"text": "10011003 – Industrial Relations & Payroll",
+				"ref": "sap-icon://folder-full"
+			}]
+		}]
+	}
+}

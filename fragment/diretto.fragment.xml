@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog title="" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentHeight="500px" contentWidth="500px">
+		<HBox fitContainer="true" alignItems="Stretch">
+			<VBox>
+				<Table>
+					<columns>
+						<Column>
+							<Label text="Matricola"/>
+						</Column>
+						<Column>
+							<Label text="Cognome"/>
+						</Column>
+						<Column>
+							<Label text="Nome"/>
+						</Column>
+						<Column>
+							<Label text="Grade"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Input id="mat_mgr"/>
+						<Input id="cognome_mgr"/>
+						<Input id="nome_mgr"/>
+						
+						<ComboBox id="band_mgr" items = "{SchedaPersonaleModel>/0/Filter/1/BB}">
+							<core:Item key = "{SchedaPersonaleModel>}" text ="{SchedaPersonaleModel>}"/>
+						</ComboBox> 
+					</ColumnListItem>
+				</Table>
+				<Toolbar>
+						<Label class="stip8Space"/>
+						<Button text="Ricerca" press="FilterRoleSearch"/>
+						<!--<Button text="Ricerca" press="onSearch"/>-->
+						<Button text="Resetta" press="FilterRoleClear"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				<Table id="displayData" items="{SchedaPersonaleModel>/2/Fragment/2/Manager}">
+					<columns>
+						<Column>
+							<Label text="D."/>
+						</Column>
+						<Column wrapping = "true">
+							<Label text="Data Dimissioni"/>
+						</Column>
+						<Column>
+							<Label text="Matricola"/>
+						</Column>
+						<Column>
+							<Label text="Cognome"/>
+						</Column>
+						<Column>
+							<Label text="Nome"/>
+						</Column>
+						<Column>
+							<Label text="Grade"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Text text="{SchedaPersonaleModel>STATUS_DIPENDENTE}"/>
+						<Text text="{SchedaPersonaleModel>DATA_CESSAZIONE_MGR}"/>
+						<Link text ="{SchedaPersonaleModel>MATRICOLA_MGR}" press=".selectMGR($event,${path: 'SchedaPersonaleModel>MATRICOLA_MGR'})"/>
+						<Text text ="{SchedaPersonaleModel>COGNOME_MGR}"/>
+						<Text text ="{SchedaPersonaleModel>NOME_MGR}"/>
+						<Text text="{SchedaPersonaleModel>BAND_MGR}"/>
+					</ColumnListItem>
+				</Table>
+			</VBox>
+		</HBox>
+		<endButton>
+			<Button text="Annulla" type = "Emphasized" press="schedaFilterFragmentClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

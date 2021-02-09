@@ -1,0 +1,59 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:ui="sap.ui.table" controllerName="stipAdmin.stipAdmin.controller.ReportIncrociSchede" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true" height="100%">
+	<App>
+		<pages>
+			<Page id="pgAnalisiCurve" title="{i18n>ReportIncrociSchede}" backgroundDesign="Solid" class="sapUiStdPage" enableScrolling="true">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Text text="{i18n>ReportIncrociSchede}"/>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>Tornaallalista}" type="Emphasized" press="onTornaallalista"></Button>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox id="vbx13" height="18%" class="stipAdminVBox">
+						<l:Grid class="sapUiSmallMarginTop" hSpacing="1" defaultSpan="XL3 L3 M10 S12">
+							<l:content>
+								<HBox>
+									<VBox>
+										<Text width="7rem" text="{i18n>GruppoScheda1}"/>
+										<Input id="sel27" class="sapUiSmallMarginBottom" width="15rem" valueHelpRequest=".onValueHelpRequest2" valueHelpOnly="true"
+											showValueHelp="true" placeholder="{i18n>GruppoScheda1}" value="{modelGruppiScheda>/DESCR_GRUPPOSCHEDA}" type="Text"/>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Show}" type="Emphasized" press="onShow"></Button>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta13"></Button>
+									</VBox>
+								</HBox>
+								<!--</VBox>-->
+							</l:content>
+						</l:Grid>
+						<!--</f:SimpleForm>-->
+					</VBox>
+						<ui:Table id="idIncrociScheda"  visibleRowCount="14" selectionMode="None" columnMove="true">
+							<ui:columns></ui:columns>
+						</ui:Table>
+				</content>
+				<footer>
+					<Bar design="Auto">
+						<contentLeft></contentLeft>
+						<contentMiddle/>
+						<contentRight>
+							<Button id="idBtnNext" icon="sap-icon://download" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onPressExport"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

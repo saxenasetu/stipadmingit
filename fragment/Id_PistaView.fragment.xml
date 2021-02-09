@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+
+	<SelectDialog visible="false" titleAlignment="Center" id="idPistaview" title="{i18n>Id}" class="sapUiPopupWithPadding" items="{Idpistaview>/}"
+	liveChange="handleIdValueSearch" search="handleIdValueSearch" confirm="handleIdValueconfirm" cancel="handleIdValueHelpClose">
+		<StandardListItem title="{Idpistaview>ID_PISTAVIEW}"/>
+	</SelectDialog>
+	
+	<SelectDialog visible="false" titleAlignment="Center" id="idGruppoAppartenenza" title="Gruppo appartenenza" class="sapUiPopupWithPadding" items="{path : 'GruppoAppartenenza>/',sorter: {path: 'DESCR_GRUPPOPISTA', descending: false}}"  
+	liveChange="handleGruppoAppartenenzaValueSearch" search="handleGruppoAppartenenzaValueSearch" confirm="handleGruppoAppartenenzaValueconfirm" cancel="handleIdValueHelpClose">
+		<StandardListItem title="{GruppoAppartenenza>DESCR_GRUPPOPISTA}"/>
+	</SelectDialog>
+    
+    <SelectDialog visible="false" titleAlignment="Center" id="idPisteCurvedialog" title="Curva" class="sapUiPopupWithPadding" items="{path : 'CurvaModel>/',sorter: {path: 'DESCR_CURVA', descending: false}}"
+	liveChange="handlePisteCurveValueSearch" search="handlePisteCurveValueSearch" confirm="handlePisteCurveValueconfirm" cancel="handleIdValueHelpClose">
+		<StandardListItem title="{CurvaModel>DESCR_CURVA}" />
+	</SelectDialog>
+	 <!-- <SelectDialog visible="false" titleAlignment="Center" id="SelIdentificativoAssegnatario" title="Curva" class="sapUiPopupWithPadding" items="{IdentificativoAssegnatario>/}"
+	liveChange="handleIdentificativoAssegnatarioSearch" search="handleIdentificativoAssegnatarioSearch" confirm="handleIdentificativoAssegnatarioConfirm" cancel="handleIdValueHelpClose">
+		<StandardListItem title="{parts :[{path: 'IdentificativoAssegnatario>MATRICOLA'},{path: 'IdentificativoAssegnatario>NOME'},{path: 'IdentificativoAssegnatario>COGNOME'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getIdentificativo_Assegnatario'}"/>
+	</SelectDialog>-->
+</core:FragmentDefinition>

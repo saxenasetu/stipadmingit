@@ -1,0 +1,132 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.KPInonAssociatiSchedeMaster" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App>
+		<pages>
+			<Page id="detail" title="KPI non associati a Schede Master" backgroundDesign="Solid" class="sapUiStdPage">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Text text="KPI non associati a Schede Master"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text id="idtxtfiscalyearReport" class="fiscalYearAlign"/>
+						</contentMiddle>
+					
+						<contentRight>
+							<Button text="{i18n>Tornaallalista}" type="Emphasized" press="onTornaallalista"></Button>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox id="vbx13" class="stipAdminVBox">
+						<l:Grid class="sapUiSmallMarginTop" hSpacing="1" defaultSpan="XL3 L3 M10 S12">
+							<l:content>
+								<HBox>
+								
+									<VBox>
+										<Text width="7rem" text="DAL MESE"/>
+										<ComboBox id="sel21a" change="onFlagChange" width="15rem" items="{ path: '/Months' }">
+											<core:Item key="{Month}" text="{Month}"/>
+										</ComboBox>
+									</VBox>
+									<VBox>
+										<Text width="7rem" text="AL MESE"/>
+										<ComboBox id="sel21b" change="onFlagChange" width="15rem" items="{ path: '/Months' }">
+											<core:Item key="{Month}" text="{Month}"/>
+										</ComboBox>
+									</VBox>
+								
+									<VBox>
+										<Text width="7rem" text="Gruppo KPI"/>
+										<Input id="sel22" class="sapUiSmallMarginBottom" width="15rem" valueHelpRequest=".onValueHelpRequest1" valueHelpOnly="true"
+											showValueHelp="true" placeholder="Seleziona Gruppo KPI" value="{modelGruppoSelected>/DESCR_GRUPPOPISTA}" type="Text"/>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="Mostra" type="Emphasized" press="onShow12"></Button>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta12"></Button>
+									</VBox>
+								</HBox>
+							
+							</l:content>
+						</l:Grid>
+					
+					</VBox>
+					<Table id="tableHeader13" showNoData="false">
+						<columns>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+								<Text text="Identificativo" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+								<Text text="Descrizione" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Right" demandPopin="true">
+								<Text text="Gruppo" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Personalizzabile" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Obiettivo" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Consuntivo" class="fontBoldClass"/>
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="Scroll12" height="68%" width="100%" vertical="true">
+						<Table id="idTableReport12" items="{oModelReport1>/}" inset="false" growing="true" growingThreshold="1000" growingScrollToLoad="true"
+							mode="None">
+							<columns>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="Identificativo" visible="false" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="Descrizione" visible="false" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Right" demandPopin="true">
+									<Text text="Gruppo" class="fontBoldClass" visible="false"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Personalizzabile" class="fontBoldClass" visible="false"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Obiettivo" class="fontBoldClass" visible="false"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Consuntivo" class="fontBoldClass" visible="false"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{oModelReport1>ID_PISTE}"/>
+										<Text text="{oModelReport1>DESCR_PISTA}"/>
+										<Text text="{oModelReport1>DESCR_GRUPPOPISTA}"/>
+										<Text text="{oModelReport1>SN_PERSONALIZZABILE}"/>
+										<Text text="{oModelReport1>OBIETTIVO}"/>
+										<Text text="{oModelReport1>CONSUNTIVO}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</content>
+				<footer>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<Button id="idBtnNext" icon="sap-icon://download" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onPressExport"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,127 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog title="{i18n>RicercaUtenti}" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentHeight="600px">
+		<Toolbar style="Standard" design="Solid" height="138px">
+			<VBox>
+				<HBox>
+					<VBox>
+						<Label text="{i18n>Nome}" labelFor="input-b" design="Bold"/>
+						<Input id="txtNome" width="8rem"></Input>
+					</VBox>
+					<Label class="stipAdminSpace"/>
+					<VBox>
+						<Label text="{i18n>sID}" labelFor="input-b" design="Bold"/>
+						<Input id="idtxt" width="8rem"></Input>
+					</VBox>
+					<!--<Label class="stipAdminSpace"/>
+					<VBox >
+						<HBox class="stipAdminHBoxPerson1" alignItems="Center">
+							<Label class="stipAdminChkLblPerson1" text="{i18n>Cdc}(" labelFor="input-b" design="Bold"/>
+							<CheckBox class="stipAdminChkLblPerson1" text="Con Derivati)" selected="false"/>
+						</HBox>
+						<Input width="12rem" id="empDipartimento"></Input>
+					</VBox>
+					<Label class="stipAdminSpacePerson1"/>
+					<VBox>
+						<Label text=""/>
+						<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" press="onPressView"/>
+					</VBox>-->
+					<Label class="stipAdminSpace"/>
+					<VBox>
+						<Label text="{i18n>matricola}" labelFor="input-b" design="Bold"/>
+						<Input id="matricola" width="5rem"></Input>
+					</VBox>
+					<Label class="stipAdminSpace"/>
+					<VBox>
+						<Label text="{i18n>banda}" labelFor="input-b" design="Bold"/>
+						<Input id="band" width="5rem"></Input>
+					</VBox>
+					<Label class="stipAdminSpace"/>
+					<VBox>
+						<Label text="{i18n>direzione}" labelFor="input-b" design="Bold"/>
+						<Select width="8rem" id="dir" forceSelection="false" items="{direzioneModel>/}">
+							<core:Item key="{direzioneModel>DIREZIONE}" text="{direzioneModel>DESCRIZIONE}"/>
+						</Select>
+						<!--<Input id = "dir" width="5rem"></Input>-->
+					</VBox>
+					<Label class="stipAdminSpace"/>
+					<VBox>
+						<Label text="{i18n>Dipartimento1}" design="Bold"/>
+						<HBox>
+							<Input id="idTree" editable="false" width="8rem"/>
+							<Label class="stipAdminSpace"/>
+							<!--<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" visible="true" press="onPressView"/>-->
+							<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" visible="true" press="handleTreeValueHelp"/>
+						</HBox>
+					</VBox>
+				</HBox>
+				<HBox class="stipAdminHBoxPerson">
+					<Button text="{i18n>Cerca}" type="Emphasized" press="onAvvio"/>
+					<Label class="stipAdminSpace"/>
+					<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta"/>
+					<Label class="stipAdminSpace"/>
+					<Button text="{i18n>Inseriscileselezionate}" type="Emphasized" press="onInseriscileselezionate"/>
+				</HBox>
+			</VBox>
+		</Toolbar>
+		<content>
+			<Table mode="MultiSelect" id="tblPersonList1" class="stipAdmin" items="{GestioneDetailModel>/2/Data2}" growing="true" growingTriggerText = "{i18n>VediAltro}">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="titlePersonList"/>
+						<ToolbarSpacer/>
+						<ToolbarSpacer/>
+						<!--<SearchField id="idSearchBox" width="15rem" search="onTableSearch"/>-->
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column minScreenWidth="Tablet" width="auto" demandPopin="true">
+						<Label design="Bold" text="{i18n>sID}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" width="auto" demandPopin="true">
+						<Label design="Bold" text="{i18n>matricola}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" width="auto" demandPopin="true">
+						<Label design="Bold" text="{i18n>Nome}"/>
+					</Column>
+					<!--<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="{i18n>Cdc}"/>
+							</Column>-->
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Label design="Bold" text="{i18n>banda}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Label design="Bold" text="{i18n>direzione}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Label design="Bold" text="{i18n>Dipartimento}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{GestioneDetailModel>SUPERID}"/>
+							<Text text="{GestioneDetailModel>MATRICOLA}"/>
+							<!--<Text text="{GestioneDetailModel>NOME}"/>-->
+							<Text
+								text="{parts: [{path: 'GestioneDetailModel>NOME'},{path: 'GestioneDetailModel>date'}], formatter:'stipAdmin.stipAdmin.util.Formatter.formatTableCell'}"
+								class="lineThrough"></Text>
+							<!--<Text text="{PersonList2>cdc}"/>-->
+							<Text text="{GestioneDetailModel>BAND}"/>
+							<Text text="{GestioneDetailModel>DIREZIONE}"/>
+							<Text text="{GestioneDetailModel>DIP_DESCR}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+				<columns/>
+				<items/>
+			</Table>
+		</content>
+		<!--<beginButton>
+				
+		</beginButton>-->
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

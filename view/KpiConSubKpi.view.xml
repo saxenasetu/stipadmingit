@@ -1,0 +1,202 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:ui="sap.ui.table" controllerName="stipAdmin.stipAdmin.controller.KpiConSubKpi" xmlns:html="http://www.w3.org/1999/xhtml"
+	displayBlock="true">
+	<App>
+		<pages>
+			<Page id="idKpiConSubKpi" title="{i18n>KpiConSubKpi}" backgroundDesign="Solid" class="sapUiStdPage" enableScrolling="true">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Text text="{i18n>KpiConSubKpi}"/>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>Tornaallalista}" type="Emphasized" press="onTornaallalista"></Button>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox id="vbx14" height="18%" class="stipAdminVBox">
+						<l:Grid class="sapUiSmallMarginTop" hSpacing="1" defaultSpan="XL3 L3 M10 S12">
+							<l:content>
+								<HBox>
+									<VBox>
+										<Text width="7rem" text="Mese Inizio"/>
+										<Select id="idMeseInizio" width="15rem" items="{modelKpiSubKpi>/mesi/}" change="onMeseChange">
+											<items>
+												<core:Item text="{modelKpiSubKpi>descr} {modelKpiSubKpi>anno}"/>
+											</items>
+										</Select>
+									</VBox>
+									<VBox>
+										<Text width="7rem" text="Mese Fine"/>
+										<Select id="idMeseFine" width="15rem" items="{modelKpiSubKpi>/mesi/}" change="onMeseChange">
+											<items>
+												<core:Item text="{modelKpiSubKpi>descr} {modelKpiSubKpi>anno}"/>
+											</items>
+										</Select>
+									</VBox>
+									<VBox>
+										<Text width="7rem" text="Gruppo KPI"/>
+										<Input id="sel27" class="sapUiSmallMarginBottom" width="15rem" valueHelpRequest=".onValueHelpRequest1" valueHelpOnly="true"
+											showValueHelp="true" placeholder="Enter Gruppo KPI ..." value="{modelGruppoSelected>/DESCR_GRUPPOPISTA}" type="Text"/>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="Show" type="Emphasized" press="onShow"></Button>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta"></Button>
+									</VBox>
+								</HBox>
+								<!--</VBox>-->
+							</l:content>
+						</l:Grid>
+						<!--</f:SimpleForm>-->
+					</VBox>
+					<ui:Table rows="{modelKpiSubKpi>/itemsTable/}" visibleRowCount="14" selectionMode="None" columnMove="true">
+						<ui:columns>
+							<ui:Column width="7em" hAlign="Left">
+								<Label text="Id Pista" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>id_pista}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="30em" hAlign="Left">
+								<Label text="Descrizione" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>descrizione}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="15em" hAlign="Left">
+								<Label text="Gruppo Pista" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>descr_gruppopista}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="15em" hAlign="Left">
+								<Label text="Eventuale Assegnatario" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>eventuale_assegnatario}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Inizio Scheda Personale" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>inizio_schedapersonale}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Fine Scheda Personale" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>fine_schedapersonale}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Curva Descrittiva" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>curvaDescrittiva}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Risultato Gate Pista" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>risultato_gatepista}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="30em" hAlign="Center">
+								<Label text="SottoPista" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>sottopista}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Peso Percentuale Liv.0" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>peso_perc_zero}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Peso Percentuale Liv.1" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>peso_perc_uno}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Pista Reale" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>pista_reale}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Livello" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>livello}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Ordinamento" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>ordinamento}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Curva" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>curva}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="30em" hAlign="Center">
+								<Label text="Gate" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>gate}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Risultato Gate" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>risultato_gate}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Obiettivo" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>obiettivo}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Consuntivo" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>consuntivo}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Perc.Ragg.Obiettivo" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>perc_ragg_obiettivo}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+							<ui:Column width="10em" hAlign="Center">
+								<Label text="Perc.Ragg.Stip" class="fontBoldClass"/>
+								<ui:template>
+									<Text text="{modelKpiSubKpi>perc_ragg_stip}" wrapping="false"/>
+								</ui:template>
+							</ui:Column>
+						</ui:columns>
+					</ui:Table>
+				</content>
+				<footer>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<Button id="idKpisubkpi" icon="sap-icon://download" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onShow"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

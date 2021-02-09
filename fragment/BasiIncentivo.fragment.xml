@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>BasiIncentivo}" contentWidth="900px" contentHeight="600px" showHeader="true"  resizable="true" draggable="true" verticalScrolling="true">
+		<content>
+			<f:SimpleForm id="idBasiIncForm" minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0"
+				emptySpanM="0" columnsL="1" columnsM="1">
+				<f:content>
+					<ScrollContainer width="100%" vertical="true" horizontal="true" focusable="true">
+						<Table id="idBasilIncTable" mode="SingleSelectMaster" items="{ path: 'BasilIncTableModel>/', sorter: { path: 'IDSCHEDAPERSONALE' } }"
+							noDataText="{i18n>nodata}" inset="false" growing="true" growingThreshold="50" growingTriggerText = "{i18n>VediAltro}">
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<Title text="{i18n>BasiIncentivo}" level="H2"/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column hAlign="Center">
+									<Text/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>GesConID}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<Text text="{i18n>GesConScheda}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>InzioAss}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>FineAss}"/>
+								</Column>
+								<Column hAlign="Begin">
+									<Text text="{i18n>BasilIncBaseStip}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>BasiInc%Scheda}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>ImpLiquidato}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>TettoPay}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Button icon="sap-icon://inspection" press="openPdfDetails"/>
+										<Text text="{BasilIncTableModel>IDSCHEDAPERSONALE}" textAlign="Center"/>
+										<Text text="{BasilIncTableModel>DESCR_SCHEDA}" textAlign="Center"/>
+										<!--<Text text="{BasilIncTableModel>INIZIO_ASSEGNAZIONE}" textAlign="Center"/>-->
+										<Text text="{path: 'BasilIncTableModel>INIZIO_ASSEGNAZIONE', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDatePopup'}" textAlign="Center"/>
+										
+										<!--<Text text="{BasilIncTableModel>FINE_ASSEGNAZIONE}" textAlign="Center"/>-->
+										<Text text="{path: 'BasilIncTableModel>FINE_ASSEGNAZIONE', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDatePopup'}" textAlign="Center"/>
+										
+										<Text text="{BasilIncTableModel>BASESTIP}" textAlign="Center"/>
+										<Text text="{BasilIncTableModel>PERCSCHEDA}" textAlign="Center"/>
+										<Text text="{BasilIncTableModel>IMPORTO_LIQUIDATO}" textAlign="Center"/>
+										<Text text="{BasilIncTableModel>TETTO_PAYOUT}" textAlign="Center"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<endButton>
+			<Button text="{i18n>dialogOKButtonText}" type="Emphasized" press="onOkBasiIncDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,344 @@
+{
+    "resources": [
+        {
+            "name": "controller/SchedaMaster.controller.js"
+        },
+        {
+            "name": "controller/createGruppiSchede.controller.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "controller/modSchedaMaster.controller.js"
+        },
+        {
+            "name": "controller/modPista.controller.js"
+        },
+        {
+            "name": "controller/modPeriodi.controller.js"
+        },
+        {
+            "name": "controller/modGruppi.controller.js"
+        },
+        {
+            "name": "controller/modGate.controller.js"
+        },
+        {
+            "name": "controller/modCurvaLineare.controller.js"
+        },
+        {
+            "name": "controller/lineareConsutivo.controller.js"
+        },
+        {
+            "name": "controller/curvaLineare_funzione.controller.js"
+        },
+        {
+            "name": "controller/curvaLineare.controller.js"
+        },
+        {
+            "name": "controller/curvaDiscreta.controller.js"
+        },
+        {
+            "name": "controller/curvaDis_rapp.controller.js"
+        },
+        {
+            "name": "controller/createSchedeMaster.controller.js"
+        },
+        {
+            "name": "controller/createPiste.controller.js"
+        },
+        {
+            "name": "controller/createPeriodi.controller.js"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "controller/createGruppi.controller.js"
+        },
+        {
+            "name": "controller/createGate.controller.js"
+        },
+        {
+            "name": "controller/createCurve.controller.js"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "controller/Reports.controller.js"
+        },
+        {
+            "name": "controller/ReportDetail.controller.js"
+        },
+        {
+            "name": "controller/Piste.controller.js"
+        },
+        {
+            "name": "controller/Periodi.controller.js"
+        },
+        {
+            "name": "controller/Home.controller.js"
+        },
+        {
+            "name": "controller/Gruppi.controller.js"
+        },
+        {
+            "name": "controller/Gate.controller.js"
+        },
+        {
+            "name": "controller/Formatter.js"
+        },
+        {
+            "name": "controller/DemoPersoService.js"
+        },
+        {
+            "name": "controller/Curve.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/exportExcel.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "controller/curvaLineare-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "model/models-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/modSchedaMaster-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/modPista-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/modPeriodi-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/modGruppi-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/modGate-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/modCurvaLineare-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/lineareConsutivo-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/curvaLineare_funzione-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/curvaDiscreta-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/curvaDis_rapp-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createSchedeMaster-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createPiste-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createPeriodi-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createGruppiSchede-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createGruppi-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createGate-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/createCurve-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/SchedaMaster-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Reports-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/ReportDetail-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Piste-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Periodi-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Home-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Gruppi-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Gate-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Formatter-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/DemoPersoService-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/Curve-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "controller/App-dbg.controller.js",
+            "isDebug": true
+        },
+        {
+            "name": "Component-dbg.js",
+            "isDebug": true
+        },
+        {
+            "name": "../../sap-ui-version.json"
+        },
+        {
+            "name": "neo-app.json"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": "view/modSchedaMaster.view.xml"
+        },
+        {
+            "name": "view/modPista.view.xml"
+        },
+        {
+            "name": "view/modPeriodi.view.xml"
+        },
+        {
+            "name": "view/modGruppi.view.xml"
+        },
+        {
+            "name": "view/modGate.view.xml"
+        },
+        {
+            "name": "view/modCurvaLineare.view.xml"
+        },
+        {
+            "name": "view/lineareConsutivo.view.xml"
+        },
+        {
+            "name": "view/curvaLineare_funzione.view.xml"
+        },
+        {
+            "name": "view/curvaLineare.view.xml"
+        },
+        {
+            "name": "view/curvaDiscreta.view.xml"
+        },
+        {
+            "name": "view/curvaDis_rapp.view.xml"
+        },
+        {
+            "name": "view/createSchedeMaster.view.xml"
+        },
+        {
+            "name": "view/createPiste.view.xml"
+        },
+        {
+            "name": "view/createPeriodi.view.xml"
+        },
+        {
+            "name": "view/createGruppiSchede.view.xml"
+        },
+        {
+            "name": "view/createGruppi.view.xml"
+        },
+        {
+            "name": "view/createGate.view.xml"
+        },
+        {
+            "name": "view/createCurve.view.xml"
+        },
+        {
+            "name": "view/SchedaMaster.view.xml"
+        },
+        {
+            "name": "view/Reports.view.xml"
+        },
+        {
+            "name": "view/ReportDetail.view.xml"
+        },
+        {
+            "name": "view/Piste.view.xml"
+        },
+        {
+            "name": "view/Periodi.view.xml"
+        },
+        {
+            "name": "view/Home.view.xml"
+        },
+        {
+            "name": "view/Gruppi.view.xml"
+        },
+        {
+            "name": "view/Gate.view.xml"
+        },
+        {
+            "name": "view/Curve.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "index.html"
+        }
+    ]
+}

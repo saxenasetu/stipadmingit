@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="FilterDialogGruppi" confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem items="{gruppiResultTableModel>/}" text="ID" key="ID" multiSelect="true">
+				<items>
+					<ViewSettingsItem key="ID" text="{gruppiResultTableModel>ID}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem items="{gruppiResultTableModel>/desc}" text="Descrizione" key="DESC" multiSelect="true">
+				<items>
+					<ViewSettingsItem key="DESC" text="{gruppiResultTableModel>}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Tipo gruppo" key="TIPO_GRUPPO" multiSelect="true" items="{gruppiResultTableModel>/tipo}">
+				<items>
+					<!--<ViewSettingsItem key="TIPO_GRUPPO" text="Gruppo KPI" />
+					<ViewSettingsItem key="TIPO_GRUPPO" text="Gruppo Scheda"/>-->
+					<ViewSettingsItem text="{gruppiResultTableModel>desc}" key="TIPO_GRUPPO"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem items="{gruppiResultTableModel>/template_letters}" text="Template Lettere" key="TEMPLATE_LETTERE" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{gruppiResultTableModel>desc}" key="TEMPLATE_LETTERE"/>
+				</items>
+			</ViewSettingsFilterItem>
+			
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,124 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Popover showHeader="false" contentWidth="1200px" contentHeight="500px" placement="Right" ariaLabelledBy="master-title">
+		<NavContainer id="navCon">
+			<Page id="master" class="sapUiResponsivePadding--header" title="Anagraphica">
+				<HBox fitContainer="true" alignItems="Stretch">
+					<VBox>
+						<Table headerText="Assegnazione Massiva Schede Master">
+							<columns>
+								<Column>
+									<Text text="Scheda Master"/>
+								</Column>
+								<Column>
+									<Button text="Apri"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Input id="schedainfo"/>
+							</ColumnListItem>
+						</Table>
+						<Table>
+							<columns>
+								<Column>
+									<Text text="Tetto Payout"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Input id="payinfo"/>
+							</ColumnListItem>
+						</Table>
+					<!--	<Table id="ruoloTable">
+							<columns>
+								<Column>
+									<Text text="Ruolo"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Input id="ruoloInputId" value="Enterprise Sn Project Manager"/>
+							</ColumnListItem>
+						</Table> -->
+						<Table>
+							<columns>
+								<Column>
+									<Text text="Mese Inizio"/>
+								</Column>
+								<Column>
+									<Text text="Mese Fine"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Select id="MeIn">
+									<core:Item key="aprile19" text="Aprile 2019"/>
+									<core:Item key="maggio19" text="Maggio 2019"/>
+									<core:Item key="giugno19" text="Giugno 2019"/>
+									<core:Item key="luglio19" text="Luglio 2019"/>
+									<core:Item key="agosto19" text="Agosto 2019"/>
+									<core:Item key="giugno19" text="Giugno 2019"/>
+									<core:Item key="settembre19" text="Settembre 2019"/>
+									<core:Item key="ottobre19" text="Ottobre 2019"/>
+									<core:Item key="novembre19" text="Novembre 2019"/>
+									<core:Item key="dicembre19" text="Dicembre 2019"/>
+									<core:Item key="gennaio20" text="Gennaio 2020"/>
+									<core:Item key="febbraio20" text="Febbraio 2020"/>
+									<core:Item key="marzo20" text="Marzo 2020"/>
+								</Select>
+								<Select id="MeFin">
+									<core:Item key="marzo20" text="Marzo 2020"/>
+									<core:Item key="aprile20" text="Aprile 2020"/>
+									<core:Item key="maggio20" text="Maggio 2020"/>
+									<core:Item key="giugno20" text="Giugno 2020"/>
+									<core:Item key="luglio20" text="Luglio 2020"/>
+									<core:Item key="agosto20" text="Agosto 2020"/>
+									<core:Item key="giugno20" text="Giugno 2020"/>
+									<core:Item key="settembre20" text="Settembre 2020"/>
+									<core:Item key="ottobre20" text="Ottobre 2020"/>
+									<core:Item key="novembre20" text="Novembre 2020"/>
+									<core:Item key="dicembre20" text="Dicembre 2020"/>
+									<core:Item key="gennaio21" text="Gennaio 2021"/>
+									<core:Item key="febbraio21" text="Febbraio 2021"/>
+									<core:Item key="marzo21" text="Marzo 2021"/>
+								</Select>
+							</ColumnListItem>
+						</Table>
+					</VBox>
+					<VBox>
+						<Table headerText="Flusso Del Package">
+							<columns>
+								<Column></Column>
+								<Column></Column>
+							</columns>
+							<ColumnListItem>
+								<RadioButtonGroup id="delPckg" selectedIndex="-1">
+									<RadioButton text="Standard"/>
+									<RadioButton text="Cartaceo"/>
+								</RadioButtonGroup>
+							</ColumnListItem>
+						</Table>
+						<Table headerText="Lettera de Assegnazione">
+							<columns>
+								<Column>
+									<Text
+										text="Avete la possibilita nella combo sottostante di selezionare il template manuale eventualmente da associare per le gestione particolari"/>
+								</Column>
+								<Column>
+									<Text text=""/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Text text="Template Manuale"/>
+								<Select id="template">
+									<core:Item key="" text="-"/>
+									<core:Item key="sample1" text="sample1"/>
+									<core:Item key="sample2" text="sample2"/>
+									<core:Item key="sample3" text="sample3"/>
+								</Select>
+							</ColumnListItem>
+						</Table>
+					</VBox>
+				</HBox>
+				<Button text="Ok Proceedi" press="assign_scheda" class="c1"/>
+				<Button text="Annulla" press="cancel"/>
+			</Page>
+		</NavContainer>
+	</Popover>
+</core:FragmentDefinition>

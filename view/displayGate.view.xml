@@ -1,0 +1,125 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.displayGate">
+	<App>
+		<pages>
+			<Page title="Visualizza Moltiplicator">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>Visualizza Moltiplicatore}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<!--<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+						emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">-->
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Desc}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input value="{MoltiplicatoreResultTableModel>/DESCR_GATE}" editable="false"/>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Id}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Curva}"/>
+							</Column>
+							<Column>
+								<Button icon ="sap-icon://detail-view" press = "displayCurve" tooltip = "Display Curva"/>
+							</Column>
+							<!--<Column>
+								<Label text="{i18n>PCO}"/>
+							</Column>-->
+							<Column>
+								<Label text="{i18n>Pers}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input value="{MoltiplicatoreResultTableModel>/ID_GATE}" id="input1" width="40%" editable="false"/>
+							<Input value="{MoltiplicatoreResultTableModel>/DESCR_CURVA}" editable="false"/>
+							<Text text = ""/>
+							<!--<CheckBox xmlns="sap.m" editable="false" selected="true" id="box0"/>-->
+							<Input value="{MoltiplicatoreResultTableModel>/SN_PERSONALIZZABILE}" width="5%" editable="false"/>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Assegnatario}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input value="{MoltiplicatoreResultTableModel>/ASSEGNATARIO}" editable="false"/>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Risultato}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>RisultatoSimulato}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input value ="{MoltiplicatoreResultTableModel>/RISULTATO_GRADINO}" editable = "false"/>
+							<Input value="{MoltiplicatoreResultTableModel>/RISULTATO_GRADINO_SIM}" editable = "false"/>
+							
+						</ColumnListItem>
+					</Table>
+					<!--<Label width="100%" id="label1"/>-->
+					<!--<Label width="10%" id="label3"/>-->
+					<!--<Label width="10%" id="labela"/>-->
+					<!--<Label width="10%" id="labelb"/>
+					
+					
+					<Label width="100%" id="label5"/>-->
+					<!--<Label width="100%" id="label1_1592083204308"/>-->
+					<!--<Label width="10%" id="label3_1592083237938"/>-->
+					<!--	<Label text="Label" width="100%" id="label0_1592083321538"/> -->
+		
+					<Table id="tbl" items="{path: 'MoltiplicatoreResultTableModel>/PISTE_DATA'}">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="ID KPI"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="Descrizione KPI"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="Descrizione Gruppo KPI"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<Input value="{MoltiplicatoreResultTableModel>pisteid}" editable="false"/>
+								<Input value="{MoltiplicatoreResultTableModel>desc}" editable="false"/>
+								<Input value="{MoltiplicatoreResultTableModel>gruppi_desc}" editable="false"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" text="{i18n>CANCEL}" width="200px" press="cancel"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

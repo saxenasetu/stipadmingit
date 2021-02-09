@@ -1,0 +1,148 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentWidth="900px" contentHeight="500px">
+		<content>
+			<HBox fitContainer="true" alignItems="Stretch">
+				<VBox>
+					<Table id="tab1">
+						<columns>
+							<Column>
+							<Label text="Id" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Descrizione" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Gruppo" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Note" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Congelata" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Id KPI" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Descrizione KPI" wrapping="true"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id="idSchedaF"/>
+							<Input id="descSchedaF"/>
+							<Select id="gruppoF" items="{SchedaPersonaleModel>/2/Fragment/0/DESCR_GRUPPOSCHEDA}">
+								<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>key}"/>
+							</Select>
+							<Input id="noteF"/>
+							<Select id="congF" items="{SchedaPersonaleModel>/2/Fragment/0/SN_CONGELATA}">
+								<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>key}"/>
+							</Select>
+							<Input id="idPistaF"/>
+							<Input id="descPistaF"/>
+						</ColumnListItem>
+					</Table>
+					<Toolbar id = "tool1">
+						<Label class="stipAgguingiPisteSpace"/>
+						<Button text="Ricerca" press="FilterSchedaTableSearch"/>
+						<!--<Button text="Ricerca" press="onSearch"/>-->
+						<Button text="Resetta" press="FilterSchedaTableClear"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+					<Table id = "tab2">
+						<columns>
+							<Column>
+								<Label text="{i18n>Ruolo}" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Banda" wrapping="true"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id="role"/>
+							<Input id="grade"/>
+						</ColumnListItem>
+					</Table>
+					<Toolbar id = "tool2">
+						<Label class="stip8Space"/>
+						<Button text="Nessuna Selezione" press=".RoleSelect($event,'')"/>
+						<Button text="Ricerca" press="RoleSearch"/>
+						<!--<Button text="Ricerca" press="onSearch"/>-->
+						<Button text="Resetta" press="RoleClear"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+					<ScrollContainer height="90%" width="100%" vertical="true" focusable="true">
+						<Table id="tblFilter"  class="stipAdmin" items="{SchedaPersonaleModel>/2/Fragment/1/Data}" growing="true" growingTriggerText = "{i18n>VediAltro}">
+							<columns>
+								<Column mergeDuplicates="true">
+									<Label text="Id" wrapping="true"/>
+								</Column>
+								<Column mergeDuplicates="true">
+									<Label text="Descrizione" wrapping="true"/>
+								</Column>
+								<Column mergeDuplicates="true">
+									<Label text="Gruppo" wrapping="true"/>
+								</Column>
+								<Column mergeDuplicates="true">
+									<Label text="Note" wrapping="true"/>
+								</Column>
+								<Column mergeDuplicates="true">
+									<Label text="Congelata" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Peso Percentuale" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Id KPI" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Curva" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="KPI" wrapping="true"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Link text="{SchedaPersonaleModel>ID_SCHEDAMASTER}"
+									press=".selectIdFilter($event,${path: 'SchedaPersonaleModel>DESCR_SCHEDA'},${path: 'SchedaPersonaleModel>MAXPERCPAYOUT'},${path: 'SchedaPersonaleModel>DESCRIZIONE'},${path: 'SchedaPersonaleModel>MOTHER'})"/>
+								<Link text="{SchedaPersonaleModel>DESCR_SCHEDA}" wrapping="true"
+									press=".selectIdFilter($event,${path: 'SchedaPersonaleModel>DESCR_SCHEDA'},${path: 'SchedaPersonaleModel>MAXPERCPAYOUT'},${path: 'SchedaPersonaleModel>DESCRIZIONE'},${path: 'SchedaPersonaleModel>MOTHER'})"/>
+								<Text text="{SchedaPersonaleModel>DESCR_GRUPPOSCHEDA}" wrapping="true"/>
+								<Text text="{SchedaPersonaleModel>NOTE}"/>
+								<Text text="{SchedaPersonaleModel>SN_CONGELATA}"/>
+								<Text text="{SchedaPersonaleModel>PESO}%"/>
+								<Text text="{SchedaPersonaleModel>ID_PISTAVIEW}"/>
+								<!--<Link text="{SchedaPersonaleModel>DESCR_CURVA}" wrapping="true" press="displayCurve(${path: 'SchedaPersonaleModel>ID_CURVA'},${path: 'SchedaPersonaleModel>DESCR_CURVA'},${path: 'SchedaPersonaleModel>ID_TIPO_CURVA'})"/>-->
+								<Text text="{SchedaPersonaleModel>DESCR_CURVA}"/>
+								<Text text="{SchedaPersonaleModel>DESCR_PISTA}"/>
+							</ColumnListItem>
+						</Table>
+						<Table id="tblFilter1" items="{SchedaPersonaleModel>/2/Fragment/5/RoleData}" growing="true" growingTriggerText = "{i18n>VediAltro}">
+							<columns>
+								<Column>
+									<Label text="Id" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Ruolo" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Banda" wrapping="true"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Text text="{SchedaPersonaleModel>JOBCODE_ID}"/>
+								<Link text="{SchedaPersonaleModel>RUOLO_PROF}" wrapping="true" press=".RoleSelect($event,${path: 'SchedaPersonaleModel>RUOLO_PROF'})"/>
+								<Text text="{SchedaPersonaleModel>GRADE}" wrapping="true"/>
+							</ColumnListItem>
+						</Table>
+					
+					</ScrollContainer>
+				</VBox>
+
+			</HBox>
+		</content>
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="schedaFilterFragmentClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Popover showHeader="false" contentWidth="800px" contentHeight="1500px" placement="Right" ariaLabelledBy="master-title">
+		<NavContainer id="navCon">
+			<Page id="master" class="sapUiResponsivePadding--header" title="Creazione Nuova Lettere di Consuntivazione">
+				
+					<Table headerText="Assegnazione Lettere di Consuntivazione">
+						<columns>
+							<Column>
+								<Text text = "Si sta assegando la lettere di Consuntivazione ai seguenti Dipendenti"/>
+							</Column>
+							
+						</columns>
+						<ColumnListItem>
+							<Text text = "Macca Gian Liucca"/>
+						</ColumnListItem>
+						
+					</Table>
+					<Table headerText="Flusso Del Package">
+						<columns>
+							<Column>
+								
+							</Column>
+							<Column>
+								
+							</Column>
+							
+						</columns>
+						<ColumnListItem>
+							<RadioButtonGroup id = "delPckg" selectedIndex = "-1">
+								<RadioButton text="Standard"/>
+								<RadioButton text="Cartaceo"/>
+							</RadioButtonGroup>
+						</ColumnListItem>
+						
+					</Table>
+					
+					<Table headerText="Template Lettera">
+						<columns>
+							<Column>
+							<Text text = "E' possibile di selezionare il template manuale da associare per le gestione particolari"/>	
+							</Column>
+							<Column>
+							<Text text = ""/>	
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Text text = "Template Manuale"/>
+						
+							<Select id="template">
+								<core:Item key="" text="-"/>
+								<core:Item key="sample1" text="sample1"/>
+								<core:Item key="sample2" text="sample2"/>
+								<core:Item key="sample3" text="sample3"/>
+							</Select>
+						</ColumnListItem>
+						
+					</Table>
+					<Table headerText="Data Consuntivazione">
+						<columns>
+							<Column>
+							<Text text = "E' necessario selezionare una consuntivazione da associare alla lettere"/>	
+							</Column>
+							<Column>
+							<Text text = ""/>	
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Text text = "Consuntivazione"/>
+						
+							<Select id="Consuntivazione">
+								<core:Item key="" text="-"/>
+								<core:Item key="sample1" text="sample1"/>
+								<core:Item key="sample2" text="sample2"/>
+								<core:Item key="sample3" text="sample3"/>
+							</Select>
+						</ColumnListItem>
+						
+					</Table>
+					
+					
+					
+					<Button text="Ok Proceedi" press="assign_scheda" class = "c1"/>
+					<Button text="Annulla" press="cancel"/>
+				
+			</Page>
+		</NavContainer>
+	</Popover>
+</core:FragmentDefinition>

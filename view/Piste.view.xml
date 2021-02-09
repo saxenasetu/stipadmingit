@@ -1,0 +1,288 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout"
+	xmlns:ui="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="stipAdmin.stipAdmin.controller.Piste">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page titleAlignment="Center">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button text="{i18n>HomePage}" type="Emphasized" press="onHome"></Button>
+							</contentLeft>
+							<contentMiddle>
+								<Text id="homeTitle" text="{i18n>piste}"></Text>
+							</contentMiddle>
+							<contentRight>
+								<Text id="idtxtfiscalyear" text="{Years>/year}"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<l:VerticalLayout width="100%">
+							<fb:FilterBar id="filterbarPiste" considerGroupTitle="false" reset="onReset" search="onSearchResult" showRestoreButton="true"
+								showClearButton="true" showClearOnFB="true" clear="clear">
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem id="FIFiscalYear" visible="false" groupName="__$INTERNAL$" name="FY" label="{i18n>FiscalYear}"
+										partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select xmlns="sap.m" id="fy0" change="onFIFiscalYear" items="{path : 'FiscalYears>/',sorter: {path: 'DESCR_PERIODO', descending: true}}">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{FiscalYears>ID_PERIODO}" text="{FiscalYears>DESCR_PERIODO}"/>
+												</items>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="ID" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="inpPistaview" placeholder="" valueHelpOnly="false" showSuggestion="true" showValueHelp="true"
+												valueHelpRequest="handleidPistaValueHelp"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Descrizione" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="inpDescrizione"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="KPI" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select id="box1" forceSelection="false">
+												<core:Item xmlns:core="sap.ui.core" key="" text=""/>
+												<core:Item xmlns:core="sap.ui.core" key="Key2" text="KPI con Moltiplicatore"/>
+												<core:Item xmlns:core="sap.ui.core" key="Key3" text="KPI con Moltiplicatore Personale"/>
+												<core:Item xmlns:core="sap.ui.core" key="Key4" text="KPI con Moltiplicatore non Valorizzato"/>
+												<core:Item xmlns:core="sap.ui.core" key="Key5" text="KPI con sottopiste"/>
+												<core:Item xmlns:core="sap.ui.core" key="Key6" text="KPI Valorizzate"/>
+												<core:Item xmlns:core="sap.ui.core" key="Key7" text="KPI non Valorizzate"/>
+												<core:Item xmlns:core="sap.ui.core" key="Key8" text="KPI con Curva discreta"/>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="Gruppo appartenenza" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<!--	<ComboBox xmlns="sap.m" id="box2">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="item-1-key" text="Item 1 Text" id="item3"/>
+													<core:Item xmlns:core="sap.ui.core" key="item-2-key" text="Item 2 Text" id="item4"/>
+												</items>
+											</ComboBox>-->
+											<Input id="inpGruppoAppartenenza" placeholder="" valueHelpOnly="false" showSuggestion="true" showValueHelp="true"
+												valueHelpRequest="handleGruppoAppartenenzaValueHelp"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Mese inizio validità" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<DatePicker xmlns="sap.m" valueFormat="yyyy-MM" displayFormat="MMMM-yyyy" id="picker0"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="F" label="Mese fine validità" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<DatePicker xmlns="sap.m" id="picker1" valueFormat="yyyy-MM" displayFormat="MMMM-yyyy"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="G" label="Curva di valorizzazione" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<!--	<ComboBox xmlns="sap.m" id="box3">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="item-1-key" text="Item 1 Text" id="item5"/>
+													<core:Item xmlns:core="sap.ui.core" key="item-2-key" text="Item 2 Text" id="item6"/>
+												</items>
+											</ComboBox>-->
+											<Input id="inpPisteCurva" placeholder="" valueHelpOnly="false" showSuggestion="true" showValueHelp="true"
+												valueHelpRequest="handlePisteCurvaValueHelp"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="H" label="Pers." partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select id="box2" forceSelection="false">
+												<core:Item xmlns:core="sap.ui.core" key="" text=""/>
+												<core:Item xmlns:core="sap.ui.core" key="S" text="Si"/>
+												<core:Item xmlns:core="sap.ui.core" key="N" text="No"/>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="I" label="Tipo" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select id="box3" forceSelection="false">
+												<core:Item xmlns:core="sap.ui.core" key="" text=" "/>
+												<core:Item xmlns:core="sap.ui.core" key="T" text="T - Quarterly"/>
+												<core:Item xmlns:core="sap.ui.core" key="S" text="S - Half Yearly"/>
+												<core:Item xmlns:core="sap.ui.core" key="A" text="A - Annual"/>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="L" label="Identificativo Assegnatario" partOfCurrentVariant="true"
+										visibleInFilterBar="true">
+										<fb:control>
+											<!--<Input id="inpIdentificativoAssegnatario" valueHelpOnly="false" type="Text" placeholder="" showSuggestion="true" showValueHelp="true"
+												valueHelpRequest="handleIdentificativoAssegnatario"/>-->
+											<Input id="inpIdentificativoAssegnatario" type="Text" placeholder="" showSuggestion="true"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+							<l:content>
+								<HBox>
+									<Label class="stipAdminSpacePerson1"/>
+									<Label id="lblSpace1" class="stipAdminSpacePerson1"/>
+									<Button xmlns="sap.m" text="{i18n>NuovaKPI}" id="btnNuovaKPI" press="handleNuova"/>
+									<Label id="lblSpace2" class="stipAdminSpace"/>
+									<Button id="btnCopia" enabled="true" text="{i18n>Copia_Pista}" press="handleCopia"/>
+									<Label id="lblSpace3" class="stipAdminSpace"/>
+									<Button text="{i18n>Modifica_Pista}" id="btnModifica" press="handleModifica"/>
+									<Label id="lblSpace4" class="stipAdminSpace"/>
+									<Button id="btnDelete" enabled="true" text="{i18n>DELETE}" press="handleDelete"/>
+									<Label id="lblAggiungiSpace" visible="false" class="stipAdminSpace"/>
+									<Button id="btnAggiungiCopia" visible="false" text="{i18n>Copia_Pista}" press="handleCopiaAggiungi"/>
+									<Label id="lblSpace5" class="stipAdminSpace"/>
+									<Button id="btnNote" enabled="true" text="{i18n>NoteMassive}" press="handleNote"/>
+									<Label id="lblSpace6" class="stipCreatePisteSpace2"/>
+									<Label class="stipSpaceButton"/>
+									<ToggleButton id="btnPeriodiPrecedenti" text="{i18n>Aggiungidaperiodiprecedenti}" press="handlePeriodiPrecedenti"/>
+									<!--	<Button xmlns="sap.m" text="{i18n>Aggiungidaperiodiprecedenti}" id="btnPeriodiPrecedenti" press="handlePeriodiPrecedenti"/>-->
+									<Label class="stipAdminSpace"/>
+									<Button xmlns="sap.m" text="{i18n>DownloadRisultati}" id="btnDownloadRisultati" press="handleDownloadRisultati"/>
+									<Label class="stipAdminSpace"/>
+									<Button xmlns="sap.m" text="{i18n>UploadRisultati}" id="btnUploadRisultati" press="handleUploadRisultati"/>
+								</HBox>
+							</l:content>
+						</l:VerticalLayout>
+						<ScrollContainer width="100%" vertical="true" horizontal="true" focusable="true">
+							<Table id="tblPiste" mode="MultiSelect" selectionChange="onTblPisteSelect" growing="true" growingThreshold="100" class="stipAdmin"
+								items="{path: 'pisteResultTableModel>/'}">
+								<headerToolbar>
+									<OverflowToolbar>
+										<Text id="idTxtResult" class="StipAdminPisteTitleClass"/>
+										<ToolbarSpacer/>
+										<SearchField id="idSearchBox" width="15rem" search="onTableSearch" liveChange="onTableSearch"/>
+										<Button icon="sap-icon://action-settings" press="onPisteButtonPressed"/>
+										<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+										<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+										<!--<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>-->
+										<Button icon="sap-icon://download" press="onDataExport"/>
+									</OverflowToolbar>
+								</headerToolbar>
+								<columns >
+									<Column id="col1" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Id}"/>
+									</Column>
+									<Column id="col2" minScreenWidth="Tablet" width="10rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Desc}"/>
+									</Column>
+									<Column id="col3" minScreenWidth="Tablet" width="10rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Gruppo}"/>
+									</Column>
+									<Column id="col4" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Mese_Inizio}"/>
+									</Column>
+									<Column id="col5" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Mese_Fine}"/>
+									</Column>
+									<Column id="col6" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Tipo}"/>
+									</Column>
+									<Column id="col7" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Curva}"/>
+									</Column>
+									<Column id="col8" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Gate3}"/>
+									</Column>
+									<Column id="col9" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Gate4}"/>
+									</Column>
+									<Column id="col10" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>nPers}"/>
+									</Column>
+									<!--<Column id="col11" visible="false" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Additivo}"/>
+									</Column>-->
+									<Column id="col12" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Inizio_Assegn}"/>
+									</Column>
+									<Column id="col13" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Fine_Assegn}"/>
+									</Column>
+									<Column id="col14" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Identificativo_Assegnatario1}"/>
+									</Column>
+									<!--<Column id="col15" minScreenWidth="Tablet" width="4rem" demandPopin="true">-->
+									<!--	<Label design="Bold" wrapping="true" text="{i18n>Count}"/>-->
+									<!--</Column>-->
+									<Column id="col16" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Target}"/>
+									</Column>
+									<Column id="col17" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Consunt}"/>
+									</Column>
+									<Column id="col18" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Ragg_Obiett}"/>
+									</Column>
+									<Column id="col19" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Ragg_Stip}"/>
+									</Column>
+									<Column id="col20" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>TargetSim}"/>
+									</Column>
+									<Column id="col21" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>ConsuntSim}"/>
+									</Column>
+									<Column id="col22" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Ragg_ObiettSim}"/>
+									</Column>
+									<Column id="col23" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+										<Label design="Bold" wrapping="true" text="{i18n>Ragg_StipSim}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active" press="onTblPisteSelect">
+										<cells>
+											<Link text="{pisteResultTableModel>ID_PISTAVIEW}" press="handlePistaViewNavigation"/>
+											<Text text="{pisteResultTableModel>DESCR_PISTA}"/>
+											<Text text="{pisteResultTableModel>DESCR_GRUPPOPISTA}"/>
+											<Text text="{path: 'pisteResultTableModel>PISTA_VALE_DAL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+											<Text text="{path: 'pisteResultTableModel>PISTA_VALE_AL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+											<!--<Text text="{path: 'pisteResultTableModel>MONTHS_COUNT', formatter: 'stipAdmin.stipAdmin.util.Formatter.getTipoCalculate'}"/>-->
+											<Text text="{pisteResultTableModel>TIPO_PISTA}"/>
+											<Link text="{pisteResultTableModel>DESCR_CURVA}" press="handleIdCurvPress"/>
+											<Link text="{pisteResultTableModel>DESCR_GATE}" press="handleDescGatePress"/>
+											<Link text="{pisteResultTableModel>DESCR_GATE2}" press="handleDescGate2Press"/>
+											<Text text="{pisteResultTableModel>SN_PERSONALIZZABILE}"/>
+											<!--<Text visible="false" text="{pisteResultTableModel>DESCR_ADDITIVO}"/>-->
+											<Text text="{path: 'pisteResultTableModel>PISTA_VALE_DAL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+											<Text text="{path: 'pisteResultTableModel>PISTA_VALE_AL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+											<Text text="{pisteResultTableModel>FULLNAME}"/>
+											<Text text="{pisteResultTableModel>N_SOTTOPISTE}"/>
+											<Text
+												text="{parts :[{path: 'pisteResultTableModel>ID_CURVA'},{path: 'pisteResultTableModel>OBIETTIVO'},{path: 'pisteResultTableModel>OBIETTIVO_GRADINO'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getTarget'}"/>
+											<Text
+												text="{parts :[{path: 'pisteResultTableModel>ID_PISTE'},{path: 'pisteResultTableModel>CONSUNTIVO'},{path: 'pisteResultTableModel>CONSUNTIVO_GRADINO'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getConsunt'}"/>
+											<Text text="{pisteResultTableModel>PERC_RAGG_OBIETTIVO}"/>
+											<Text text="{pisteResultTableModel>PERC_RAGG_MBO}"/>
+											<Text
+												text="{parts :[{path: 'pisteResultTableModel>ID_CURVA'},{path: 'pisteResultTableModel>OBIETTIVO_SIM'},{path: 'pisteResultTableModel>OBIETTIVO_GRADINO_SIM'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getTarget'}"/>
+											<Text
+												text="{parts :[{path: 'pisteResultTableModel>ID_PISTE'},{path: 'pisteResultTableModel>CONSUNTIVO_SIM'},{path: 'pisteResultTableModel>CONSUNTIVO_GRADINO_SIM'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getConsunt'}"/>
+											<Text text="{pisteResultTableModel>PERC_RAGG_MBO_SIM}"/>
+											<Text text="{pisteResultTableModel>PERC_RAGG_OBIETTIVO_SIM}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<footer>
+						<Bar design="SubHeader">
+							<contentMiddle>
+								<Button press="_prev" icon="sap-icon://close-command-field" visible="false" id="prev"/>
+								<Button press="_next" icon="sap-icon://open-command-field" visible="false" id="next"/>
+							</contentMiddle>
+						</Bar>
+					</footer>
+					<dependents>
+						<core:Fragment fragmentName="stipAdmin.stipAdmin.fragment.NoteMassive" type="XML"></core:Fragment>
+					</dependents>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

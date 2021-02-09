@@ -1,0 +1,169 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.TraccMod">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page title="{i18n>TracciatureModifiche}" titleAlignment="Center">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button xmlns="sap.m" text="{i18n>HomePage}" type="Emphasized" id="button11" press="onHome"/>
+							</contentLeft>
+							<contentMiddle>
+								<Title text="{i18n>TracciatureModifiche}"/>
+							</contentMiddle>
+							<contentRight>
+								<Text id="fy"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Label class="stipAdminSpace"/>
+						<VBox >
+							<HBox>
+								<Label class="stipAdminSpace"/>
+								<VBox>
+									<Label text="{i18n>TipoEntita}" design="Bold"/>
+									<Select id="tipoEntita" maxWidth="7rem" forceSelection="false">
+										<core:Item key="" text=""/>
+										<core:Item key="1" text="KPI"/>
+										<core:Item key="2" text="Schede Personali"/>
+										<core:Item key="3" text="Schede Gestionali"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>IDEntità}" design="Bold"/>
+									<Input id="idEntita" width="8rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>DescrizioneEntità}" design="Bold"/>
+									<Input id="descrEntita" width="7rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>IntestatarioEntità}" design="Bold"/>
+									<Input id="inteEntita" width="7rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>TipoOperazione}" design="Bold"/>
+									<Select id="tipoOper" maxWidth="7rem" forceSelection="false">
+										<core:Item key="" text=""/>
+										<core:Item key="M" text="M"/>
+										<core:Item key="I" text="I"/>
+										<core:Item key="C" text="C"/>
+									</Select>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>DataOperazioneda}" design="Bold"/>
+										<DatePicker  id="dataOperStart" width="8rem" displayFormat="dd-MM-yyyy" valueFormat="MM-dd-yyyy"/>
+									
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>DataOperazioneA}" design="Bold"/>
+									<DatePicker id="dataOperEnd" width="8rem" displayFormat="dd-MM-yyyy" valueFormat="MM-dd-yyyy"/>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>Operatore}" design="Bold"/>
+									<Input id="opertator" width="7rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>TracciatureNote}" design="Bold"/>
+									<Input id="transNote" width="7rem"></Input>
+								</VBox>
+								<Label class="stipAdminSpacePerson1"/>
+								<VBox >
+									<Label text="{i18n>LimitanrRighe}" design="Bold"/>
+									<Input id="limitRighe" width="7rem"></Input>
+								</VBox>
+							</HBox>
+							<HBox>
+								<Label width="400px"/>
+								<Button id="Ricerca" text="{i18n>Ricerca}" width="200px" press="onSearch"/>
+								<Label class="stipAdminSpace"/>
+								<Button id="Pulisci" text="{i18n>Resetta}" width="200px" press="clear"/>
+							</HBox>
+						</VBox>
+						<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+							<Table id="tbl" class="stipAdmin" growingThreshold="50" items="{TransModTableModel>/}" 
+							growingTriggerText = "{i18n>VediAltro}" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+								<headerToolbar>
+									<Toolbar>
+										<ToolbarSpacer/>
+										<!--<SearchField id="idSearchBox" width="15rem" search="onTableSearch"/>
+									<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+									<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+									<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
+									<Button icon="sap-icon://download" press="onDataExport"/>-->
+									</Toolbar>
+								</headerToolbar>
+								<infoToolbar>
+									<OverflowToolbar id="vsdFilterBar" visible="false">
+										<Text id="vsdFilterLabel"/>
+									</OverflowToolbar>
+								</infoToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>Operatore}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>DataOraOperazione}" wrapping="true"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>Operazione}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>TipoEntita}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>IDEntità}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>DescrizioneEntità}" wrapping="true"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>IntestatarioEntità}" wrapping="true"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Label design="Bold" text="{i18n>TracciatureNote}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Active" press="onPress">
+										<cells>
+											<Text text="{TransModTableModel>NOME}"/>
+											<Text text="{TransModTableModel>DATAORA}"/>
+											<Text text="{TransModTableModel>TIPO_OPERAZIONE}"/>
+											<Text text="{TransModTableModel>ENTITA}"/>
+											<Text text="{TransModTableModel>ID_ENTITA}"/>
+											<Text text="{TransModTableModel>DESCR_ENTITA}"/>
+											<Text text="{TransModTableModel>INTESTATARIO_ENTITA}"/>
+											<Text text="{TransModTableModel>NOTA}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+						<Bar design="SubHeader">
+							<contentMiddle>
+								<Button press="_prev" icon="sap-icon://close-command-field" visible="false" id="prev"/>
+								<Button press="_next" icon="sap-icon://open-command-field" visible="false" id="next"/>
+							</contentMiddle>
+						</Bar>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

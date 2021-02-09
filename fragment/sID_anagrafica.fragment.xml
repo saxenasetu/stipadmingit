@@ -1,0 +1,67 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog visible="false" titleAlignment="Center" id="idAnagraficaFragment" title="{i18n>sID}" class="sapUiPopupWithPadding"
+		items="{oT_TMP_INPUT_1Model>/}" liveChange="_onIdValueSearchFragment" search="_onIdValueSearchFragment" confirm="_onIdValueConfirmFragment"
+		cancel="_onIdValueCloseFragment" rememberSelections="true">
+		<StandardListItem title="{oT_TMP_INPUT_1Model>SUPERID}"
+			visible="{path: 'oT_TMP_INPUT_1Model>SUPERID',formatter: 'stipAdmin.stipAdmin.util.Formatter.removeBlank'}"
+			selected="_onIdValueConfirmFragment" press="_onIdValueConfirmFragment"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idMatricolaFragment" title="{i18n>Matricola}" class="sapUiPopupWithPadding"
+		items="{oT_TMP_INPUT_1Model>/}" liveChange="_onMatrciolaValueSearchFragment" search="_onMatrciolaValueSearchFragment"
+		confirm="_onMatricolaValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem title="{oT_TMP_INPUT_1Model>MATRICOLA}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idNomeFragment" title="Nominativo" class="sapUiPopupWithPadding"
+		items="{oT_TMP_INPUT_1Model>/}" liveChange="_onNomeValueSearchFragment" search="_onNomeValueSearchFragment"
+		confirm="_onNomeValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem
+			title="{parts :[{path: 'oT_TMP_INPUT_1Model>COGNOME'},{path: 'oT_TMP_INPUT_1Model>NOME'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getNomeCognome'}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idQualificaFragment" title="{i18n>Qualifica}" class="sapUiPopupWithPadding"
+		items="{oQualificaModel>/}" liveChange="_onQualificaValueSearchFragment" search="_onQualificaValueSearchFragment"
+		confirm="_onQualificaValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem title="{oQualificaModel>HR1_PAYGRADE}"
+			visible="{path: 'oQualificaModel>HR1_PAYGRADE',formatter: 'stipAdmin.stipAdmin.util.Formatter.removeBlank'}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idPercStipFragment" title="{i18n>PercStip}" class="sapUiPopupWithPadding"
+		items="{oP_INCENTIVIModel>/}" liveChange="_onPercStipValueSearchFragment" search="_onPercStipValueSearchFragment"
+		confirm="_onPercStipValueConfirmFragment" cancel="_onIdValueCloseFragment" updateFinish="_onUpdateFinished">
+		<StandardListItem title="{oP_INCENTIVIModel>PERCSTIP}"
+			visible="{path: 'oP_INCENTIVIModel>PERCSTIP',formatter: 'stipAdmin.stipAdmin.util.Formatter.removeBlank'}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idCompanyFragment" title="{i18n>Company}" class="sapUiPopupWithPadding"
+		items="{oCompanyModel>/}" liveChange="_onCompanyValueSearchFragment" search="_onCompanyValueSearchFragment"
+		confirm="_onCompanyValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem title="{oCompanyModel>DESCR_COMPANY}" description="{oCompanyModel>COMPANY}"
+			visible="{path: 'oCompanyModel>DESCR_COMPANY',formatter: 'stipAdmin.stipAdmin.util.Formatter.removeBlank'}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idGradeFragment" title="{i18n>Grade1}" class="sapUiPopupWithPadding"
+		items="{oGradeModel>/}" liveChange="_onGradeValueSearchFragment" search="_onGradeValueSearchFragment" confirm="_onGradeValueConfirmFragment"
+		cancel="_onIdValueCloseFragment">
+		<!--<StandardListItem title="{oGradeModel>BAND}"-->
+		<!--	visible="{path: 'oGradeModel>BAND',formatter: 'stipAdmin.stipAdmin.util.Formatter.removeBlank'}"/>-->
+		<StandardListItem title="{oGradeModel>BAND}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idDipartimentoFragment" title="{i18n>Dipartimento}" class="sapUiPopupWithPadding"
+		items="{oDIPARTIMENTOModel>/}" liveChange="_onDipartimentoValueSearchFragment" search="_onDipartimentoValueSearchFragment"
+		confirm="_onDipartimentoValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem title="{oDIPARTIMENTOModel>DIP_DESCR}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idRuoloFragment" title="{i18n>Ruolo}" class="sapUiPopupWithPadding"
+		items="{oRUOLOModel>/}" liveChange="_onRuoloValueSearchFragment" search="_onRuoloValueSearchFragment" confirm="_onRuoloValueConfirmFragment"
+		cancel="_onIdValueCloseFragment">
+		<StandardListItem title="{oRUOLOModel>RUOLO_PROF}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idRespDirettoFragment" title="{i18n>Ruolo}" class="sapUiPopupWithPadding"
+		items="{oRESPDIRModel>/}" liveChange="_onRespDirettoValueSearchFragment" search="_onRespDirettoValueSearchFragment"
+		confirm="_onRespDirettoValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem
+			title="{parts :[{path: 'oRESPDIRModel>COGNOME'},{path: 'oRESPDIRModel>NOME'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getNomeCognome'}"/>
+	</SelectDialog>
+	<SelectDialog visible="false" titleAlignment="Center" id="idRespHRFragment" title="{i18n>Ruolo}" class="sapUiPopupWithPadding"
+		items="{oRESPHRModel>/}" liveChange="_onRespHRValueSearchFragment" search="_onRespHRValueSearchFragment"
+		confirm="_onRespHRValueConfirmFragment" cancel="_onIdValueCloseFragment">
+		<StandardListItem
+			title="{parts :[{path: 'oRESPHRModel>COGNOME'},{path: 'oRESPHRModel>NOME'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getNomeCognome'}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

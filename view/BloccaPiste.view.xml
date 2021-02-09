@@ -1,0 +1,275 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+	controllerName="stipAdmin.stipAdmin.controller.BloccaPiste" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>BloccaPiste}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Text id="idtxtfiscalyear"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="{i18n>BloccaPiste}"></Text>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+							<Button text="{i18n>back}" type="Emphasized" press="handleBack"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Label class="stipAdminSpace"/>
+					<VBox alignItems="Center">
+						<HBox>
+							<Label class="stipAdminSpace"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>ID} " wrapping="true" design="Bold"/>
+								<Input id="txtID"></Input>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Descrizione}" wrapping="true" design="Bold"/>
+								<Input id="desc"/>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Piste}" wrapping="true" design="Bold"/>
+								<Select id="selPiste" forceSelection="false" width="6rem">
+									<core:Item xmlns:core="sap.ui.core" key="" text=""/>
+									<core:Item xmlns:core="sap.ui.core" key="Key2" text="KPI con Moltiplicatore"/>
+									<core:Item xmlns:core="sap.ui.core" key="Key3" text="KPI con Moltiplicatore Personale"/>
+									<core:Item xmlns:core="sap.ui.core" key="Key4" text="KPI con Moltiplicatore non Valorizzato"/>
+									<core:Item xmlns:core="sap.ui.core" key="Key5" text="KPI con sottopiste"/>
+									<core:Item xmlns:core="sap.ui.core" key="Key6" text="KPI Valorizzate"/>
+									<core:Item xmlns:core="sap.ui.core" key="Key7" text="KPI non Valorizzate"/>
+									<core:Item xmlns:core="sap.ui.core" key="Key8" text="KPI con Curva discreta"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>Gruppoappartenenza}" wrapping="true" design="Bold"/>
+								<Select id="gruppo" forceSelection="false" width="6rem"
+									items="{path: 'BloccaPistaModel>/Filter/0/GRUPPO',sorter: {path: 'DESCR_GRUPPOPISTA',ascending: true}}">
+									<core:Item key="{BloccaPistaModel>ID_GRUPPOPISTA}" text="{BloccaPistaModel>DESCR_GRUPPOPISTA}"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>MeseInizioValidita}" wrapping="true" design="Bold"/>
+								<Select id="sdate" forceSelection="false" items="{BloccaPistaModel>/Filter/1/Month}" width="6rem">
+									<core:Item key="{BloccaPistaModel>month}" text="{BloccaPistaModel>month}"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>MeseFineValidita}" wrapping="true" design="Bold"/>
+								<Select id="edate" forceSelection="false" items="{BloccaPistaModel>/Filter/1/Month}" width="6rem">
+									<core:Item key="{BloccaPistaModel>month}" text="{BloccaPistaModel>month}"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>Curvadivalorizzazione}" wrapping="true" design="Bold"/>
+								<Select id="curve" forceSelection="false" items="{BloccaPistaModel>/Filter/2/CURVE}" width="6rem">
+									<core:Item key="{BloccaPistaModel>ID_CURVA}" text="{BloccaPistaModel>DESCR_CURVA}"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Pers}" wrapping="true" design="Bold"/>
+								<Select id="pers" forceSelection="false">
+									<core:Item key="S" text="Si"/>
+									<core:Item key="N" text="No"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Tipo}" wrapping="true" design="Bold"/>
+								<Select id="tipo" forceSelection="false">
+									<core:Item xmlns:core="sap.ui.core" key="" text="" id="item1"/>
+									<core:Item xmlns:core="sap.ui.core" key="T1" text="1° Trim" id="item2"/>
+									<core:Item xmlns:core="sap.ui.core" key="T2" text="2° Trim" id="item3"/>
+									<core:Item xmlns:core="sap.ui.core" key="T3" text="3° Trim" id="item4"/>
+									<core:Item xmlns:core="sap.ui.core" key="T4" text="4° Trim" id="item5"/>
+									<core:Item xmlns:core="sap.ui.core" key="S1" text="1° Sem" id="item6"/>
+									<core:Item xmlns:core="sap.ui.core" key="S2" text="2° Sem" id="item7"/>
+									<core:Item xmlns:core="sap.ui.core" key="A" text="Annuali" id="item8"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Bloccate}" wrapping="true" design="Bold"/>
+								<Select id="bloc" forceSelection="false">
+									<core:Item key="S" text="Si"/>
+									<core:Item key="N" text="No"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>IdentificativoAssegnatario}" wrapping="true" design="Bold"/>
+								<Input id="asseg"/>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+						</HBox>
+						<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Avvio}" type="Emphasized" press="onAvvio"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button id="cong" text="{i18n>BloccaSblocca}" type="Emphasized" press="onBloccaSblocca"/>
+						</HBox>
+					</VBox>
+					<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+						<Table id="tblBloccaPiste" class="stipAdmin" items="{BloccaPistaModel>/Main}" 
+						sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>BloccaPiste}" level="H2"/>
+									<ToolbarSpacer/>
+									<Button icon="sap-icon://action-settings" press="onPersoButtonPressed">
+										<layoutData>
+											<OverflowToolbarLayoutData priority="NeverOverflow"/>
+										</layoutData>
+									</Button>
+									<Button icon="sap-icon://download" press="onDataExport"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns >
+								<Column id="col27" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<CheckBox wrapping="true" text="{i18n>SelDesel}" select=".onSelect($event,0)"/>
+								</Column>
+								<Column id="col1" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Trimestribloccati}"/>
+								</Column>
+								<Column id="col2" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text=""/>
+								</Column>
+								<Column id="col3" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text=""/>
+								</Column>
+								<Column id="col4" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text=""/>
+								</Column>
+								<Column id="col5" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Id}"/>
+								</Column>
+								<Column id="col6" minScreenWidth="Tablet" width="10rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Desc}"/>
+								</Column>
+								<Column id="col7" minScreenWidth="Tablet" width="10rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Gruppo}"/>
+								</Column>
+								<Column id="col8" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Mese_Inizio}"/>
+								</Column>
+								<Column id="col9" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Mese_Fine}"/>
+								</Column>
+								<Column id="col10" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Tipo}"/>
+								</Column>
+								<Column id="col11" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Curva}"/>
+								</Column>
+								<Column id="col12" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" text="Gate"/>
+								</Column>
+							<!--	<Column id="col13" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Gate4}"/>
+								</Column>-->
+								<Column id="col14" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="P."/>
+								</Column>
+								<!--<Column id="col11" visible="false" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+										<Label design="Bold" text="{i18n>Additivo}"/>
+									</Column>-->
+								<Column id="col15" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Inizio_Assegn}"/>
+								</Column>
+								<Column id="col16" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Fine_Assegn}"/>
+								</Column>
+								<Column id="col17" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Identificativo_Assegnatario1}"/>
+								</Column>
+								<Column id="col18" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Count}"/>
+								</Column>
+								<Column id="col19" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Target}"/>
+								</Column>
+								<Column id="col20" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Consunt}"/>
+								</Column>
+								<Column id="col21" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Ragg_Obiett}"/>
+								</Column>
+								<Column id="col22" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Ragg_Stip}"/>
+								</Column>
+								<Column id="col23" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>TargetSim}"/>
+								</Column>
+								<Column id="col24" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>ConsuntSim}"/>
+								</Column>
+								<Column id="col25" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Ragg_ObiettSim}"/>
+								</Column>
+								<Column id="col26" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Ragg_StipSim}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active" press="onTblPisteSelect">
+									<cells>
+										<CheckBox text="{BloccaPistaModel>SN_BLOCCATA}" select=".onSelect($event,${path:'BloccaPistaModel>ID_PISTE'})"
+											selected="{BloccaPistaModel>selected}"/>
+										<Text text="{BloccaPistaModel>SN_BLOCCATO_1T}"/>
+										<Text text="{BloccaPistaModel>SN_BLOCCATO_2T}"/>
+										<Text text="{BloccaPistaModel>SN_BLOCCATO_3T}"/>
+										<Text text="{BloccaPistaModel>SN_BLOCCATO_4T}"/>
+										<Text text="{BloccaPistaModel>ID_PISTAVIEW}" />
+										<Text text="{BloccaPistaModel>DESCR_PISTA}"/>
+										<Text text="{BloccaPistaModel>DESCR_GRUPPOPISTA}"/>
+										<Text text="{path: 'BloccaPistaModel>PISTA_VALE_DAL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+										<Text text="{path: 'BloccaPistaModel>PISTA_VALE_AL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+										<!--<Text text="{path: 'BloccaPistaModel>MONTHS_COUNT', formatter: 'stipAdmin.stipAdmin.util.Formatter.getTipoCalculate'}"/>-->
+										<Text text="{BloccaPistaModel>TIPO_PISTA}"/>
+										<Link text="{BloccaPistaModel>DESCR_CURVA}" press=".handleIdCurvPress($event,${path:'BloccaPistaModel>ID_CURVA'},${path:'BloccaPistaModel>ID_TIPO_CURVA'})"/>
+										<Link text="{BloccaPistaModel>DESCR_GATE}" press=".handleDescGatePress($event,${path:'BloccaPistaModel>ID_CURVA'},${path:'BloccaPistaModel>ID_TIPO_CURVA_GATE1'})"/>
+										<!--<Link text="{BloccaPistaModel>DESCR_GATE2}" press="handleDescGate2Press"/>-->
+										<Text text="{BloccaPistaModel>SN_PERSONALIZZABILE}"/>
+										<!--<Text visible="false" text="{BloccaPistaModel>DESCR_ADDITIVO}"/>-->
+										<Text text="{path: 'BloccaPistaModel>PISTA_VALE_DAL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+										<Text text="{path: 'BloccaPistaModel>PISTA_VALE_AL', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDate'}"/>
+										<Text text="{BloccaPistaModel>FULLNAME}"/>
+										<Text text="{BloccaPistaModel>N_SOTTOPISTE}"/>
+										<Text
+											text="{parts :[{path: 'BloccaPistaModel>ID_CURVA'},{path: 'BloccaPistaModel>OBIETTIVO'},{path: 'BloccaPistaModel>OBIETTIVO_GRADINO'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getTarget'}"/>
+										<Text
+											text="{parts :[{path: 'BloccaPistaModel>ID_PISTE'},{path: 'BloccaPistaModel>CONSUNTIVO'},{path: 'BloccaPistaModel>CONSUNTIVO_GRADINO'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getConsunt'}"/>
+										<Text text="{BloccaPistaModel>PERC_RAGG_OBIETTIVO}"/>
+										<Text text="{BloccaPistaModel>PERC_RAGG_MBO}"/>
+										<Text
+											text="{parts :[{path: 'BloccaPistaModel>ID_CURVA'},{path: 'BloccaPistaModel>OBIETTIVO_SIM'},{path: 'BloccaPistaModel>OBIETTIVO_GRADINO_SIM'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getTarget'}"/>
+										<Text
+											text="{parts :[{path: 'BloccaPistaModel>ID_PISTE'},{path: 'BloccaPistaModel>CONSUNTIVO_SIM'},{path: 'BloccaPistaModel>CONSUNTIVO_GRADINO_SIM'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.getConsunt'}"/>
+										<Text text="{BloccaPistaModel>PERC_RAGG_MBO_SIM}"/>
+										<Text text="{BloccaPistaModel>PERC_RAGG_OBIETTIVO_SIM}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+					<Bar design="SubHeader">
+						<contentMiddle>
+							<Button press="_prev" icon="sap-icon://close-command-field" visible="false" id="prev"/>
+							<Button press="_next" icon="sap-icon://open-command-field" visible="false" id="next"/>
+						</contentMiddle>
+					</Bar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

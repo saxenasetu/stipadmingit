@@ -1,0 +1,41 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="stipAdmin.stipAdmin.controller.Reports"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>Reports}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+			<customHeader>
+					<Bar>
+						<!--<contentLeft>
+							<Text text="Left text"></Text>
+						</contentLeft>-->
+						<contentMiddle>
+							<Text id="idtxtfiscalyear"/>
+						</contentMiddle>
+						<contentRight>
+						
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<List id="list" items="{/ReportCollection}" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
+						mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true" growingTriggerText = "{i18n>VediAltro}"
+						selectionChange="onSelectionChange" class="sapUiResponsivePadding">
+					<!--	<items> -->
+							<!--	<CustomListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onListItemPress">
+								<Text text="{path: 'Name',formatter: '.formatter.setReportDesc'}" visible="false">
+									<customData>
+										<core:CustomData key="{Key}" value="{Key}"/>
+									</customData>
+								</Text>
+							</CustomListItem>-->
+							<ObjectListItem visible="false" type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" title="{path: 'Name',formatter: '.formatter.setReportDesc'}">
+								
+							</ObjectListItem>
+					<!--	</items> -->
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

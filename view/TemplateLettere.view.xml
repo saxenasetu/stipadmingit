@@ -1,0 +1,154 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.TemplateLettere" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button text="{i18n>HomePage}" press="home" type="Emphasized"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="{i18n>HomeTemplateLettere}"/>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<Table id="templateFilterTable">
+						<columns>
+							<Column>
+								<Label text="{i18n>Id}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>TipoTemplate}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>NomeTemplate}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Descrizione}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Gestionali}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Modificabile}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Dismesso}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Automatici}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id="sid"/>
+							<ComboBox id="tipoTemplate" items="{path: 'LetterModel>/0/Filter'}">
+								<core:Item key="{LetterModel>ID_TIPOTEMPLATE}" text="{LetterModel>TIPOTEMPLATE}"/>
+							</ComboBox>
+							<Input id="nome"/>
+							<Input id="desc"/>
+							<ComboBox id="gestionali">
+								<core:Item key="N" text="No"/>
+								<core:Item key="S" text="Si"/>
+							</ComboBox>
+							<ComboBox id="modificabile">
+								<core:Item key="N" text="No"/>
+								<core:Item key="S" text="Si"/>
+							</ComboBox>
+							<ComboBox id="dismesso">
+								<core:Item key="N" text="No"/>
+								<core:Item key="S" text="Si"/>
+							</ComboBox>
+							<ComboBox id="automatici">
+								<core:Item key="N" text="No"/>
+								<core:Item key="S" text="Si"/>
+							</ComboBox>
+						</ColumnListItem>
+					</Table>
+					<VBox>
+						<HBox>
+								<Label class="stipAdminSpace"/>
+							<Label width="300px"></Label>
+							<Button id="nuovo" text="{i18n>NUOVO}" width="200px" press="onClickNuovo"/>
+								<Label class="stipAdminSpace"/>
+							<Button id="ricerca" text="{i18n>RICERCA}" width="200px" press="onClickRicerca"/>
+								<Label class="stipAdminSpace"/>
+							<Button id="pulisci" text="{i18n>Pulisci}" width="200px" press="onClickPulisci"/>
+						</HBox>
+						<HBox></HBox>
+					</VBox>
+					<l:VerticalLayout id="idVerticalLayout" class="sapUiContentPadding" width="100%" visible="false">
+						
+						<HBox>
+						<Label class="stipCreatePisteSpace"></Label>
+						<Select id="variables" change="_onpressVariables" visible="true"  items="{ path: 'LetterModel>/2/Tags',sorter: {path: 'ORDERTAG',ascending: true}}" forceSelection = "false">
+							<core:Item key="{LetterModel>TAG}" text="{LetterModel>TAG}"/>
+						</Select>
+						</HBox>
+					</l:VerticalLayout>
+					<VBox id = "editorButton" visible="false">
+						<HBox>
+							<Button class="sapUiSmallMarginBegin" text="{i18n>SaveLetter}" id="buttonSave" press="_openFragment" visible="false"></Button>
+							<Button class="sapUiSmallMarginBegin" text="{i18n>CANCEL}" id="cancel" press="_closeEditor" visible="false"></Button>
+						</HBox>
+					</VBox>
+					<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+					<Table id="templateResultTable" class="stipAdmin" items="{ path: 'LetterModel>/1/Main',sorter: {path: 'ID_TEMPLATELETTERA',ascending: true}}" growing="true" growingThreshold="25" 
+					growingTriggerText = "{i18n>VediAltro}" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+					<headerToolbar>
+								<Toolbar>
+									<Title id = "title"/>
+							</Toolbar>		
+						</headerToolbar>
+						<columns>
+							<Column width="4rem">
+								<Label  design="Bold" text="{i18n>Id}"/>
+							</Column>
+							<Column width="4rem">
+								<Label  design="Bold" text="{i18n>TipoTemplate}" wrapping="true"/>
+							</Column>
+							<Column width="7rem">
+								<Label design="Bold" text="{i18n>NomeTemplate}"/>
+							</Column>
+							<Column width="6rem">
+								<Label  design="Bold" text="{i18n>Descrizione}"/>
+							</Column>
+							<Column width="4rem">
+								<Label  design="Bold" text="{i18n>Gestionale}"/>
+							</Column>
+							<Column width="4rem">
+								<Label  design="Bold" text="{i18n>Modificabile}"/>
+							</Column>
+							<Column width="4rem">
+								<Label design="Bold" text="{i18n>Dismesso}"/>
+							</Column>
+							<Column width="4rem">
+								<Label design="Bold" text="{i18n>InseritoDa}"/>
+							</Column>
+							<Column width="6rem">
+								<Label design="Bold" text="{i18n>Data}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<cells>
+								<Link text="{LetterModel>ID_TEMPLATELETTERA}" press="_GetLetteraHtml($event, ${path:'LetterModel>ID_TEMPLATELETTERA'})"/>
+								<Text text="{LetterModel>TIPOTEMPLATE}"/>
+								<Link text="{LetterModel>NOMETEMPLATE}" press="_GetLetteraHtml($event, ${path:'LetterModel>ID_TEMPLATELETTERA'})"/>
+								<Text text="{LetterModel>DESCRIZIONE}"/>
+								<Text text="{LetterModel>SN_GESTIONALI}"/>
+								<Text text="{LetterModel>SN_MODIFICABILE}"/>
+								<Text text="{LetterModel>SN_DISMESSO}"/>
+								<Text text="{LetterModel>INSERITODA}"/>
+								<Text text="{LetterModel>DATA}"/>
+							</cells>
+						</ColumnListItem>
+					</Table>
+					</ScrollContainer>
+					
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

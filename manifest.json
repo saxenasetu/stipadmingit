@@ -1,0 +1,1088 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "stipAdmin.stipAdmin",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.523"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"AppService.svc": {
+				"uri": "/HANAMDC/STIP/STIPAdmin/xsodata/stipadmin.xsodata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "stipAdmin.stipAdmin.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "stipAdmin.stipAdmin.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "AppService.svc",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				},
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "stipAdmin.stipAdmin.view",
+				"controlAggregation": "pages",
+				"controlId": "IdApp",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "TargetHome",
+					"pattern": "",
+					"target": [
+						"TargetHome"
+					]
+				},
+				{
+					"name": "Home",
+					"pattern": "Home",
+					"target": [
+						"Home"
+					]
+				},
+				{
+					"name": "Piste",
+					"pattern": "Piste/{str}/:from:",
+					"target": [
+						"Piste"
+					]
+				},
+				{
+					"name": "SchedaPersonale",
+					"pattern": "SchedaPersonale/{str}",
+					"target": [
+						"SchedaPersonale"
+					]
+				},
+				{
+					"name": "TemplateLettere",
+					"pattern": "TemplateLettere",
+					"target": [
+						"TemplateLettere"
+					]
+				},
+				{
+					"name": "Curve",
+					"pattern": "curve/{str}",
+					"target": [
+						"Curve"
+					]
+				},
+				{
+					"name": "SchedaMaster",
+					"pattern": "master/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"SchedaMaster"
+					]
+				},
+				{
+					"name": "Gate",
+					"pattern": "gate/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gate"
+					]
+				},
+				{
+					"name": "Gruppi",
+					"pattern": "gruppi/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi"
+					]
+				},
+				{
+					"name": "Periodi",
+					"pattern": "periodi",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Periodi"
+					]
+				},
+				{
+					"name": "createPiste",
+					"pattern": "createPiste/{str}/{str2}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Piste",
+						"createPiste"
+					]
+				},
+				{
+					"name": "Curve_Copy",
+					"pattern": "Curve_Copy/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"Curve_Copy"
+					]
+				},
+				{
+					"name": "curvaLineare",
+					"pattern": "curvaLineare",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"curvaLineare"
+					]
+				},
+				{
+					"name": "curvaDiscreta",
+					"pattern": "curvaDiscreta",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"curvaDiscreta"
+					]
+				},
+				{
+					"name": "curvaDescrittiva",
+					"pattern": "curvaDescrittiva",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"curvaDescrittiva"
+					]
+				},
+				{
+					"name": "modCurvaLineare",
+					"pattern": "modCurvaLineare",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"modCurvaLineare"
+					]
+				},
+				{
+					"name": "modCurvaDiscreta",
+					"pattern": "modCurvaDiscreta",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"modCurvaDiscreta"
+					]
+				},
+				{
+					"name": "modCurva_Pdecimale",
+					"pattern": "modCurva_Pdecimale",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"modCurva_Pdecimale"
+					]
+				},
+				{
+					"name": "modCurvaLineare_Consuntivo",
+					"pattern": "modCurvaLineare_Consuntivo",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"modCurvaLineare_Consuntivo"
+					]
+				},
+				{
+					"name": "modDiscretaRapportoPercentuale",
+					"pattern": "modDiscretaRapportoPercentuale",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Curve",
+						"modDiscretaRapportoPercentuale"
+					]
+				},
+				{
+					"name": "modGate",
+					"pattern": "modGate/{id}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gate",
+						"modGate"
+					]
+				},
+				{
+					"name": "uploadGate",
+					"pattern": "uploadGate/{ID_PERIODO}/{SEL_FY_PERIODI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gate",
+						"uploadGate"
+					]
+				},
+				{
+					"name": "modGruppi",
+					"pattern": "modGruppi/{ID_PERIODO}/{SEL_FY_PERIODI}/{ID_GRUPPI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi",
+						"modGruppi"
+					]
+				},
+				{
+					"name": "modGruppi_Scheda",
+					"pattern": "modGruppi_Scheda/{ID_PERIODO}/{SEL_FY_PERIODI}/{ID_GRUPPI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi",
+						"modGruppi_Scheda"
+					]
+				},
+				{
+					"name": "createGruppi",
+					"pattern": "createGruppi/{ID_PERIODO}/{SEL_FY_PERIODI}/{ID_GRUPPI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi",
+						"createGruppi"
+					]
+				},
+				{
+					"name": "createPeriodi",
+					"pattern": "createPeriodi/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Periodi",
+						"createPeriodi"
+					]
+				},
+				{
+					"name": "modPeriodi",
+					"pattern": "modPeriodi/{id}/{countSM}/{countPiste}/{countSP}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Periodi",
+						"modPeriodi"
+					]
+				},
+				{
+					"name": "displayPeriodi",
+					"pattern": "displayPeriodi/{id}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Periodi",
+						"displayPeriodi"
+					]
+				},
+				{
+					"name": "Reports",
+					"pattern": "Reports/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Reports"
+					]
+				},
+				{
+					"name": "ReportDetail",
+					"pattern": "ReportDetail/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"ReportDetail"
+					]
+				},
+				{
+					"name": "KPInonAssociatiSchedeMaster",
+					"pattern": "KPInonAssociatiSchedeMaster/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"KPInonAssociatiSchedeMaster"
+					]
+				},
+				{
+					"name": "KPIsenzacurva",
+					"pattern": "KPIsenzacurva/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"KPIsenzacurva"
+					]
+				},
+				{
+					"name": "ReportAnalisiCurve",
+					"pattern": "ReportAnalisiCurve/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"ReportAnalisiCurve"
+					]
+				},
+				{
+					"name": "ReportIncrociSchede",
+					"pattern": "ReportIncrociSchede/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"ReportIncrociSchede"
+					]
+				},
+				{
+					"name": "KPIconObiettivoMancante",
+					"pattern": "KPIconObiettivoMancante/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"KPIconObiettivoMancante"
+					]
+				},
+				{
+					"name": "KPIconConsuntivoMancante",
+					"pattern": "KPIconConsuntivoMancante/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"KPIconConsuntivoMancante"
+					]
+				},
+				{
+					"name": "SchedeMasterCuiNonEAssociatoalcundipendente",
+					"pattern": "SchedeMasterCuiNonEAssociatoalcundipendente/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"SchedeMasterCuiNonEAssociatoalcundipendente"
+					]
+				},
+				{
+					"name": "createGruppiSchede",
+					"pattern": "createGruppiSchede/{ID_PERIODO}/{SEL_FY_PERIODI}/{ID_GRUPPI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi",
+						"createGruppiSchede"
+					]
+				},
+				{
+					"name": "displayGruppoPiste",
+					"pattern": "displayGruppoPiste/{ID_PERIODO}/{SEL_FY_PERIODI}/{ID_GRUPPI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi",
+						"displayGruppoPiste"
+					]
+				},
+				{
+					"name": "displayGruppi_Scheda",
+					"pattern": "displayGruppi_Scheda/{ID_PERIODO}/{SEL_FY_PERIODI}/{ID_GRUPPI}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gruppi",
+						"displayGruppi_Scheda"
+					]
+				},
+				{
+					"name": "createGate",
+					"pattern": "createGate/{id}/{fy}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Gate",
+						"createGate"
+					]
+				},
+				{
+					"name": "displayGate",
+					"pattern": "displayGate/{id}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"displayGate"
+					]
+				},
+				{
+					"name": "createSchedeMaster",
+					"pattern": "createSchedeMaster/{fy}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"SchedaMaster",
+						"createSchedeMaster"
+					]
+				},
+				{
+					"name": "copySchedaMaster",
+					"pattern": "copySchedaMaster/{id}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"SchedaMaster",
+						"copySchedaMaster"
+					]
+				},
+				{
+					"name": "modPista",
+					"pattern": "modPista/{ID_PERIODO}/{ID_PISTAVIEW}/{ID_PISTE}/:from:",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Piste",
+						"modPista"
+					]
+				},
+				{
+					"name": "ViewPiste",
+					"pattern": "ViewPiste/{ID_PERIODO}/{ID_PISTAVIEW}/{ID_PISTE}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"Piste",
+						"ViewPiste"
+					]
+				},
+				{
+					"name": "columnChartExample",
+					"pattern": "columnChartExample",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"columnChartExample"
+					]
+				},
+				{
+					"name": "modSchedaMaster",
+					"pattern": "modSchedaMaster/{id}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"SchedaMaster",
+						"modSchedaMaster"
+					]
+				},
+				{
+					"name": "displayCurvaLineare",
+					"pattern": "displayCurvaLineare",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "displayCurvaLineare"
+				},
+				{
+					"name": "displayCurvaDiscreta",
+					"pattern": "displayCurvaDiscreta",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "displayCurvaDiscreta"
+				},
+				{
+					"name": "displayCurvaLineare_Consuntivo",
+					"pattern": "displayCurvaLineare_Consuntivo",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "displayCurvaLineare_Consuntivo"
+				},
+				{
+					"name": "displayCurva_Pdecimale",
+					"pattern": "displayCurva_Pdecimale",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "displayCurva_Pdecimale"
+				},
+				{
+					"name": "curvaLineare_Consuntivo",
+					"pattern": "curvaLineare_Consuntivo",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "curvaLineare_Consuntivo"
+				},
+				{
+					"name": "curvaLineare_Pdecimale",
+					"pattern": "curvaLineare_Pdecimale",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "curvaLineare_Pdecimale"
+				},
+				{
+					"name": "displayCurvaDescrittiva",
+					"pattern": "displayCurvaDescrittiva",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "displayCurvaDescrittiva"
+				},
+				{
+					"name": "AnagraficaPayout",
+					"pattern": "AnagraficaPayout/{str}/{str2}",
+					"target": [
+						"AnagraficaPayout"
+					]
+				},
+				{
+					"name": "displayDiscretaRapportoPercentuale",
+					"pattern": "displayDiscretaRapportoPercentuale",
+					"titleTarget": "",
+					"greedy": false,
+					"target": "displayDiscretaRapportoPercentuale"
+				},
+				{
+					"name": "curvaDis_rapp",
+					"pattern": "curvaDis_rapp",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"curvaDis_rapp"
+					]
+				},
+				{
+					"name": "GestioneListclus",
+					"pattern": "GestioneListclus",
+					"titleTarget": "",
+					"target": [
+						"GestioneListclus"
+					]
+				},
+				{
+					"name": "GestioneListclusDetail",
+					"pattern": "GestioneListclusDetail/{ID}",
+					"titleTarget": "",
+					"target": [
+						"GestioneListclusDetail"
+					]
+				},
+				{
+					"name": "BloccaCongela",
+					"pattern": "BloccaCongela/{str}",
+					"titleTarget": "",
+					"target": [
+						"BloccaCongela"
+					]
+				},
+				{
+					"name": "BloccaCongelaScongela",
+					"pattern": "BloccaCongelaScongela/{ID}/{str}",
+					"titleTarget": "",
+					"target": [
+						"BloccaCongelaScongela"
+					]
+				},
+				{
+					"name": "BloccaPiste",
+					"pattern": "BloccaPiste/{ID}/{str}",
+					"titleTarget": "",
+					"target": [
+						"BloccaPiste"
+					]
+				},
+				{
+					"name": "BloccaSchedeMaster",
+					"pattern": "BloccaSchedeMaster/{ID}/{str}",
+					"titleTarget": "",
+					"target": [
+						"BloccaSchedeMaster"
+					]
+				},
+				{
+					"name": "KpiConSubKpi",
+					"pattern": "KpiConSubKpi/{str}/{IdPeriodo}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"KpiConSubKpi"
+					]
+				},
+				{
+					"name": "BloccaSchedePersonali",
+					"pattern": "BloccaSchedePersonali/{ID}/{str}",
+					"titleTarget": "",
+					"target": [
+						"BloccaSchedePersonali"
+					]
+				},
+				{
+					"name": "modCurvaDescrittiva",
+					"pattern": "modCurvaDescrittiva",
+					"titleTarget": "",
+					"target": [
+						"modCurvaDescrittiva"
+					]
+				},
+				{
+					"name": "displaySchedaMaster",
+					"pattern": "displaySchedaMaster/{id}",
+					"titleTarget": "",
+					"target": [
+						"displaySchedaMaster"
+					]
+				},
+				{
+					"name": "EffettuaReale",
+					"pattern": "EffettuaReale/{ID}",
+					"titleTarget": "",
+					"target": [
+						"EffettuaReale"
+					]
+				},
+				{
+					"name": "EffettuaSimulata",
+					"pattern": "EffettuaSimulata/{ID}",
+					"titleTarget": "",
+					"target": [
+						"EffettuaSimulata"
+					]
+				},
+				{
+					"name": "User",
+					"pattern": "User",
+					"titleTarget": "",
+					"target": [
+						"User"
+					]
+				},
+				{
+					"name": "User_new_change",
+					"pattern": "User_new_change/{id}",
+					"titleTarget": "",
+					"target": [
+						"User_new_change"
+					]
+				},
+				{
+					"name": "GestioneConsuntivazione",
+					"pattern": "GestioneConsuntivazione/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"GestioneConsuntivazione",
+						"GestioneConsuntivazione"
+					]
+				},
+				{
+					"name": "TraccMod",
+					"pattern": "TraccMod/{str}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TraccMod"
+					]
+				}
+			],
+			"targets": {
+				"TargetHome": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Home",
+					"viewName": "Home"
+				},
+				"Home": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Home",
+					"viewName": "Home"
+				},
+				"Piste": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Piste",
+					"viewName": "Piste"
+				},
+				"SchedaPersonale": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "SchedaPersonale",
+					"viewName": "SchedaPersonale"
+				},
+				"TemplateLettere": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "TemplateLettere",
+					"viewName": "TemplateLettere"
+				},
+				"Curve": {
+					"viewType": "XML",
+					"viewName": "Curve"
+				},
+				"SchedaMaster": {
+					"viewType": "XML",
+					"viewName": "SchedaMaster"
+				},
+				"Gate": {
+					"viewType": "XML",
+					"viewName": "Gate"
+				},
+				"Gruppi": {
+					"viewType": "XML",
+					"viewName": "Gruppi"
+				},
+				"Periodi": {
+					"viewType": "XML",
+					"viewName": "Periodi"
+				},
+				"Reports": {
+					"viewType": "XML",
+					"viewName": "Reports"
+				},
+				"ReportDetail": {
+					"viewType": "XML",
+					"viewName": "ReportDetail"
+				},
+				"createPiste": {
+					"viewType": "XML",
+					"viewName": "createPiste",
+					"viewId": "creaPiste",
+					"viewLevel": 2
+				},
+				"createCurve": {
+					"viewType": "XML",
+					"viewName": "createCurve"
+				},
+				"createSchedeMaster": {
+					"viewType": "XML",
+					"viewName": "createSchedeMaster"
+				},
+				"createPeriodi": {
+					"viewType": "XML",
+					"viewName": "createPeriodi",
+					"viewId": "createPeriodi",
+					"viewLevel": 2
+				},
+				"curvaDiscreta": {
+					"viewType": "XML",
+					"viewName": "curvaDiscreta"
+				},
+				"curvaDis_rapp": {
+					"viewType": "XML",
+					"viewName": "curvaDis_rapp"
+				},
+				"curvaLineare": {
+					"viewType": "XML",
+					"viewName": "curvaLineare",
+					"viewId": "curvaLineare",
+					"viewLevel": 2
+				},
+				"lineareConsutivo": {
+					"viewType": "XML",
+					"viewName": "lineareConsutivo"
+				},
+				"curvaLineare_funzione": {
+					"viewType": "XML",
+					"viewName": "curvaLineare_funzione"
+				},
+				"modCurvaLineare": {
+					"viewType": "XML",
+					"viewName": "modCurvaLineare"
+				},
+				"modPeriodi": {
+					"viewType": "XML",
+					"viewName": "modPeriodi"
+				},
+				"displayPeriodi": {
+					"viewType": "XML",
+					"viewName": "displayPeriodi"
+				},
+				"modGate": {
+					"viewType": "XML",
+					"viewName": "modGate"
+				},
+				"createGruppi": {
+					"viewType": "XML",
+					"viewName": "createGruppi"
+				},
+				"modGruppi": {
+					"viewType": "XML",
+					"viewName": "modGruppi"
+				},
+				"createGruppiSchede": {
+					"viewType": "XML",
+					"viewName": "createGruppiSchede"
+				},
+				"createGate": {
+					"viewType": "XML",
+					"viewName": "createGate"
+				},
+				"displayGate": {
+					"viewType": "XML",
+					"viewName": "displayGate"
+				},
+				"modPista": {
+					"viewType": "XML",
+					"viewName": "modPista"
+				},
+				"modSchedaMaster": {
+					"viewType": "XML",
+					"viewName": "modSchedaMaster"
+				},
+				"columnChartExample": {
+					"viewType": "XML",
+					"viewName": "columnChartExample"
+				},
+				"curvaDescrittiva": {
+					"viewType": "XML",
+					"viewName": "curvaDescrittiva"
+				},
+				"displayCurvaLineare": {
+					"viewType": "XML",
+					"viewName": "displayCurvaLineare"
+				},
+				"displayCurvaDiscreta": {
+					"viewType": "XML",
+					"viewName": "displayCurvaDiscreta"
+				},
+				"curvaLineare_Consuntivo": {
+					"viewType": "XML",
+					"viewName": "curvaLineare_Consuntivo"
+				},
+				"curvaLineare_Pdecimale": {
+					"viewType": "XML",
+					"viewName": "curvaLineare_Pdecimale"
+				},
+				"displayCurvaLineare_Consuntivo": {
+					"viewType": "XML",
+					"viewName": "displayCurvaLineare_Consuntivo"
+				},
+				"displayCurva_Pdecimale": {
+					"viewType": "XML",
+					"viewName": "displayCurva_Pdecimale"
+				},
+				"displayCurvaDescrittiva": {
+					"viewType": "XML",
+					"viewName": "displayCurvaDescrittiva"
+				},
+				"AnagraficaPayout": {
+					"viewType": "XML",
+					"viewName": "AnagraficaPayout"
+				},
+				"displayDiscretaRapportoPercentuale": {
+					"viewType": "XML",
+					"viewName": "displayDiscretaRapportoPercentuale"
+				},
+				"GestioneListclus": {
+					"viewType": "XML",
+					"viewName": "GestioneListclus"
+				},
+				"modCurva_Pdecimale": {
+					"viewType": "XML",
+					"viewName": "modCurva_Pdecimale"
+				},
+				"modCurvaLineare_Consuntivo": {
+					"viewType": "XML",
+					"viewName": "modCurvaLineare_Consuntivo"
+				},
+				"modDiscretaRapportoPercentuale": {
+					"viewType": "XML",
+					"viewName": "modDiscretaRapportoPercentuale"
+				},
+				"modCurvaDiscreta": {
+					"viewType": "XML",
+					"viewName": "modCurvaDiscreta"
+				},
+				"GestioneListclusDetail": {
+					"viewType": "XML",
+					"viewName": "GestioneListclusDetail"
+				},
+				"BloccaCongela": {
+					"viewType": "XML",
+					"viewName": "BloccaCongela"
+				},
+				"BloccaCongelaScongela": {
+					"viewType": "XML",
+					"viewName": "BloccaCongelaScongela"
+				},
+				"BloccaPiste": {
+					"viewType": "XML",
+					"viewName": "BloccaPiste"
+				},
+				"BloccaSchedeMaster": {
+					"viewType": "XML",
+					"viewName": "BloccaSchedeMaster"
+				},
+				"BloccaSchedePersonali": {
+					"viewType": "XML",
+					"viewName": "BloccaSchedePersonali"
+				},
+				"displayGruppoPiste": {
+					"viewType": "XML",
+					"viewName": "displayGruppoPiste"
+				},
+				"Gruppi_Scheda": {
+					"viewType": "XML",
+					"viewName": "Gruppi_Scheda"
+				},
+				"displayGruppi_Scheda": {
+					"viewType": "XML",
+					"viewName": "displayGruppi_Scheda"
+				},
+				"modGruppi_Scheda": {
+					"viewType": "XML",
+					"viewName": "modGruppi_Scheda"
+				},
+				"modCurvaDescrittiva": {
+					"viewType": "XML",
+					"viewName": "modCurvaDescrittiva"
+				},
+				"uploadGate": {
+					"viewType": "XML",
+					"viewName": "uploadGate"
+				},
+				"ViewPiste": {
+					"viewType": "XML",
+					"viewName": "ViewPiste"
+				},
+				"displaySchedaMaster": {
+					"viewType": "XML",
+					"viewName": "displaySchedaMaster"
+				},
+				"copySchedaMaster": {
+					"viewType": "XML",
+					"viewName": "copySchedaMaster"
+				},
+				"EffettuaReale": {
+					"viewType": "XML",
+					"viewName": "EffettuaReale"
+				},
+				"EffettuaSimulata": {
+					"viewType": "XML",
+					"viewName": "EffettuaSimulata"
+				},
+				"User": {
+					"viewType": "XML",
+					"viewName": "User"
+				},
+				"User_new_change": {
+					"viewType": "XML",
+					"viewName": "User_new_change"
+				},
+				"Curve_Copy": {
+					"viewType": "XML",
+					"viewName": "Curve_Copy"
+				},
+				"GestioneConsuntivazione": {
+					"viewType": "XML",
+					"viewName": "GestioneConsuntivazione"
+				},
+				"TraccMod": {
+					"viewType": "XML",
+					"viewName": "TraccMod"
+				},
+				"KPInonAssociatiSchedeMaster": {
+					"viewType": "XML",
+					"viewName": "KPInonAssociatiSchedeMaster"
+				},
+				"KPIsenzacurva": {
+					"viewType": "XML",
+					"viewName": "KPIsenzacurva"
+				},
+				"ReportAnalisiCurve": {
+					"viewType": "XML",
+					"viewName": "ReportAnalisiCurve"
+				},
+				"ReportIncrociSchede": {
+					"viewType": "XML",
+					"viewName": "ReportIncrociSchede"
+				},
+				"KPIconObiettivoMancante": {
+					"viewType": "XML",
+					"viewName": "KPIconObiettivoMancante"
+				},
+				"KPIconConsuntivoMancante": {
+					"viewType": "XML",
+					"viewName": "KPIconConsuntivoMancante"
+				},
+				"SchedeMasterCuiNonEAssociatoalcundipendente": {
+					"viewType": "XML",
+					"viewName": "SchedeMasterCuiNonEAssociatoalcundipendente"
+				},
+				"KpiConSubKpi": {
+					"viewType": "XML",
+					"viewName": "KpiConSubKpi"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.2.0"
+	}
+}

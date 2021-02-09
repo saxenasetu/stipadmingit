@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="assegnatarioGateSelect" title="ASSEGNATARIO" class="sapUiPopupWithPadding" items="{MoltiplicatoreResultTableModel>/Filter/0/ASSEGNATARIO}"
+		search="_handleValueHelpSearch1" confirm="_handleEmployeesconfirm1" cancel="_handleValueHelpClose1">
+		<StandardListItem title="{MoltiplicatoreResultTableModel>ASSEGNATARIO}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

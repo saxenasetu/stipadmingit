@@ -1,0 +1,95 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.ReportAnalisiCurve" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App>
+		<pages>
+			<Page id="pgAnalisiCurve" title="{i18n>ReportAnalisiCurve}" backgroundDesign="Solid" class="sapUiStdPage">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Text text="{i18n>ReportAnalisiCurve}"/>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>Tornaallalista}" type="Emphasized" press="onTornaallalista"></Button>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content> 
+					<VBox id="vbx13" height="15%" class="stipAdminVBox">
+						<l:Grid class="sapUiSmallMarginTop" hSpacing="1" defaultSpan="XL3 L3 M10 S12">
+							<l:content>
+								<HBox>
+									<VBox>
+										<Text width="7rem" text="{i18n>TipoCurva}"/>
+											<Input id="sel26" class="sapUiSmallMarginBottom" width="15rem" valueHelpRequest=".onValueHelpRequest1" valueHelpOnly="true"
+											showValueHelp="true" placeholder="{i18n>EnterTipoC}" value="{modelTypeSelected>/DESCR_TIPO_CURVA}" type="Text"/>
+									</VBox>
+									<VBox>
+										<Text width="7rem" text="{i18n>NomeCurva}"/>
+										<Input id="sel27" class="sapUiSmallMarginBottom" width="15rem" valueHelpRequest=".onValueHelpRequest2" valueHelpOnly="true"
+											showValueHelp="true" placeholder="{i18n>EnterNomeC}" value="{modelNomeSelected>/DESCR_CURVA}" type="Text"/>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Show}" type="Emphasized" press="onShow13"></Button>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta13"></Button>
+									</VBox>
+								</HBox>
+							</l:content>
+						</l:Grid>
+					</VBox>
+					<ScrollContainer id="Scroll13" height="85%" width="100%" vertical="true">
+						<Table id="idTableReport13" items="{oModelReport2>/}" showNoData="false" growing="true" 
+						growingThreshold="1000" growingScrollToLoad="true" sticky="ColumnHeaders" mode="None" growingTriggerText = "{i18n>VediAltro}">
+							<columns>
+								<Column minScreenWidth="Tablet" width="10%" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="{i18n>ID_CURVA}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="31%" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="{i18n>DESCR_CURVA}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="20%" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>DESCR_TIPO_CURVA}" class="fontBoldClass" />
+								</Column>
+								<Column minScreenWidth="Tablet" width="13%" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>SN_GATE}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="13%" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>PERC_MBO}" class="fontBoldClass"/>
+								</Column>
+									<Column minScreenWidth="Tablet" width="13%" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>VALORE}" class="fontBoldClass"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{oModelReport2>ID_CURVA}"/>
+										<Text text="{oModelReport2>DESCR_CURVA}"/>
+										<Text text="{oModelReport2>DESCR_TIPO_CURVA}"/>
+										<Text text="{oModelReport2>SN_GATE}"/>
+										<Text text="{oModelReport2>PERC_MBO}"/>
+										<Text text="{oModelReport2>VALORE}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</content>
+				<footer>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<Button id="idBtnNext" icon="sap-icon://download" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onPressExport"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

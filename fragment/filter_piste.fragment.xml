@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem text="Id" key="ID_PISTE" items="{pisteResultTableModel>/FilterId}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{pisteResultTableModel>ID_PISTAVIEW}" key="ID_PISTAVIEW"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Descrizione" key="DESCR_PISTA" multiSelect="true" items="{pisteResultTableModel>/FilterDesc}">
+				<items>
+					<ViewSettingsItem text="{pisteResultTableModel>DESCR_PISTA}" key="VALE_DAL"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Gruppo" key="VALE_AL" multiSelect="true" items="{pisteResultTableModel>/FilterGruppo}">
+				<items>
+					<ViewSettingsItem text="{pisteResultTableModel>DESCR_GRUPPOPISTA}" key="DESCR_GRUPPOPISTA"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

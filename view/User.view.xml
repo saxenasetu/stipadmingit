@@ -1,0 +1,103 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="stipAdmin.stipAdmin.controller.User"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page title="Title">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHome"></Button>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="Roles and Authorization"></Text>
+						</contentMiddle>
+						<contentRight>
+							<Text id="idtxtfiscalyear"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+				
+					<Table class="stipAdmin" items = "{UserModel>/}">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<Button xmlns="sap.m" text="Create New User" type="Emphasized" press=".handleModifica($event)"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+								<Label design="Bold" text="Matricola"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="Role Emp."/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="Role Reporting"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="Role Manager"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="Role Manager Sys" wrapping="true"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="Role HR"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="Role HR Admin"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="PCO"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="{i18n>MODIFICA}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="{i18n>DELETE}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<Text text="{UserModel>ID}"/>
+								<Text text="{UserModel>ROLE_EMP}"/>
+								<Text text="{UserModel>ROLE_REPORTING}"/>
+								<Text text="{UserModel>ROLE_MANAGER}"/>
+								<Text text="{UserModel>ROLE_MANAGER_SYS}"/>
+								<Text text="{UserModel>ROLE_HR}"/>
+								<Text text="{UserModel>ROLE_HR_ADMIN}"/>
+								<Text text="{UserModel>ROLE_PCO}"/>
+								<Button xmlns="sap.m" text="{i18n>MODIFICA}" press="handleModifica($event,${path: 'UserModel>ID'})"/>
+								<Button xmlns="sap.m" text="{i18n>DELETE}" press="handleDelete($event,${path: 'UserModel>ID'},${path: 'UserModel>MATRICOLA'})"/>
+							</ColumnListItem>
+							<!--<ColumnListItem>
+								<Text text="S0021207973"/>
+								<Text text=""/>
+								<Text text="X"/>
+								<Text text=""/>
+								<Text text=""/>
+								<Text text=""/>
+								<Text text="X"/>
+								<Text text=""/>
+								<Button xmlns="sap.m" text="{i18n>MODIFICA}" press="handleModifica"/>
+								<Button xmlns="sap.m" text="{i18n>DELETE}" press="handleModifica"/>
+							</ColumnListItem>
+							<ColumnListItem>
+								<Text text="P2001995750"/>
+								<Text text="X"/>
+								<Text text=""/>
+								<Text text=""/>
+								<Text text=""/>
+								<Text text=""/>
+								<Text text=""/>
+								<Text text="X"/>
+								<Button xmlns="sap.m" text="{i18n>MODIFICA}" press="handleModifica"/>
+								<Button xmlns="sap.m" text="{i18n>DELETE}" press="handleModifica"/>
+							</ColumnListItem>-->
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

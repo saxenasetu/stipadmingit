@@ -1,0 +1,456 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.ReportDetail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page id="detail" backgroundDesign="Solid" class="sapUiStdPage" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<!--<contentLeft>
+							<Text text="Left text"></Text>
+						</contentLeft>
+						<contentMiddle>
+							<SearchField placeholder="my search"></SearchField>
+						</contentMiddle>-->
+						<contentRight>
+							<Button text="{i18n>Tornaallalista}" type="Emphasized" press="onTornaallalista"></Button>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox id="vbx1" class="stipAdminVBox">
+						<ObjectHeader title="Payout liquidato per Dipendente" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Cognome}"/>
+								<Input width="20rem" id="inp1"/>
+								<Label text="{i18n>Nome}"/>
+								<Input width="20rem" id="inp2"/>
+								<Label text="{i18n>Id}"/>
+								<Select width="10rem" id="sel1" change="onFlagChange" forceSelection="false">
+									<core:Item key="key1" text="Id1"/>
+									<core:Item key="key2" text="Id2"/>
+								</Select>
+								<!--	<Label text="{i18n>BB}"/>
+								<Select width="10rem" id="sel2" change="onFlagChange" forceSelection="false">
+									<core:Item key="key1" text="SI"/>
+									<core:Item key="key2" text="NO"/>
+								</Select>
+								<Label text="Direzione"/>
+								<Select width="10rem" id="sel3" change="onFlagChange" forceSelection="false">
+									<core:Item key="key1" text="Value1"/>
+									<core:Item key="key2" text="Value2"/>
+								</Select>
+								<Label text="Dipartimento"/>
+								<HBox>
+									<Input width="20rem" id="empDipartimento"/>
+									<CheckBox id="chk1" text="Con Derivati" selected="true"/>
+									<Label class="stipAdminSpace"/>
+									<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" press="onPressView"/>
+								</HBox>-->
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx2">
+						<ObjectHeader title="Titolari di Scheda coperta parzialmente da Base STIP" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<HBox>
+									<RadioButton id="RB3-0" text="30/06"/>
+									<RadioButton id="RB3-1" text="30/09"/>
+									<RadioButton id="RB3-2" text="31/12"/>
+									<RadioButton id="RB3-3" text="31/03"/>
+								</HBox>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx18">
+						<ObjectHeader title="Titolari con Base STIP coperta parzialmente da Scheda" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<HBox>
+									<RadioButton id="RB4-0" text="30/06"/>
+									<RadioButton id="RB4-1" text="30/09"/>
+									<RadioButton id="RB4-2" text="31/12"/>
+									<RadioButton id="RB4-3" text="31/03"/>
+								</HBox>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx3" class="stipAdminVBox">
+						<ObjectHeader title="KPI con sub-KPI" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Trimestre}"/>
+								<Select width="15rem" id="sel4" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Semestre}"/>
+								<Select width="15rem" id="sel5" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Gruppo KPI}"/>
+								<Select width="15rem" id="sel6" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<CheckBox text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx4" class="stipAdminVBox">
+						<ObjectHeader title="Curve" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>NomeCurva}"/>
+								<Input width="20rem" id="inp4"/>
+								<Label text="{i18n>TipoCurva}"/>
+								<Select width="15rem" id="sel7" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Gruppo KPI}"/>
+								<Input width="20rem" id="inp3"/>
+								<Label text="Data assegnazione"/>
+								<Select width="15rem" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx5" class="stipAdminVBox">
+						<ObjectHeader title="Incroci Schede Master / KPI" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>GruppoScheda}"/>
+								<Select width="15rem" id="sel8" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+									<Label text="Nome Scheda"/>
+								<Select width="15rem" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx6" class="stipAdminVBox">
+						<ObjectHeader title="Piste / Titolari" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>MeseInizio}"/>
+								<DatePicker width="20rem" id="dp1" placeholder="Enter Date ..." change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Label text="{i18n>MeseFine}"/>
+								<DatePicker width="20rem" id="dp2" placeholder="Enter Date ..." change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Label text="{i18n>GruppoPista}"/>
+								<Select width="15rem" id="sel9" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Curva}"/>
+								<Select width="15rem" id="sel10" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>CognomeTitolare}"/>
+								<Input width="20rem" id="inp5"/>
+								<Label text="{i18n>IDPista}"/>
+								<Input width="20rem" id="inp6"/>
+								<Label text="{i18n>DescrizionePista}"/>
+								<Input width="20rem" id="inp7"/>
+								<CheckBox id="chk2" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx7" class="stipAdminVBox">
+						<ObjectHeader title="Dipendenti dotati di Scheda(personale e/o gestionalte)" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>PeriododiConsuntivazione}"/>
+								<Select width="15rem" id="sel11" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Cognome}"/>
+								<Select width="15rem" id="sel12" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>nome}"/>
+								<Select width="15rem" id="sel13" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<CheckBox id="chk3" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx8" class="stipAdminVBox">
+						<ObjectHeader title="Risultati per Schede Master" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>GruppoScheda}"/>
+								<Select width="15rem" id="sel14" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>IdSchedaMaster}"/>
+								<Input width="20rem" id="inp8"/>
+								<Label text="{i18n>IDPista}"/>
+								<Input width="20rem" id="inp9"/>
+								<Label text="{i18n>DescrPista}"/>
+								<Input width="20rem" id="inp10"/>
+								<Label text="{i18n>Curva}"/>
+								<Select width="15rem" id="sel15" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<CheckBox id="chk4" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx9" class="stipAdminVBox">
+						<ObjectHeader title="CONSUNTIVO per periodo di consuntivazione" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>PeriododiConsuntivazione}"/>
+								<Select width="15rem" id="sel16" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>GruppoScheda}"/>
+								<Select width="15rem" id="sel17" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Dimessi}"/>
+								<Select width="15rem" id="sel18" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Cognome}"/>
+								<Input width="20rem" id="inp11"/>
+								<Label text="{i18n>nome}"/>
+								<Input width="20rem" id="inp12"/>
+								<CheckBox id="chk5" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx10" class="stipAdminVBox">
+						<ObjectHeader title="CONSUNTIVO Totale FY" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Cognome}"/>
+								<Input width="20rem" id="inp13"/>
+								<Label text="{i18n>GruppoScheda}"/>
+								<Select width="15rem" id="sel19" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>AreaFunzionale}"/>
+								<Input width="20rem" id="inp14"/>
+								<Label text="{i18n>Comparto}"/>
+								<Input width="20rem" id="inp15"/>
+								<Label text="{i18n>Dimessi}"/>
+								<Input width="20rem" id="inp16"/>
+								<Label text="{i18n>Qualifica}"/>
+								<Select width="15rem" id="sel20" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>IDPista}"/>
+								<Input width="20rem" id="inp17"/>
+								<Label text="{i18n>DescrPista}"/>
+								<Input width="20rem" id="inp18"/>
+								<CheckBox id="chk6" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx11" class="stipAdminVBox">
+						<ObjectHeader title="CONSUNTIVO Generale" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>GruppoScheda}"/>
+								<Select width="15rem" id="sel21" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Dimessi}"/>
+								<Select width="15rem" id="sel22" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Cognome}"/>
+								<Input width="20rem" id="inp19"/>
+								<Label text="{i18n>nome}"/>
+								<Input width="20rem" id="inp20"/>
+								<CheckBox id="chk7" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx12" class="stipAdminVBox">
+						<ObjectHeader title="KPI non associati a Schede Master" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Trimestre}"/>
+								<Select width="15rem" id="sel23" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Semestre}"/>
+								<Select width="15rem" id="sel24" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>GruppoKPI}"/>
+								<Select width="15rem" id="sel25" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx13" class="stipAdminVBox">
+						<ObjectHeader title="{i18n>Pistesenzacurva}" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Trimestre}"/>
+								<Select width="15rem" id="sel26" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Semestre}"/>
+								<Select width="15rem" id="sel27" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>GruppoKPI}"/>
+								<Select width="15rem" id="sel28" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx14" class="stipAdminVBox">
+						<ObjectHeader title="{i18n>PisteReport}" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Trimestre}"/>
+								<Select width="15rem" id="sel29" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Semestre}"/>
+								<Select width="15rem" id="sel30" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>GruppoKPI}"/>
+								<Select width="15rem" id="sel31" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx15" class="stipAdminVBox">
+						<ObjectHeader title="{i18n>PisteReport2}" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Trimestre}"/>
+								<Select width="15rem" id="sel32" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>Semestre}"/>
+								<Select width="15rem" id="sel33" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<Label text="{i18n>GruppoKPI}"/>
+								<Select width="15rem" id="sel34" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx16" class="stipAdminVBox">
+						<ObjectHeader title="{i18n>SchedeReport}" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>Grupposcheda}"/>
+								<Select width="15rem" id="sel35" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<VBox id="vbx17" class="stipAdminVBox">
+						<ObjectHeader title="{i18n>Pisteconsottopiste}" number=""></ObjectHeader>
+						<f:SimpleForm minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0" emptySpanM="0"
+							columnsL="0" columnsM="0">
+							<f:content>
+								<Label text="{i18n>MeseInizio}"/>
+								<DatePicker width="20rem" id="dp3" placeholder="Enter Date ..." change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Label text="{i18n>MeseFine}"/>
+								<DatePicker width="20rem" id="dp4" placeholder="Enter Date ..." change="handleChange" class="sapUiSmallMarginBottom"/>
+								<Label text="{i18n>GruppoPista}"/>
+								<Select width="15rem" id="sel36" change="onFlagChange" forceSelection="false">
+									<core:Item text="Value1"/>
+									<core:Item text="Value2"/>
+								</Select>
+								<CheckBox id="chk8" text="{i18n>Simulato}" selected="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+					<HBox id="idhbox" justifyContent="End">
+						<Button text="{i18n>Resetta}" type="Emphasized" press="onClear"></Button>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+					</HBox>
+				</content>
+				<footer>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<Button id="idBtnPrev" icon="sap-icon://detail-view" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onPressView"/>
+							<Button id="idBtnNext" icon="sap-icon://download" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onPressExport"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="FilterDialogAnagrafica" confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Nome}" key="FULLNAME" items="{oANAGRAFICAModel>/fullname}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>}" key="FULLNAME"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Ruolo1}" key="RUOLO_PROF" multiSelect="true" items="{oANAGRAFICAModel>/ruolo}">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>}" key="RUOLO_PROF"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Qualifica}" key="QUALIFICA" multiSelect="true" items="{oANAGRAFICAModel>/qualifica}">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>}" key="QUALIFICA"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Grade1}" key="BAND" multiSelect="true" items="{oANAGRAFICAModel>/grade}">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>}" key="BAND"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<!--			<ViewSettingsFilterItem text="{i18n>RespHR}" key="HR_MANAGER" multiSelect="true" items="{oANAGRAFICAModel>/}">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>HR_MANAGER}" key="HR_MANAGER"/>
+				</items>
+			</ViewSettingsFilterItem>-->
+			<ViewSettingsFilterItem text="{i18n>RespDiretto}" key="MATRICOLAMANAGER" multiSelect="true" items="{oANAGRAFICAModel>/matricolaManagager}">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>}" key="MATRICOLAMANAGER"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>cambi}" key="cambi" multiSelect="true" items="{oANAGRAFICAModel>/CAMBI}">
+				<items>
+					<ViewSettingsItem text="{oANAGRAFICAModel>}" key="cambi"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,239 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.Gate">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page title="{i18n>Moltiplicatore}" titleAlignment="Center">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button xmlns="sap.m" text="Home Page" type="Emphasized" id="button11" press="onHome"/>
+								<!--<Button xmlns="sap.m" text="Home Page" type="Emphasized" press="onHome"/>-->
+							</contentLeft>
+							<contentMiddle>
+								<Title text="{i18n>Moltiplicatore}"/>
+							</contentMiddle>
+							<contentRight>
+								<Text id = "fiscalYear"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<l:VerticalLayout width="100%">
+							<fb:FilterBar id="filterbar" considerGroupTitle="false" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true"
+								showClearOnFB="true" clear="clear">
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="{i18n>IDMoltiplicatore}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="idGate" type="Text" placeholder="" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleEmpValueHelp"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="{i18n>Desc}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="desc"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="{i18n>Curva}" partOfCurrentVariant="true" visibleInFilterBar="true" >
+										<fb:control>
+											<ComboBox id="curvaSearch" items="{path : 'filtermodel>/Filter/0/CURVE'}">
+												<items>
+													<core:Item key="{filtermodel>ID_CURVA}" text="{filtermodel>DESCR_CURVA}"/>
+												</items>
+											</ComboBox>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="{i18n>Scheda_KPI}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<!--<Select id="pistaSearch" items="{path : 'MoltiplicatoreResultTableModel>/Filter/0/PISTE'}">
+												<items>
+													<core:Item key="{MoltiplicatoreResultTableModel>pisteid}" text="{MoltiplicatoreResultTableModel>desc}"/>
+												</items>
+											</Select>-->
+											<Input id = "pistaSearch"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<!--									<fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="Mese inizio validità" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<DatePicker xmlns="sap.m" id="picker0"/>
+										</fb:control>
+									</fb:FilterGroupItem>-->
+									<!--									<fb:FilterGroupItem groupName="__$INTERNAL$" name="F" label="Mese fine validità" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<DatePicker xmlns="sap.m" id="picker1"/>
+										</fb:control>
+									</fb:FilterGroupItem>-->
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="G" label="{i18n>MoltiGruppoKPI}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<ComboBox id="GruppoPistaSearch" items="{path : 'filtermodel>/Filter/0/GRUPPI'}">
+												<items>
+													<core:Item key="{filtermodel>id}" text="{filtermodel>desc}"/>
+												</items>
+											</ComboBox>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="H" label="Pers." partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+										<ComboBox id="Pers" width = "80px" items="{persModel>/}">
+										
+												<items>
+												<core:Item key="{persModel>PERSKey}" text="{persModel>PERSText}" />
+												<!--	<core:Item key="" text="" />
+													<core:Item key="S" text="Si" />
+													<core:Item key="N" text="No" />-->
+												</items>
+											</ComboBox>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="I" label="{i18n>PCO}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select id = "PCO" width = "80px">
+												<items>
+													<core:Item key="" text=""/>
+													<core:Item key="S" text="Si"/>
+													<core:Item key="N" text="No"/>
+												</items>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>-->
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="L" label="{i18n>Assegnatario}" partOfCurrentVariant="true"
+										visibleInFilterBar="true">
+										<fb:control>
+											<Input id="Assegnatario"/>
+											<!--<Input id="Assegnatario" type="Text" placeholder="" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleEmpValueHelp1"/>-->
+										</fb:control>
+									</fb:FilterGroupItem>
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="E" label="{i18n>Sede}" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+									<!--	<fb:control>-->
+									<!--		<Select change="onFlagChange" forceSelection="false">-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--		</Select>-->
+									<!--	</fb:control>-->
+									<!--</fb:FilterGroupItem>-->
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="F" label="{i18n>Direzione}" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+									<!--	<fb:control>-->
+									<!--		<Select change="onFlagChange" forceSelection="false">-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--		</Select>-->
+									<!--	</fb:control>-->
+									<!--</fb:FilterGroupItem>-->
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="G" label="{i18n>UnitaOrganizzativa}" partOfCurrentVariant="true"-->
+									<!--	visibleInFilterBar="true">-->
+									<!--	<fb:control>-->
+									<!--		<Input id="orgInput" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleOrgValueHelp"/>-->
+									<!--	</fb:control>-->
+									<!--</fb:FilterGroupItem>-->
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="B4" label="{i18n>CentroDiCosto}" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+									<!--	<fb:control>-->
+									<!--		<Input id="centroInput" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleCentroValueHelp"/>-->
+									<!--	</fb:control>-->
+									<!--</fb:FilterGroupItem>-->
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="B5" label="{i18n>TipoPersona}" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+									<!--	<fb:control>-->
+									<!--		<Select change="onFlagChange" forceSelection="false">-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--		</Select>-->
+									<!--	</fb:control>-->
+									<!--</fb:FilterGroupItem>-->
+									<!--<fb:FilterGroupItem groupName="__$INTERNAL$" name="B6" label="{i18n>StatoPersona}" partOfCurrentVariant="true" visibleInFilterBar="true">-->
+									<!--	<fb:control>-->
+									<!--		<Select change="onFlagChange" forceSelection="false">-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--			<core:Item text="Attivo1"/>-->
+									<!--		</Select>-->
+									<!--	</fb:control>-->
+									<!--</fb:FilterGroupItem>-->
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+							<l:content>
+								<HBox>
+									<Button xmlns="sap.m" text="{i18n>CreaMoltiplicatore}" id = "button1" press="handleAggiungi"/>
+									<Text width="850px"/>
+									<!--<Button xmlns="sap.m" text="{i18n>DownloadRisultati}" id = "button2" press="downloadCondition"/>-->
+									<Button xmlns="sap.m" text="{i18n>DownloadRisultatiMolti}" id = "button2" press="onDataExport2"/>
+									<Text width="20px"/>
+									<Button xmlns="sap.m" text="{i18n>UploadRisultati}" press="handleUpload"/>
+								</HBox>
+							</l:content>
+						</l:VerticalLayout>
+							<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+						<Table id="tbl" class="stipAdmin" items="{path : 'MoltiplicatoreResultTableModel>/Main'}" 
+						growing="true"  growingTriggerText = "{i18n>VediAltro}" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+							<headerToolbar>
+								<Toolbar>
+									<Title id = "title"/>
+									<ToolbarSpacer/>
+									<SearchField id="idSearchBox" width="15rem" search="onTableSearch"/>
+									<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+									<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+									<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
+									<Button icon="sap-icon://download" press="onDataExport"/>
+								</Toolbar>
+							</headerToolbar>
+								<infoToolbar>
+									<OverflowToolbar id="vsdFilterBar" visible="false">
+										<Text id="vsdFilterLabel"/>
+									</OverflowToolbar>
+								</infoToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="8rem">
+									<Label design="Bold" text="{i18n>IdMoltiplicatore}" wrapping="true"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Desc}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Curva}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Personalizzabile}"/>
+								</Column>
+								<!--<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>PCO}"/>
+								</Column>-->
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Assegnatario}" wrapping="true"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Risultato}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>RisultatoSimulato}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Modifica}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Active" press="onPress">
+									<cells>
+										<Link text="{MoltiplicatoreResultTableModel>ID_GATE}" press="onDisplayMoltiPlicatore"/>
+										<Text text="{MoltiplicatoreResultTableModel>DESCR_GATE}"/>
+										<Link text="{MoltiplicatoreResultTableModel>DESCR_CURVA}" press="displayCurveFn" wrapping="true"/>
+										<Text text="{path: 'MoltiplicatoreResultTableModel>SN_PERSONALIZZABILE', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatPersonalizzabile'}"/>
+										<!--<Text text="{MoltiplicatoreResultTableModel>SN_PERSONALIZZABILE}"/>-->
+									<!--	<Text text="{MoltiplicatoreResultTableModel>SN_VISIBILEPCO}"/>-->
+										<Text text="{MoltiplicatoreResultTableModel>ASSEGNATARIO}"/>
+										<Text text="{MoltiplicatoreResultTableModel>RISULTATO_GRADINO}"/>
+										<Text text="{MoltiplicatoreResultTableModel>RISULTATO_GRADINO_SIM}"/>
+										<Button xmlns="sap.m" text="Modifica" id="button5" press="handleVisualizza"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns/>
+							<items/>
+						</Table>
+						</ScrollContainer>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

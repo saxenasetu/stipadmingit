@@ -1,0 +1,122 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout"
+	controllerName="stipAdmin.stipAdmin.controller.Gruppi" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page>
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button xmlns="sap.m" text="Home Page" type="Emphasized" id="button11" press="onHome"/>
+								<!--<Button xmlns="sap.m" text="Home Page" type="Emphasized" press="onHome"/>-->
+							</contentLeft>
+							<contentMiddle>
+								<Title text="{i18n>Gruppi}"/>
+							</contentMiddle>
+							<contentRight>
+								<Text id="year"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<l:VerticalLayout width="100%">
+							<fb:FilterBar id="filterbar" considerGroupTitle="false" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true"
+								showClearOnFB="true" clear="clear">
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="D" label="{i18n>TipoGruppi}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<ComboBox id="tipo_gruppi">
+												<core:Item key="Gruppo KPI" text="Gruppo KPI"/>
+												<core:Item key="Gruppo Scheda" text="Gruppo Scheda"/>
+											</ComboBox>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="{i18n>Id}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="id" type="Text" placeholder=""/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="{i18n>Desc}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="desc"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="{i18n>TemplateLettere}" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<ComboBox id="template" items="{ path: 'gruppiResultTableModel>/template_lettersFinal'}">
+												<core:Item key="" text=""/>
+												<core:Item key="{gruppiResultTableModel>desc}" text="{gruppiResultTableModel>desc}"/>
+											</ComboBox>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+						</l:VerticalLayout>
+						<HBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button xmlns="sap.m" text="{i18n>CreaGruppiKPI}" id="button1" press="handleAggiungi"/>
+							<Label class="stipAdminSpace"/>
+							<Button xmlns="sap.m" text="{i18n>CreaGruppiScheda}" id="button2" press="handleAggiungischeda"/>
+						</HBox>
+						<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+						<Table id="tbl" class="stipAdmin" items="{gruppiResultTableModel>/}" growing="true" growingThreshold="20" 
+						updateFinished="onUpdateFinished"  growingTriggerText = "{i18n>VediAltro}" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+							<headerToolbar>
+								<Toolbar>
+									<Title id = "title"/>
+									<ToolbarSpacer/>
+									<SearchField id="idSearchBox" width="15rem" search="onTableSearch"/>
+									<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+									<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+									<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
+									<Button icon="sap-icon://download" press="onDataExport"/>
+								</Toolbar>
+							</headerToolbar>
+							<infoToolbar>
+								<OverflowToolbar id="vsdFilterBar" visible="false">
+									<Text id="vsdFilterLabel"/>
+								</OverflowToolbar>
+							</infoToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="10rem">
+									<Label design="Bold" text="{i18n>TipoGruppi}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true" width="5rem">
+									<Label design="Bold" text="{i18n>Id}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>Desc}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="{i18n>TemplateLettere}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label text=""/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{gruppiResultTableModel>TIPO_GRUPPO}"/>
+										<Link text="{gruppiResultTableModel>ID}" press="displayGruppi"/>
+										<Text text="{gruppiResultTableModel>DESC}"/>
+										<Text text="{gruppiResultTableModel>TEMPLATE_LETTERE}"/>
+										<!--<Text text="{parts: [{path: 'gruppiResultTableModel>TEMPLATE_LETTERE'},{path: 'gruppiResultTableModel>TIPO_GRUPPO'}], formatter:'stipAdmin.stipAdmin.util.Formatter.formatTableCell'}" class="grayBackground"></Text>    -->
+										<Button xmlns="sap.m" text="{i18n>Modifica}" id="button5" press="handleModifica"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+						</ScrollContainer>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

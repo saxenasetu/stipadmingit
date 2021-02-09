@@ -1,0 +1,49 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form" controllerName="stipAdmin.stipAdmin.controller.modPeriodi">
+	<App>
+		<pages>
+			<Page title="{i18n>MODIFICA_PERIODI}">
+				<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button xmlns="sap.m" text="{i18n>HomePage}" type="Emphasized" id="button11" press="onHome"/>
+								<!--<Button xmlns="sap.m" text="Home Page" type="Emphasized" press="onHome"/>-->
+							</contentLeft>
+							<contentMiddle>
+								<Title text = "{i18n>MODIFICA_PERIODI}"/>
+							</contentMiddle>
+						</Bar>
+					</customHeader>
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+							labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+							singleContainerFullSize="false">
+							<f:content>
+								<Label design="Bold" text="{i18n>Id}"/>
+								<Input id="periodiId" class="grayBackground" value="{modifyPeriodiModel>/ID_PERIODO}" editable="false"/>
+								<Label design="Bold" text="{i18n>Desc}"/>
+								<Input  id="periodiDesc" value="{modifyPeriodiModel>/DESCR_PERIODO}" />
+								<Label design="Bold" text="{i18n>DAL}"/>
+								<!--<DatePicker xmlns="sap.m" id="periodiStartDate"  value="{path: 'modifyPeriodiModel>/VALE_DAL'}"  valueFormat="dd-MM-yyyy"/>-->
+								<DatePicker xmlns="sap.m" id="periodiStartDate" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" value="{modifyPeriodiModel>/VALE_DAL}"/>
+								<!--	<DatePicker xmlns="sap.m" id="periodiStartDate" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"/> -->
+								<Label design="Bold" text="{i18n>AI}"/>
+								<!--<DatePicker xmlns="sap.m" id="periodiEndDate"  value="{path: 'modifyPeriodiModel>/VALE_AL'}"  valueFormat="dd-MM-yyyy"/>-->
+								<DatePicker xmlns="sap.m" id="periodiEndDate" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" value="{modifyPeriodiModel>/VALE_AL}"/>
+								<Label design="Bold" text="{i18n>Note_Periodi}"/>
+								<TextArea xmlns="sap.m" class = "redBorderColorInput" id="periodiNote" value="{modifyPeriodiModel>/NOTA_SCHEDA}" width="100%" rows="4"/>
+								<Label text=""/>
+								<TextArea id="modErrorMsg" rows="4" class="redBackground"  editable="false"/>
+								<Label design="Bold" text=""/>
+								<Button xmlns="sap.m" text="{i18n>SAVE}" id="button1" press="modifyPeriodiDisplay" />
+								<Button xmlns="sap.m" text="{i18n>CANCEL}" id="button3" press="cancelPeriodiDisplay"/>
+								<Button xmlns="sap.m" text="{i18n>DELETE}" id="deletePeriodiButton"  press="deletePeriodi" />
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

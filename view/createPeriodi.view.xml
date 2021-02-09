@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form" controllerName="stipAdmin.stipAdmin.controller.createPeriodi">
+	<App>
+		<pages>
+			<Page title="{i18n>Crea_Periodi}">
+				<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button xmlns="sap.m" text="{i18n>HomePage}" type="Emphasized" id="button11" press="onHome"/>
+								<!--<Button xmlns="sap.m" text="Home Page" type="Emphasized" press="onHome"/>-->
+							</contentLeft>
+							<contentMiddle>
+								<Title text = "{i18n>Crea_Periodi}"/>
+							</contentMiddle>
+						</Bar>
+					</customHeader>
+				<content>
+					<VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+							labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+							singleContainerFullSize="false">
+							<f:content>
+								<Label text="{i18n>Id}"/>
+								<Input id="periodiId" value="{createPeriodiModel>/ID_PERIODO}" class="grayBackground"  editable="false"  />
+								<Label text="{i18n>Desc}"/>
+								<Input  id="periodiDesc"/>
+								<Label text="{i18n>DAL}"/>
+								<DatePicker xmlns="sap.m" id="periodiStartDate" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"/>
+								<Label text="{i18n>AI}"/>
+								<DatePicker xmlns="sap.m" id="periodiEndDate" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"/>
+								<Label text="{i18n>Note_Periodi}"/>
+								<TextArea xmlns="sap.m"  class = "redBorderColorInput" id="periodiNote" width="100%" rows="4"/>
+								<Label text=""/>
+								<Button xmlns="sap.m" text="{i18n>SAVE}" id="button1" press="createPeriodiRecord"/>
+								<Button xmlns="sap.m" text="{i18n>CANCEL}" id="button3" press="cancelPeriodiDisplay"/>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

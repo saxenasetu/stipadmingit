@@ -1,0 +1,74 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="stipAdmin.stipAdmin.controller.User_new_change"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Nuova User">
+					<customHeader>
+					<Bar>
+						
+						<contentMiddle>
+							<Text id = "heading"></Text>
+						</contentMiddle>
+						<contentRight>
+							<Text id="idtxtfiscalyear"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Label class="stipAdminSpace"/>
+					<VBox alignItems="Center">
+						<Label text="ID"/>
+						<Input id="id"/>
+						
+						<Label class="stipAdminSpace"/>
+						<HBox>
+							<VBox>
+								<Label text="Role Emp."/>
+								<CheckBox id="emp"/>
+							</VBox>
+							<Label class="stip2Space"/>
+							<VBox>
+								<Label text="Role Reporting"/>
+								<CheckBox id="dep"/>
+							</VBox>
+							<Label class="stip2Space"/>
+							<VBox>
+								<Label text="Role Manager"/>
+								<CheckBox id="mgr"/>
+							</VBox>
+							<Label class="stip2Space"/>
+							<VBox>
+								<Label text="Role Manager Sys"/>
+								<CheckBox id="hrbp"/>
+							</VBox>
+						</HBox>
+						<HBox>
+							<Label class="stip2Space"/>
+							<VBox>
+								<Label text="Role HR"/>
+								<CheckBox id="hr"/>
+							</VBox>
+							<Label class="stip2Space"/>
+							<VBox>
+								<Label text="Role PCO"/>
+								<CheckBox id="pco"/>
+							</VBox>
+							<Label class="stip2Space"/>
+							<VBox>
+								<Label text="Role HR Admin"/>
+								<CheckBox id="hradm"/>
+							</VBox>
+						</HBox>
+						<HBox>
+							<Label class="stipAdminSpace"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="Salva" width="200px" id ="save"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="Annulla" width="200px" press = "back"/>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

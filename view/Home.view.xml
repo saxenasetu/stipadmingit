@@ -1,0 +1,138 @@
+<mvc:View controllerName="stipAdmin.stipAdmin.controller.Home" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page titleAlignment="Center">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button icon="sap-icon://nav-back" press="onHome"/>
+								<!--<Button text="{i18n>HomePage}" type="Emphasized" press="onHome"></Button>-->
+							</contentLeft>
+							<contentMiddle>
+								<Text text="{i18n>HomePage}" class="title"></Text>
+							</contentMiddle>
+						</Bar>
+					</customHeader>
+			<!--<Page title="{i18n>HomePage}" titleAlignment="Center">-->
+				<content>
+					<l:Grid class="OmnibaseHomeGrid" hSpacing="0" position="Center" defaultSpan="L6 M6 S5">
+						<l:content>
+							<HBox >
+								<l:HorizontalLayout class="sapUiContentPadding">
+									<Label text="{i18n>FiscalYear}"/>
+									<Select class="OmnibaseHomeinputwidth" id="fiscalYear"   items="{path: 'PeriodiModel>/',sorter: {path: 'ID_PERIODO',descending: true}}">
+										<core:Item key="{PeriodiModel>ID_PERIODO}" text="{PeriodiModel>DESCR_PERIODO}"/>
+									</Select>
+								</l:HorizontalLayout>
+								<layoutData>
+									<l:GridData indent="L4 M2 S1"/>
+								</layoutData>
+							</HBox>
+							<HBox>
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressPiste">
+									<TileContent>
+										<Label text="{i18n>PisteHome}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="SchedaMasterTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressMaster">
+									<TileContent>
+									<Label text="{i18n>SchedaMaster}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="moltiplocatoreTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressGate">
+									<TileContent>
+										<Label text="{i18n>Moltiplicatore}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="schedePersonaliTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressSchedaPersonale">
+									<TileContent>
+										<Label text="{i18n>SchedePersonali}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="gestioneLettereTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressTemplateLettrre">
+									<TileContent>
+										<Label text="{i18n>HomeTemplateLettere}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="anagraficaPayoutTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressAnagraficaPayout">
+									<TileContent>
+										<Label text="{i18n>AnagraficaPayout}" wrapping="true"/>
+									</TileContent>
+								</GenericTile>
+								<layoutData>
+									<l:GridData indent="L1 M1 S1"/>
+								</layoutData>
+							</HBox>
+							<HBox>
+								<GenericTile id="bloccaCongelaTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressBloccaCongela">
+									<TileContent>
+										<Label text="{i18n>BloccaCongela}" wrapping="true"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="curveTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressCurve">
+									<TileContent>
+										<Label text="{i18n>Curve}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="gruppiTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressGruppi">
+									<TileContent>
+										<Label text="{i18n>HomeGruppi}" wrapping="true"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="periodiTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressPeriodi">
+									<TileContent >
+										<Label text="{i18n>Periodi}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressReport">
+									<TileContent>
+										<Label text="{i18n>Reportistica}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="gestioneListeTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressGestioneListediesclusione">
+									<TileContent>
+										<Label wrapping="true" text="{i18n>GestioneListediesclusione}"/>
+									</TileContent>
+								</GenericTile>
+								<layoutData>
+									<l:GridData indent="L1 M1 S1"/>
+								</layoutData>
+							</HBox>
+							<HBox>
+								<GenericTile id="elaboraConsuntivazioneTile"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressEffettuaConsuntivazioneReale">
+									<TileContent>
+										<Label wrapping="true" text="{i18n>EffettuaConsuntivazioneReale}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="elaboraConsuntivazioneSimTile"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressEffettuaConsuntivazioneSim">
+									<TileContent>
+										<Label wrapping="true" text="{i18n>EffettuaConsuntivazioneSim}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="UserTile"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressUser">
+									<TileContent>
+										<Label wrapping="true" text="{i18n>AbilitazioneUtenze}"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile id="GestConsTile"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressGestCons">
+									<TileContent>
+										<Label wrapping="true" text="{i18n>GestCons}"/>
+									</TileContent>
+								</GenericTile>	
+								<GenericTile id="tracciatureModificheTile"  class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="pressTraccMod">
+									<TileContent>
+										<Label wrapping="true" text="{i18n>TracciatureModifiche}"/>
+									</TileContent>
+								</GenericTile>	
+								<layoutData>
+									<l:GridData indent="L1 M1 S1"/>
+								</layoutData>
+							</HBox>
+						</l:content>
+					</l:Grid>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

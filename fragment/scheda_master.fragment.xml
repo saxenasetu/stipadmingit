@@ -1,0 +1,270 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog id="dialog" title="Inserimento Nuova Scheda" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true"
+		horizontalScrolling="true" verticalScrolling="true" draggable="true" contentHeight="600px" contentWidth="1200px">
+		<HBox fitContainer="true" alignItems="Stretch">
+			<VBox id="scheda" width="60%">
+				<Table id="matricoletab">
+					<columns>
+						<Column width="20%">
+							<Label text="Id"/>
+						</Column>
+						<Column width="30%">
+							<Label text="Matricola"/>
+						</Column>
+						<Column id="bbcol" width="10%">
+							<Label text="Banda"/>
+						</Column>
+						<Column width="40%">
+							<Label text=""/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Input value="{SchedaPersonaleModel>/0/Filter/17/ID_SCHEDAPERSONALE}" editable="false"/>
+						<Input value="{SchedaPersonaleModel>/3/New/0/MATRICOLA}" editable="false"/>
+						<Input value="{SchedaPersonaleModel>/3/New/0/BAND}" editable="false"/>
+						<Input value="{SchedaPersonaleModel>/3/New/0/COGNOME} {SchedaPersonaleModel>/3/New/0/NOME}" editable="false"/>
+					</ColumnListItem>
+				</Table>
+				<Table id="schedatab">
+					<columns>
+						<Column width="80%">
+							<Label text="Scheda Master"/>
+						</Column>
+						<Column width="20%">
+							<Label text=""/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Input id="schedainfo" editable= "false"/>
+						<Button text="Apri" id="b1" press=".schedaFilterFragment($event,1)"/>
+						<!--<Button text="Apri" press="schedaFilterFragment"/>-->
+					</ColumnListItem>
+				</Table>
+				<Table id="tptab">
+					<columns>
+						<Column>
+							<Label id="tp" text="Tetto Payout"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Input id="tpi" editable="false"/>
+					</ColumnListItem>
+				</Table>
+				<Table id="ruoloTable">
+					<columns>
+						<Column width="80%">
+							<Label text="Ruolo"/>
+						</Column>
+						<Column width="20%">
+							<Label text=""/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Input id="roless" value = "{SchedaPersonaleModel>/3/New/0/RUOLO_PROF}"/>
+						<Button text="Apri" press=".schedaFilterFragment($event,2)"/>
+						<!--<Button text="Apri" press="schedaFilterFragment"/>-->
+					</ColumnListItem>
+				</Table>
+				<Table id="gestNote">
+					<columns>
+						<Column>
+							<Label text="Note Scheda Gestionale"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<TextArea id="gestTxt" width="100%" cols="5" rows="5"/>
+					</ColumnListItem>
+				</Table>
+				<Table id="dirtab">
+					<columns>
+						<Column width="80%">
+							<Label text="Resp. Diretto"/>
+						</Column>
+						<Column width="20%">
+							<Label text=""/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Select id="managerId" items="{SchedaPersonaleModel>/2/Fragment/2/Manager}">
+							<core:Item key="{SchedaPersonaleModel>MATRICOLA_MGR}" text="{SchedaPersonaleModel>COGNOME_MGR} {SchedaPersonaleModel>NOME_MGR}"/>
+						</Select>
+						<Button text="Apri" press="openDiretto"/>
+					</ColumnListItem>
+				</Table>
+				<!--<Table id = "hrtab">
+					<columns>
+						<Column width="80%">
+							<Label text="Resp. HR"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Select id="rh" items="{SchedaPersonaleModel>/2/Fragment/3/HR}">
+							<core:Item key="{SchedaPersonaleModel>MATRICOLA_HR}" text="{SchedaPersonaleModel>NOME_HR} {SchedaPersonaleModel>COGNOME_HR}"/>
+						</Select>
+					</ColumnListItem>
+				</Table>-->
+				<Table id="DateTab">
+					<columns>
+						<Column>
+							<Text text="Mese Inizio"/>
+						</Column>
+						<Column>
+							<Text text="Mese Fine"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Select id="MeIn" items="{SchedaPersonaleModel>/2/Fragment/4/Month}">
+							<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>month}"/>
+						</Select>
+						<Select id="MeFin" items="{SchedaPersonaleModel>/2/Fragment/4/Month}">
+							<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>month}"/>
+						</Select>
+					</ColumnListItem>
+				</Table>
+			</VBox>
+			<!--</HBox>
+	
+		<HBox>-->
+			<VBox id="ltr" width="40%">
+				<Table id="Consun" headerText="{i18n>AssegnaLettereDiConsuntivazione}" items="{SchedaPersonaleModel>/3/New}">
+					<columns>
+						<Column>
+							<Label text="Si sta assegando la lettere di Consuntivazione ai seguinti Dipendenti"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Text text="{SchedaPersonaleModel>COGNOME} {SchedaPersonaleModel>NOME}"/>
+					</ColumnListItem>
+				</Table>
+				<Table headerText="Flusso Del Package" class="redBackgroundSchedaPersoanle">
+					<columns>
+						<Column></Column>
+					</columns>
+					<ColumnListItem>
+						<RadioButtonGroup id="delPckg" selectedIndex="0">
+							<RadioButton text="Standard"/>
+							<RadioButton text="Cartaceo"/>
+						</RadioButtonGroup>
+					</ColumnListItem>
+				</Table>
+				<CheckBox id="edit" select="editing" text="Lettera de Assegnazione" class="textBold" selected="true"/>
+				<Table id="auto">
+					<columns>
+						<Column width="60%">
+							<Label text="Il templatte automatico verra automaticante assegnato al salvataggio" wrapping="true"/>
+						</Column>
+						<Column width="30%">
+							<Label text=""/>
+						</Column>
+						<Column width="10%">
+							<Label text=""/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Text text="Template Automatico"/>
+						<Input id = "autoLtrFix" editable="false" />
+						<!--<Select forceSelection="false" id="template_auto" items="{SchedaPersonaleModel>/2/Fragment/6/Lettere_Automatica}">
+							<core:Item key="{SchedaPersonaleModel>id}" text="{SchedaPersonaleModel>desc}"/>
+						</Select>-->
+						<Button icon="sap-icon://inspection" id = "letterChangeFrag2" press = "letterChangeFrag2"/>
+					</ColumnListItem>
+				</Table>
+				<Table id="man">
+					<columns>
+						<Column width="60%">
+							<Text
+								text="Avete la possibilita nella combo sottostante di selezionare il template manuale eventualmente da associare per le gestione particolari"
+								wrapping="true"/>
+						</Column>
+						<Column width="30%"></Column>
+						<Column width="10%">
+							<Text text=""/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Text text="Template Manuale"/>
+						<!--	<Select id="template_man" items="{SchedaPersonaleModel>/0/Filter/7/LETTER_MANUALE}">
+							<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>key}"/>
+						</Select>-->
+						<Select forceSelection="false" id="template_man" items="{SchedaPersonaleModel>/0/Filter/16/LETTERE_MANUALE}">
+							<core:Item key="{SchedaPersonaleModel>id}" text="{SchedaPersonaleModel>desc}"/>
+						</Select>
+						<Button icon="sap-icon://inspection" id = "letterChangeFrag1" press = "letterChangeFrag1"/>
+					</ColumnListItem>
+				</Table>
+				<Table id="Consun2" headerText="Data Consuntivazione" items="{SchedaPersonaleModel>/3/New}">
+					<columns>
+						<Column>
+							<Label text="E' necessario selezionare una consuntivazione da associare alla lettere"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Select forceSelection="false" items="{SchedaPersonaleModel>/0/Filter/12/LETTERE_MANUALE_CONS}">
+							<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>letter}"/>
+						</Select>
+					</ColumnListItem>
+				</Table>
+			</VBox>
+		</HBox>
+		<VBox id="Inattivo">
+			<Table headerText="{i18n>AssegnaStatoInattivo}" items="{SchedaPersonaleModel>/3/New}">
+				<columns>
+					<Column>
+						<Label text="Si sta assegando lo stato inattivo ai seguinti utenti"/>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<Text text="{SchedaPersonaleModel>COGNOME} {SchedaPersonaleModel>NOME}"/>
+					<!--<Text text = "{SchedaPersonaleModel>MATRICOLA}"/>-->
+				</ColumnListItem>
+			</Table>
+			<Table>
+				<columns>
+					<Column>
+						<Label text="Commento"/>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<TextArea id="note_inattivo" width="100%" cols="5" rows="5"/>
+				</ColumnListItem>
+			</Table>
+			<Table>
+				<columns>
+					<Column>
+						<Text text="Mese Inizio"/>
+					</Column>
+					<Column>
+						<Text text="Mese Fine"/>
+					</Column>
+				</columns>
+				<ColumnListItem>
+					<Select id="MeIn1" items="{SchedaPersonaleModel>/2/Fragment/4/Month}">
+						<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>month}"/>
+					</Select>
+					<Select id="MeFin1" items="{SchedaPersonaleModel>/2/Fragment/4/Month}">
+						<core:Item key="{SchedaPersonaleModel>key}" text="{SchedaPersonaleModel>month}"/>
+					</Select>
+				</ColumnListItem>
+			</Table>
+		</VBox>
+		<buttons width="auto" class="sapUiNoMarginBegin sapUiNoMarginEnd">
+			<Button text="Elimina" id="btn1" type="Emphasized" visible="false" press="delScheda"/>
+			<Button text="ok, Procedi" id="btn" type="Emphasized"/>
+			<Button text="Annulla" type="Emphasized" press="onCloseDialog"/>
+		</buttons>
+		<!--<OverflowToolbar>
+				<Text id="err" text="" wrapping="true"/>
+			<OverflowToolbarButton text="Elimina" id="btn1" type="Emphasized"/>
+		</OverflowToolbar>-->
+		<!--	<Button text="Elimina" id="btn1" type="Emphasized" visible="false" press="delScheda"/>
+		<beginButton>
+			<Button text="Ok Proceedi" id="btn" type="Emphasized"/>
+		</beginButton>
+		<endButton>
+			<Button text="Annulla" type="Emphasized" press="onCloseDialog"/>
+		</endButton>-->
+		<Toolbar>
+			<Text id="err" text="" class="redFontLable" wrapping="true"/>
+		</Toolbar>
+	</Dialog>
+</core:FragmentDefinition>

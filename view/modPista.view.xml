@@ -1,0 +1,324 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="stipAdmin.stipAdmin.controller.modPista">
+	<App>
+		<pages>
+			<Page title="{i18n>Modificapista}" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+							
+						</contentLeft>
+						<contentMiddle>
+							<Text text="{i18n>Modificapista}"></Text>
+						</contentMiddle>
+						<contentRight>
+							<Text id="idtxtfiscalyear"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Label text="Descrizione"/>
+					<Input id="desc" maxLength="150" width="100%" liveChange="fillDesc"/>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="Mese inizio" id="label2"/>
+							</Column>
+							<Column>
+								<Label text="Mese fine" id="label4"/>
+							</Column>
+							<Column>
+								<Label text="Gruppo Pista"/>
+							</Column>
+							<Column>
+								<Label text="Pers"/>
+							</Column>
+							<!--<Column>
+								<Label text="Min/Max"/>
+							</Column>-->
+						</columns>
+						<ColumnListItem>
+							<Select id="MI" items="{Months>/}">
+								<core:Item key="{Months>key}" text="{Months>month}"/>
+							</Select>
+							<Select id="MI1" items="{Months1>/}">
+								<core:Item key="{Months1>key}" text="{Months1>month}"/>
+							</Select>
+							<Select id="MI3" xmlns="sap.m" items="{path : 'GruppiModel>/',sorter: {path: 'DESCR_GRUPPOPISTA', descending: false}}">
+								<items>
+									<core:Item key="{GruppiModel>ID_GRUPPOPISTA}" text="{GruppiModel>DESCR_GRUPPOPISTA}"/>
+								</items>
+							</Select>
+							<RadioButtonGroup id="Pers" enabled="false" selectedIndex="-1" select="changePers">
+								<RadioButton text="Si"/>
+								<RadioButton text="No"/>
+							</RadioButtonGroup>
+							<!--<CheckBox xmlns="sap.m" text="Min/Max" selected="false" id="box0"/>-->
+						</ColumnListItem>
+					</Table>
+					<VBox alignItems="Left">
+						<HBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label design="Bold" text="{i18n>Gate3}" class="redFontLable"/>
+								<Select id="Mul1" change="onMoltiplicatore1Select" width="13rem" items="{path : 'GateModel>/',sorter: {path: 'DESCR_GATE', descending: false}}" >
+									<items>
+										<core:Item key="{GateModel>ID_GATE}" text="{GateModel>DESCR_GATE}"/>
+									</items>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<VBox >
+								<Label design="Bold" text="" class="redFontLable"/>
+								<Button icon="sap-icon://inspection" press="handleDescGatePress"/>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<VBox>
+									<Label design="Bold" text="{i18n>Risultato}" class="redFontLable"/>
+								<Input id="inpResultato" width="10rem" enabled="false" />
+							
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<VBox>
+								<Label design="Bold" text="{i18n>RisultatoSimulato}" class="redFontLable"/>
+								<Input id="inpRisultatoSimulato" width="10rem" enabled="false"/>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label design="Bold" text="{i18n>Gate4}" class="redFontLable"/>
+								<Select id="Mul2" change="onMoltiplicatore2Select" width="13rem" items="{path : 'GateModel>/',sorter: {path: 'DESCR_GATE', descending: false}}">
+									<items>
+										<core:Item key="{GateModel>ID_GATE}" text="{GateModel>DESCR_GATE}"/>
+									</items>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<VBox >
+								<Label design="Bold" text="" class="redFontLable"/>
+							    <Button icon="sap-icon://inspection" press="handleDescGatePress2"/>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<VBox>
+								<Label design="Bold" text="{i18n>Risultato}" class="redFontLable"/>
+								<Input id="inpResultato1" width="10rem" enabled="false" />
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<VBox>
+								<Label design="Bold" text="{i18n>RisultatoSimulato}" class="redFontLable"/>
+								<Input id="inpRisultatoSimulato1" width="10rem" enabled="false"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<!--	<Table>
+						<columns>
+							<Column>
+								<Label text="Moltiplicatore 1"/>
+							</Column>
+							<Column width="2rem">
+								<Label  text=""/>
+							</Column>
+							<Column width="6rem">
+								<Label text=""/>
+							</Column>
+							<Column>
+								<Label text="Moltiplicatore 2"/>
+							</Column>
+							<Column width="2rem">
+								<Label  text=""/>
+							</Column>
+							<Column width="6rem">
+								<Label text=""/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Select id="Mul1" width="80%" items="{GateModel>/}">
+								<items>
+									<core:Item key="{GateModel>ID_GATE}" text="{GateModel>DESCR_GATE}"/>
+								</items>
+							</Select>
+							<Button icon="sap-icon://inspection"/>
+							<Input id="inpMul1" type="Number" maxLength="9"/>
+							<Select id="Mul2" width="80%" items="{GateModel>/}">
+								<items>
+									<core:Item key="{GateModel>ID_GATE}" text="{GateModel>DESCR_GATE}"/>
+								</items>
+							</Select>
+							<Button icon="sap-icon://inspection"/>
+							<Input id="inpMul2" type="Number" maxLength="9"/>
+						</ColumnListItem>
+					</Table>-->
+					<Table visible="false">
+						<columns>
+							<Column>
+								<Label text="Additivo"/>
+							</Column>
+							<Column>
+								<Label text="Soglia"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Select id="Additivo" width="80%" enabled="false" items="{AdditivoModel>/}">
+								<items>
+									<core:Item key="{AdditivoModel>ID_TIPOADDITIVO}" text="{AdditivoModel>DESCR_ADDITIVO}"/>
+								</items>
+							</Select>
+							<Input id="Soglia" type="Number" maxLength="9"/>
+						</ColumnListItem>
+					</Table>
+					<Label class="stipAdminSpacePerson1"/>
+					<VBox id="tblEnalbeOnFirstRowPress" visible="false">
+						<HBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox visible="false" >
+								<Label design="Bold" text="Curva descrittiva" class="redFontLable"/>
+								<Select id="curva2" width="20rem" class="redBorderColorInput" items="{path : 'CurvaModel>/',sorter: {path: 'DESCR_CURVA', descending: false}}">
+									<items>
+										<core:Item key="{CurvaModel>ID_CURVA}" text="{CurvaModel>DESCR_CURVA}"/>
+									</items>
+								</Select>
+							</VBox>
+							<!--<Label class="stipAdminSpace"/>-->
+							<!--<Label class="stipAdminSpace"/>-->
+							<VBox >
+								<Label design="Bold" text="Obiettivo Complessivo" class="redFontLable"/>
+								<Input id="ObiettivoComplessivo" width="20rem" class="redBorderColorInput"/>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+							<Label class="stipAdminSpace"/>
+							<VBox>
+								<Label design="Bold" text="Consuntivo Complessivo" class="redFontLable"/>
+								<Input id="ConsuntivoComplessivo" width="20rem" class="redBorderColorInput"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<Label text="assegnatario"/>
+					<Input id="assegnatario" enabled="false" width="100%" liveChange="fillDesc"/>
+					<ScrollContainer width="100%" height="40%" vertical="true" horizontal="true" focusable="true">
+						<Table class="stipAdmin" width="100%" id="idTableCreatePiste" inset="false" items="{PisteModel>/sottopiste}" noDataText="{i18n>nodata}"
+							growing="true" growingThreshold="5" growingScrollToLoad="true" mode="None" updateFinished="handleUpdateFinish" growingTriggerText = "{i18n>VediAltro}">
+							<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer/>
+									<ToggleButton id="tglCaricamentoobiettivoconsuntivo" text="{i18n>Caricamentoobiettivoconsuntivo}" type="Emphasized" press="onCaricamentoobiettivoconsuntivo"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" width="4rem" hAlign="Left" demandPopin="true">
+									<Text text="{i18n>Peso}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="11rem" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>Curva}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="9rem" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>Moltiplicatore}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="6rem" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>Desc}" class="fontBoldClass"/>
+								</Column>
+								<Column id="col1" minScreenWidth="Tablet" width="6rem" hAlign="Center" visible="false" demandPopin="true">
+									<Text text="{i18n>Obiettivo}" class="fontBoldClass"/>
+								</Column>
+								<Column id="col2" minScreenWidth="Tablet" width="6rem" hAlign="Center" visible="false" demandPopin="true">
+									<Text text="{i18n>Consuntivo}" class="fontBoldClass"/>
+								</Column>
+								<Column id="col5" minScreenWidth="Tablet" width="6rem" hAlign="Center" visible="false" demandPopin="true">
+									<Text text="{i18n>Quantita}" class="fontBoldClass"/>
+								</Column>
+								<Column id="col3" minScreenWidth="Tablet" width="6rem" hAlign="Center" visible="false" demandPopin="true">
+									<Text text="{i18n>ObiettivoSimulato}" class="fontBoldClass"/>
+								</Column>
+								<Column id="col4" minScreenWidth="Tablet" width="6rem" hAlign="Center" visible="false" demandPopin="true">
+									<Text text="{i18n>ConsuntivoSimulato}" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="4rem" hAlign="Center" demandPopin="true">
+									<Text text="" class="fontBoldClass"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+										<HBox alignItems="Center">
+											<Input width="70%" type="Number" maxLength="3" liveChange="enablePercentage" value="{PisteModel>PESO_PERC}" editable="{PisteModel>oTest1}"/>
+											<Text width="10rem" class="StipCreatePisteTableText1" text="{PisteModel>percentageValue}"/>
+										</HBox>
+										<HBox width="100%" alignItems="Left">
+											<Select width="10rem" change="onCurveSelect" enabled="{PisteModel>ID_CURVA_EDIT}" items="{path : 'CurvaModel>/',sorter: {path: 'DESCR_CURVA', descending: false}}" selectedKey="{PisteModel>ID_CURVA}">
+												<items>
+													<core:Item key="{CurvaModel>ID_CURVA}" text="{CurvaModel>DESCR_CURVA}"/>
+												</items>
+											</Select>
+											<Text visible="false" text="{PisteModel>ID_TIPO_CURVA}"/>
+									
+											<Button width="10%" icon="sap-icon://inspection" press="handleDescGatePress3"/>
+										</HBox>
+										<Select width="98%"    change="onMoltiplicatore3Select" enabled="{PisteModel>GateInTable}" selectedKey="{PisteModel>ID_GATE}" items="{path : 'GateModel>/',sorter: {path: 'DESCR_GATE', descending: false}}" >
+											<items>
+												<core:Item key="{GateModel>ID_GATE}" text="{GateModel>DESCR_GATE}"/>
+											</items>
+										</Select>
+										<Input width="98%" value="{PisteModel>DESCR_SOTTOPISTA}" enabled="{PisteModel>DESCR_SOTTOPISTA_EDIT}"/>
+										<Input width="98%" value="{PisteModel>Obiettivo}" visible="{PisteModel>ObiettivoEnable}" enabled="{PisteModel>Obiettivo_edit}"/>
+										<Input width="98%" value="{PisteModel>Consuntivo}" visible="{PisteModel>ConsuntivoEnable}" enabled="{PisteModel>Consuntivo_edit}" showValueHelp="{PisteModel>ConsuntivoValueEnable}" valueHelpRequest="onConsuntivoValueHelp"/>
+										<Select width="98%" selectedKey="{PisteModel>SN_Consuntivo_Perc}" enabled="{PisteModel>QuantityEnabled}" >
+											<items>
+												<core:Item key="E" text="€" />
+												<core:Item key="K" text="K€"/>
+												<core:Item key="%" text="%"/>
+												<core:Item key="Q" text="Quantità"/>
+											</items>
+										</Select>
+										<Input width="98%" value="{PisteModel>ObiettivoSimulato}" visible="{PisteModel>ObiettivoSimulatoEnable}" enabled="{PisteModel>ObiettivoSimulato_edit}"/>
+										<Input width="98%" value="{PisteModel>ConsuntivoSimulato}" visible="{PisteModel>ConsuntivoSimulatoEnable}" enabled="{PisteModel>ConsuntivoSimulato_edit}" showValueHelp="{PisteModel>ConsuntivoValueEnable}" valueHelpRequest="onConsuntivoSimulatoValueHelp"/>
+										
+										<HBox >
+											<Button icon="sap-icon://sys-add" type="Emphasized" enabled="{PisteModel>oButton1}" press="onAddItems1"/>
+											<Label class="stipAdminSpacePerson1"/>
+											<Button icon="sap-icon://sys-minus" type="Emphasized" visible="{PisteModel>oButton2}" enabled="{PisteModel>oButton2}" press="onDeleteRow"/>
+										</HBox>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+					<Table id="tblNote1">
+						<columns>
+							<Column>
+								<Label text="Note Obiettivo"/>
+							</Column>
+							<Column>
+								<Label text="Note Consuntivo"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id="ObiettivoNote" width="80%" editable="true"/>
+							<Input id="ConsuntivoNote" width="80%" editable="true"/>
+						</ColumnListItem>
+					</Table>
+					<Table id="tblNote2">
+						<columns>
+							<Column>
+								<Text id="SchedaLabel" text="Note Scheda" class="redFontLable"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id="SchedaNote" width="90%" editable="true" class="redBorderColorInput"/>
+						</ColumnListItem>
+					</Table>
+					<Text visible="false" id="txtError"/>
+				</content>
+				<footer>
+					<Toolbar >
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" type="Emphasized" text="Salva" id="button1" press="onSalva"/>
+						<ToolbarSeparator/>
+						<Button xmlns="sap.m" type="Emphasized" text="Annulla" id="button3" press="onAnnulla"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

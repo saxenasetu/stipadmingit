@@ -1,0 +1,85 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.curvaDis_rapp">
+	<App>
+		<pages>
+			<Page title="">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="Crea Curva Discreta/Rapporto Percentuale"/>
+						</contentMiddle>
+							<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<!--- table section-->
+							<ScrollContainer width="100%" height="60%" vertical="true" horizontal="true" focusable="true">
+					<Table id="tbl" items="{curveResultTableModel>/curveData}">
+						<headerToolbar>
+							<Toolbar>
+								<Label required="true" text="Descrizione"/>
+								<Input id="desc" width="300px" value=""/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://add" id="idAddRow" press="addRow"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="500px">
+								<Label textAlign="Center" design="Bold" required="true" text="% Performance"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" width="500px">
+								<Label required="true" textAlign="Center" design="Bold" text="% Payout"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true" id="idDeleteCol" width="200px">
+								<Label/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input xmlns="sap.m" value="{curveResultTableModel>Performance}" textAlign="Center"/>
+									<Input xmlns="sap.m" value="{curveResultTableModel>Payout}" textAlign="Center"/>
+									<Button xmlns="sap.m" icon="sap-icon://delete" id="idDelete" press="removeRow"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+						</ScrollContainer>
+					<Label width="100%" id="label2"/>
+					<Label width="100%" id="label3"/>
+					<l:Grid defaultSpan="L12">
+						<l:content>
+							<viz:VizFrame xmlns="sap.viz" id="idcolumn" uiConfig="{applicationSet:'fiori'}" width="100%" vizType='scatter' renderComplete ="sendCurveDMSfile"
+								vizProperties="{plotArea: { drawingEffect: 'glossy','colorPalette': 'BLUE'} , dataLabel:{visible:true,showTotal:true}}">
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{curveResultTableModel>/curveData}">
+										<!--	<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="Store Name" value="{Store Name}"/>
+										</viz.data:dimensions> -->
+										<viz.data:measures>
+											<viz.data:MeasureDefinition name="% Performance" value="{curveResultTableModel>Performance}"/>
+											<viz.data:MeasureDefinition name="% Payout" value="{curveResultTableModel>Payout}"/>
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="% Performance"/>
+									<viz.feeds:FeedItem uid="valueAxis2" type="Measure" values="% Payout"/>
+								</viz:feeds>
+							</viz:VizFrame>
+						</l:content>
+					</l:Grid>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" width="200px" text="Salva" id="Salva" press="validation"/>
+						<Button xmlns="sap.m" width="200px" text="Annulla" id="button1" press="cancel"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

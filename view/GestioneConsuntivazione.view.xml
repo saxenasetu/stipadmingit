@@ -1,0 +1,525 @@
+<mvc:View controllerName="stipAdmin.stipAdmin.controller.GestioneConsuntivazione" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page titleAlignment="Center">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Button text="{i18n>HomePage}" type="Emphasized" press="onHome"></Button>
+							</contentLeft>
+							<contentMiddle>
+								<Text id="homeTitle" text="{i18n>GestConsTitle}"></Text>
+							</contentMiddle>
+							<contentRight>
+								<Text id="idtxtfiscalyear"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Panel expandable="true" expanded="true" width="auto">
+							<content>
+								<f:SimpleForm id="idForm1" minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0"
+									emptySpanM="0" columnsL="1" columnsM="1">
+									<f:content>
+										<ScrollContainer width="100%" vertical="true" horizontal="true" focusable="true">
+											<Table id="idTable1" inset="false" width="100%" backgroundDesign="Solid" mode="None">
+												<columns>
+													<Column minScreenWidth="Tablet" width="0.2rem" vAlign="Middle" hAlign="Begin" demandPopin="true">
+														<Text text="{i18n>Sim}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>DataConsuntivo}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>NCons}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>GesConCognome}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>GesConQualifica}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>GesConCompany}" class="fontBoldClass"/>
+													</Column>
+													<!--								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="{i18n>Comparto}" class="fontBoldClass"/>
+								</Column>-->
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>GesConDimessi}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>GesConBanda}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1.5rem" vAlign="Middle" hAlign="End" demandPopin="true">
+														<Text text="{i18n>Dipartimento}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Begin" demandPopin="true">
+														<Text class="fontBoldClass"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<CheckBox id="idSim" selected="false" select="onSelectSim" textAlign="Center"/>
+															<Select id="idDataCons" autoAdjustWidth="true" forceSelection="false" items="{ path: 'DataConsModel>/', sorter: { path: 'MONTH_YEAR' } }"
+																change="onChangeDataCons">
+																<core:Item key="{DataConsModel>MONTH_YEAR}" text="{DataConsModel>MONTH_YEAR}"/>
+															</Select>
+															<Select id="idNCons" autoAdjustWidth="true" forceSelection="false" items="{ path: 'NConsModel>/', sorter: { path: 'NCONS' } }"
+																change="onChangeNCons">
+																<core:Item key="{NConsModel>NConsCount}" text="{NConsModel>NCons}"/>
+															</Select>
+															<Input id="idCognome" textAlign="Center"/>
+															<!--<Input id="idQualifica" textAlign="Center"/>-->
+															<Select id="idQualifica" autoAdjustWidth="true" forceSelection="false" change="onChangeNCons">
+																<core:ListItem key="D" text="D"/>
+																<core:ListItem key="Q" text="Q"/>
+																<core:ListItem key="I" text="I"/>
+															</Select>
+															<Select id="idComp" autoAdjustWidth="true" forceSelection="false" items="{ path: 'CompanySetModel>/', sorter: { path: 'DESCR_COMPANY' } }"
+																change="onChangeNCons">
+																<core:Item key="{CompanySetModel>ID_COMPANY}" text="{CompanySetModel>DESCR_COMPANY}"/>
+															</Select>
+															<Select id="idDimessi" textAlign="Center" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>No}" text="{i18n>No}"/>
+																<core:ListItem key="{i18n>Si}" text="{i18n>Si}"/>
+															</Select>
+															<Select id="idGrade" textAlign="Begin" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>No}" text="{i18n>EX}"/>
+																<core:ListItem key="{i18n>SL}" text="{i18n>SL}"/>
+																<core:ListItem key="{i18n>E}" text="{i18n>E}"/>
+																<core:ListItem key="{i18n>F}" text="{i18n>F}"/>
+																<core:ListItem key="{i18n>G}" text="{i18n>G}"/>
+																<core:ListItem key="{i18n>H}" text="{i18n>H}"/>
+															</Select>
+															<Input id="idTree" placeholder="{i18n>OpenTree}" width="10rem"/>
+															<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" press="handleTreeValueHelp"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											<Table id="idTable2" inset="false" width="100%" mode="None">
+												<columns>
+													<Column minScreenWidth="Tablet" width="0.5rem" vAlign="Middle" hAlign="End" demandPopin="true">
+														<Text class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="2rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>Ruolo}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="0.8rem" vAlign="Middle" hAlign="Begin" demandPopin="true">
+														<Text class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+														<Text text="{i18n>SG}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>IDMaster}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>GruppiSchede}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>IDKPI}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>TipoKPI}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>Record}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>Modif}" class="fontBoldClass"/>
+													</Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+														<Text text="{i18n>StatoInvio}" class="fontBoldClass"/>
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<!--										<Input width="8rem"/>
+										<Input id="idInp11" type="Text" width="15em" showSuggestion="true" showValueHelp="true" valueHelpRequest="handleValueHelp" visible="true"/>
+-->
+															<Input id="idInpRuolo1" width="7rem"/>
+															<Input id="idInpRuolo2" width="14rem"/>
+															<Button icon="sap-icon://tree" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" press="openDialogRuolo"/>
+															<CheckBox id="idSG"/>
+															<Input id="idSchMast" width="6rem"/>
+															<!--										<Select forceSelection="false" autoAdjustWidth="true">
+												<core:ListItem key="{i18n>1Trim}" text="{i18n>1Trim}"/>
+										</Select>-->
+															<Select id="idGrappi" autoAdjustWidth="true" forceSelection="false"
+																items="{ path: 'GruppiModel>/', sorter: { path: 'DESCR_GRUPPOSCHEDA' } }">
+																<core:Item key="{GruppiModel>ID_GRUPPOSCHEDA}" text="{GruppiModel>DESCR_GRUPPOSCHEDA}"/>
+															</Select>
+															<Input id="idIDKPI" width="6rem"/>
+															<!--<Select id="idTipoKPI" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>1Trim}" text="{i18n>1Trim}"/>
+																<core:ListItem key="{i18n>2Trim}" text="{i18n>2Trim}"/>
+																<core:ListItem key="{i18n>3Trim}" text="{i18n>3Trim}"/>
+																<core:ListItem key="{i18n>4Trim}" text="{i18n>4Trim}"/>
+																<core:ListItem key="{i18n>Trimestrali}" text="{i18n>Trimestrali}"/>
+																<core:ListItem key="{i18n>1Sem}" text="{i18n>1Sem}"/>
+																<core:ListItem key="{i18n>Semestrali}" text="{i18n>Semestrali}"/>
+																<core:ListItem key="{i18n>Annuali}" text="{i18n>Annuali}"/>
+															</Select>-->
+															<Select forceSelection="false" autoAdjustWidth="true" id="idTipoKPI">
+																<core:Item xmlns:core="sap.ui.core" key="" text="" id="item1"/>
+																<core:Item xmlns:core="sap.ui.core" key="T1" text="1° Trim" id="item2"/>
+																<core:Item xmlns:core="sap.ui.core" key="T2" text="2° Trim" id="item3"/>
+																<core:Item xmlns:core="sap.ui.core" key="T3" text="3° Trim" id="item4"/>
+																<core:Item xmlns:core="sap.ui.core" key="T4" text="4° Trim" id="item5"/>
+																<core:Item xmlns:core="sap.ui.core" key="S1" text="1° Sem" id="item6"/>
+																<core:Item xmlns:core="sap.ui.core" key="S2" text="2° Sem" id="item7"/>
+																<core:Item xmlns:core="sap.ui.core" key="A" text="Annuali" id="item8"/>
+															</Select>
+															<Select id="idRecord" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>conImpMan}" text="{i18n>conImpMan}"/>
+																<core:ListItem key="{i18n>senImpMan}" text="{i18n>senImpMan}"/>
+																<core:ListItem key="{i18n>conImpCal}" text="{i18n>conImpCal}"/>
+																<core:ListItem key="{i18n>impCalBlk}" text="{i18n>impCalBlk}"/>
+																<core:ListItem key="{i18n>diffStip}" text="{i18n>diffStip}"/>
+															</Select>
+															<Select id="idModiff" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>No}" text="{i18n>No}"/>
+																<core:ListItem key="{i18n>Si}" text="{i18n>Si}"/>
+															</Select>
+															<Select id="idStatoInvio" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>one}" text="{i18n>Pending}"/>
+																<core:ListItem key="{i18n>three}" text="{i18n>Inviato}"/>
+																<core:ListItem key="{i18n>zero}" text="{i18n>NonInviato}"/>
+															</Select>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											<Table id="idTable3" width="100%" mode="None">
+												<columns>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Begin" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="2rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="2rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="2rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1.6rem" vAlign="Middle" hAlign="End" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="2.8rem" vAlign="Middle" hAlign="End" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="Begin"></Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<Text text="{i18n>GesConBloccati}" textAlign="Begin" class="fontBoldClass"/>
+															<Text text="{i18n>stipcalcolata}" textAlign="Center" class="fontBoldClass"/>
+															<Text text="{i18n>stipmanuale}" textAlign="Begin" class="fontBoldClass"/>
+															<Text text="{i18n>stipliquidata}" textAlign="Begin" class="fontBoldClass"/>
+															<Button text="{i18n>Ricerca}" press="handleRicerca" width="10rem"/>
+															<Button id="idBloccaSel" text="{i18n>BloccaSel}" press="onPressBloccaSel" width="10rem"/>
+															<Button id="idInviaPayroll" text="{i18n>InviaPayroll}" width="10rem" press="onPressInviaaPayroll"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+											<Table id="idTable4" inset="false" width="100%" mode="None">
+												<columns>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="1.3rem" vAlign="Middle" hAlign="End" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="End" demandPopin="true"></Column>
+													<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="Begin" demandPopin="true"></Column>
+												</columns>
+												<items>
+													<ColumnListItem>
+														<cells>
+															<CheckBox textAlign="Center" id="idchk5"/>
+															<Select id="idstipCol" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>eq}" text="{i18n>eq}"/>
+																<core:ListItem key="{i18n>gt}" text="{i18n>gt}"/>
+																<core:ListItem key="{i18n>gte}" text="{i18n>gte}"/>
+																<core:ListItem key="{i18n>lt}" text="{i18n>lt}"/>
+																<core:ListItem key="{i18n>lte}" text="{i18n>lte}"/>
+																<core:ListItem key="{i18n>Tra}" text="{i18n>Tra}"/>
+															</Select>
+															<Input id="idstipColVal"/>
+															<Select id="idstipman" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>eq}" text="{i18n>eq}"/>
+																<core:ListItem key="{i18n>gt}" text="{i18n>gt}"/>
+																<core:ListItem key="{i18n>gte}" text="{i18n>gte}"/>
+																<core:ListItem key="{i18n>lt}" text="{i18n>lt}"/>
+																<core:ListItem key="{i18n>lte}" text="{i18n>lte}"/>
+																<core:ListItem key="{i18n>Tra}" text="{i18n>Tra}"/>
+															</Select>
+															<Input id="idstipmanVal"/>
+															<Select id="idstipliq" forceSelection="false" autoAdjustWidth="true">
+																<core:ListItem key="{i18n>eq}" text="{i18n>eq}"/>
+																<core:ListItem key="{i18n>gt}" text="{i18n>gt}"/>
+																<core:ListItem key="{i18n>gte}" text="{i18n>gte}"/>
+																<core:ListItem key="{i18n>lt}" text="{i18n>lt}"/>
+																<core:ListItem key="{i18n>lte}" text="{i18n>lte}"/>
+																<core:ListItem key="{i18n>Tra}" text="{i18n>Tra}"/>
+															</Select>
+															<Input id="idstipliqVal"/>
+															<Button text="{i18n>GesConPulisci}" press="onPressPulisci" width="10rem"/>
+															<Button id="idSbloccaSel" text="{i18n>SbloccaSel}" press="onPressSBloccaSel" width="10rem"/>
+															<Button id="idAnnullaInvio" text="{i18n>AnnullaInvio}" width="10rem" press="onPressAnnullaInvio"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</ScrollContainer>
+									</f:content>
+								</f:SimpleForm>
+							</content>
+						</Panel>
+						<f:SimpleForm id="idForm2" minWidth="1024" editable="true" layout="ResponsiveGridLayout" labelSpanL="2" labelSpanM="2" emptySpanL="0"
+							emptySpanM="0" columnsL="1" columnsM="1">
+							<f:content>
+								<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+									<!--<Table id="idTable5" mode="MultiSelect" noDataText="{i18n>nodata}" growing="true" growingThreshold="50"-->
+									<!--	items="{path: 'ConsResultsSetModel>/',sorter: {path: 'ID_CONSUNTIVO',descending: true}}">-->
+									<Table id="idTable5" mode="MultiSelect" noDataText="{i18n>nodata}" growing="true" growingThreshold="50"
+										growingTriggerText="{i18n>VediAltro}" items="{path: 'ConsResultsSetModel>/'}">
+										<headerToolbar>
+											<OverflowToolbar>
+												<!--<Text text="{i18n>RealTimeData}"/>-->
+												<content>
+													<Title id="idTitleRealTimeData"  level="H2"/>
+												</content>
+												<ToolbarSpacer/>
+												<Button tooltip="Upload File" icon="sap-icon://upload" text="Upload File" press="onFileDataUpload"/>
+												<!--<SearchField id="idSearchBox" width="15rem" search="onTableSearch" liveChange="onTableSearch"/>-->
+												<Button icon="sap-icon://action-settings" press="onResultTableButPressed"/>
+												<Button icon="sap-icon://download" press="onDataExport"/>
+											</OverflowToolbar>
+										</headerToolbar>
+										<columns >
+											<Column id="col0" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>SelDelSel}"/>
+											</Column>
+											<Column id="col1" minScreenWidth="Tablet" width="2rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>GesConD}"/>
+											</Column>
+											<Column id="col2" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>DataDim}"/>
+											</Column>
+											<Column id="col3" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>InvioPS}"/>
+											</Column>
+											<Column id="col4" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>CID}"/>
+											</Column>
+											<Column id="col5" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>GesConMatr}"/>
+											</Column>
+											<Column id="col6" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>GesConDipendente}"/>
+											</Column>
+											<Column id="col7" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>DataAss}"/>
+											</Column>
+											<Column id="col8" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>Q}"/>
+											</Column>
+											<Column id="col9" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>Schede}"/>
+											</Column>
+											<Column id="col10" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>Gest}"/>
+											</Column>
+											<Column id="col11" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>NonAttig}"/>
+											</Column>
+											<Column id="col12" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>NCons.}"/>
+											</Column>
+											<Column id="col13" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>BaseStip}"/>
+											</Column>
+											<Column id="col14" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>%Scheda}"/>
+											</Column>
+											<Column id="col15" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>Imp}"/>
+											</Column>
+											<Column id="col16" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>%Stip}"/>
+											</Column>
+											<Column id="col17" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>TettoPayout}"/>
+											</Column>
+											<Column id="col18" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>ImpMan}"/>
+											</Column>
+											<Column id="col19" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>%stipmanuale}"/>
+											</Column>
+											<Column id="col20" minScreenWidth="Tablet" width="11rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>Note}"/>
+											</Column>
+											<Column id="col21" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>ImpLiqui}"/>
+											</Column>
+											<Column id="col22" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>%Liqui}"/>
+											</Column>
+											<Column id="col23" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>Modif.}"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Active">
+												<customData>
+													<core:CustomData key="mydata" value="{ConsResultsSetModel>ID_STATOINVIO}" writeToDom="true"></core:CustomData>
+												</customData>
+												<cells>
+													<Text text="{ConsResultsSetModel>ID_STATOINVIO}"/>
+													<!--<Text text="{= ${ConsResultsSetModel>BloccatiCheckBox} === 'S' ? 'Bloccato' : ''}"/>-->
+													<Text text="{= ${ConsResultsSetModel>D} === '1' ? 'No' : 'Yes'}" width="3rem"/>
+													<Text text="{path: 'ConsResultsSetModel>DATA_DIM', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDateGestCons'}"/>
+													<Text text="{ConsResultsSetModel>INVIO_PAYROLL}"/>
+													<Text text="{ConsResultsSetModel>CID}"/>
+													<Text text="{ConsResultsSetModel>MATR}"/>
+													<Text text="{ConsResultsSetModel>DIPENDENTE}"/>
+													<Text text="{path: 'ConsResultsSetModel>DATA_ASS', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDateGestCons'}"/>
+													
+													<!--<Text text="{ConsResultsSetModel>Q}"/>-->
+													 
+													<!--<Text text="{path: 'ConsResultsSetModel>Q', formatter: 'stipAdmin.stipAdmin.util.Formatter.testconvertQualificaTypeQ'}"/>-->
+													
+													<Text text="{parts :[{path: 'ConsResultsSetModel>Q'},{path: 'ConsResultsSetModel>PAYGRADE'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.convertQualificaTypeQ'}"/>
+													
+													<Link text="{ConsResultsSetModel>SCHEDE}" press="onPressSchede"/>
+													<Text text="{ConsResultsSetModel>GEST}"/>
+													<Text text="{ConsResultsSetModel>NON_ATTIG}"/>
+													<Text text="{ConsResultsSetModel>NCONS}"/>
+													<Text text="{ConsResultsSetModel>BASE_STIP}"/>
+													<Text text="{ConsResultsSetModel>PERC_SCHEDA}"/>
+													<Text text="{ConsResultsSetModel>IMP}"/>
+													<!--<Text text="{ConsResultsSetModel>PERC_STIP}"/>-->
+													<Text
+														text="{ path: 'ConsResultsSetModel>PERC_STIP', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2, roundingMode: 'away_from_zero' } }"/>
+													<!-- Need to Remove from UI - Valerio need to check -->
+													<Text text="{ConsResultsSetModel>TETTO_PAYOUT}"/>
+													<Link text="{ConsResultsSetModel>IMP_MAN}" press="onPressImportoManuale"/>
+													<Text text="{ConsResultsSetModel>PERC_STIP_MANUALE}"/>
+													<TextArea value="{ConsResultsSetModel>NOTE}" rows="3"/>
+													<Text text="{ConsResultsSetModel>IMP_LIQUI}"/>
+													<Text text="{ConsResultsSetModel>PERC_STIP_LIQUIDATA}"/>
+													<Text text="{ConsResultsSetModel>MODIF}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+									<!--<Table id="idTable6" visible="false" mode="MultiSelect" noDataText="{i18n>nodata}" growing="true" growingThreshold="50"-->
+									<!--	items="{path: 'ConsSimResultsSetModel>/',sorter: {path: 'ID_CONSUNTIVO',descending: true}}">-->
+									<Table id="idTable6" visible="false" mode="MultiSelect" noDataText="{i18n>nodata}" growing="true" growingThreshold="50"
+										items="{path: 'ConsSimResultsSetModel>/'}" growingTriggerText="{i18n>VediAltro}">
+										<headerToolbar>
+											<OverflowToolbar>
+												<!--<Text text="{i18n>SimulationData}"/>-->
+												<content>
+													<Title id="idTitleSimulationData"  level="H2"/>
+												</content>
+												<ToolbarSpacer/>
+												<SearchField id="idSimSearchBox" width="15rem" search="onTableSearch" liveChange="onSimTableSearch"/>
+												<Button icon="sap-icon://action-settings" press="onSimResultTableButPressed"/>
+												<Button icon="sap-icon://download" press="onSimDataExport"/>
+											</OverflowToolbar>
+										</headerToolbar>
+										<columns>
+											<Column id="col24" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>SelDelSel}"/>
+											</Column>
+											<Column id="col25" minScreenWidth="Tablet" width="2rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>GesConD}"/>
+											</Column>
+											<Column id="col26" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>DataDim}"/>
+											</Column>
+											<Column id="col27" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>InvioPS}"/>
+											</Column>
+											<Column id="col28" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>GesConMatr}"/>
+											</Column>
+											<Column id="col29" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>GesConDipendente}"/>
+											</Column>
+											<Column id="col30" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>Q}"/>
+											</Column>
+											<Column id="col31" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>Schede}"/>
+											</Column>
+											<Column id="col32" minScreenWidth="Tablet" width="4rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>Gest}"/>
+											</Column>
+											<Column id="col33" minScreenWidth="Tablet" width="6rem" demandPopin="true">
+												<Label design="Bold" text="{i18n>NonAttig}"/>
+											</Column>
+											<Column id="col34" minScreenWidth="Tablet" width="7rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>NCons.}"/>
+											</Column>
+											<Column id="col35" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>ImpSim}"/>
+											</Column>
+											<Column id="col36" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>%StipSim}"/>
+											</Column>
+											<Column id="col37" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>TettoPaySim}"/>
+											</Column>
+											<Column id="col38" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>ImpLiqSim}"/>
+											</Column>
+											<Column id="col39" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>%LiqSim}"/>
+											</Column>
+											<Column id="col40" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+												<Label design="Bold" wrapping="true" text="{i18n>ModiffSim}"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Active">
+												<cells>
+													<Text text="{= ${ConsSimResultsSetModel>BloccatiCheckBox} === 'S' ? 'Bloccato' : ''}"/>
+													<Text text="{= ${ConsSimResultsSetModel>D} === '1' ? 'No' : 'Yes'}" width="3rem"/>
+													<Text text="{path: 'ConsSimResultsSetModel>DATA_DIM', formatter: 'stipAdmin.stipAdmin.util.Formatter.formatDateGestCons'}"/>
+													<Text text="{ConsSimResultsSetModel>INVIO_PS}"/>
+													<Text text="{ConsSimResultsSetModel>MATR}"/>
+													<Text text="{ConsSimResultsSetModel>DIPENDENTE}"/>
+													
+													<!--<Text text="{ConsSimResultsSetModel>Q}"/>-->
+													<Text text="{parts :[{path: 'ConsSimResultsSetModel>Q'},{path: 'ConsSimResultsSetModel>PAYGRADE'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.convertQualificaTypeQ'}"/>													
+													
+													<Link text="{ConsSimResultsSetModel>SCHEDE}" press="onPressSimSchede"/>
+													<Text text="{ConsSimResultsSetModel>GEST}"/>
+													<Text text="{ConsSimResultsSetModel>NON_ATTIG}"/>
+													<Text text="{ConsSimResultsSetModel>NCONS}"/>
+													<!--<Text text="{ConsSimResultsSetModel>IMP}"/>-->
+													<Text text="{ConsResultsSetModel>IMP}"/>
+													<!--<Text text="{ConsSimResultsSetModel>PERC_STIP}"/>-->
+													<Text
+														text="{ path: 'ConsSimResultsSetModel>PERC_STIP', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2, roundingMode: 'away_from_zero' } }"/>
+													<Text text="{ConsSimResultsSetModel>TETTO_PAYOUT}"/>
+													<Text text="{ConsSimResultsSetModel>IMP_LIQUI}"/>
+													<Text text="{ConsSimResultsSetModel>PERC_STIP_LIQUIDATA}"/>
+													<Text text="{ConsSimResultsSetModel>MODIF}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</ScrollContainer>
+							</f:content>
+						</f:SimpleForm>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

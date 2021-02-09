@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="Matricola" class="sapUiPopupWithPadding" items="{oT_TMP_INPUT_1Model>/}" search="_onMatrciolaValueSearchFragment"
+		liveChange="_onMatrciolaValueSearchFragment" confirm="_handleValueHelpConfirmMat" cancel="_onIdValueCloseFragmentsMat" multiSelect="true">
+		<StandardListItem title="{oT_TMP_INPUT_1Model>MATRICOLA}">
+			<customData>
+				<core:CustomData key="{oT_TMP_INPUT_1Model>MATRICOLA}"/>
+			</customData>
+		</StandardListItem>
+	</SelectDialog>
+</core:FragmentDefinition>

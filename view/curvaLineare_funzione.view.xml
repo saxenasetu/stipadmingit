@@ -1,0 +1,40 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="stipAdmin.stipAdmin.controller.curvaLineare_funzione" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+					
+											<!--- table section-->
+					<Table id="tbl" items="">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://add" text="Row" press="addRow"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="Risultato"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="% Stip"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input xmlns="sap.m" value="Value" id="input0_1587665506070"/>
+									<Input xmlns="sap.m" value="Value" id="input0_1587665506071"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<!-- close table section -->
+					
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

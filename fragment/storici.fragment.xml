@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog title="{i18n>DatiStorici}" titleAlignment="Center" showHeader="true" horizontalScrolling="true" verticalScrolling="true"
+		draggable="true" contentHeight="400px" contentWidth="700px">
+		<VBox>
+			<ScrollContainer width="100%" vertical="true" horizontal="true" focusable="true">
+				<Table id="tab2" class="stipAdmin" items="{path: 'tmpModel>/'}">
+					<columns>
+						<Column width="5rem">
+							<Label design="Bold" wrapping="true" text="{i18n>Protocollo}"/>
+						</Column>
+						<Column width="6rem">
+							<Label design="Bold" wrapping="true" text="{i18n>Datadeldocumento}"/>
+						</Column>
+						<Column width="6rem">
+							<Label design="Bold" wrapping="true" text="{i18n>Stato}" />
+						</Column>
+						<Column width="6rem">
+							<Label design="Bold" wrapping="true" text="{i18n>RespDiretto}" />
+						</Column>
+						<Column width="6rem">
+							<Label design="Bold" text="{i18n>Mese_Inizio}" wrapping="true"/>
+						</Column>
+						<Column width="6rem">
+							<Label design="Bold" text="{i18n>Mese_Fine}" wrapping="true"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Link text="{tmpModel>ID_PROTOCOLLO}" press=".openPdfDetails1(${path: 'tmpModel>ID_SCHEDAMASTER'},${path: 'tmpModel>ID_SCHEDAPERSONALE'})"/>
+						<Text text="{parts:[{path:'tmpModel>DATETIME_CR'}], formatter: 'stipAdmin.stipAdmin.util.Formatter.removetime'}"/>
+						<!--<Text text="{tmpModel>DATETIME_CR}"/>-->
+						<Text text="{tmpModel>DESCR_STATOINVIO}"/>
+						<Text text="{tmpModel>COGNOME_MGR}  {tmpModel>NOME_MGR}"/>
+						<Text text="{tmpModel>INIZIO_ASSEGNAZIONE}"/>
+						<Text text="{tmpModel>FINE_ASSEGNAZIONE}"/>
+					</ColumnListItem>
+				</Table>
+			</ScrollContainer>
+		</VBox>
+		<endButton>
+			<Button text="{i18n>CANCEL}" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

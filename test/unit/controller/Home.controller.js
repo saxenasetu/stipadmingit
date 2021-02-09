@@ -1,0 +1,1 @@
+sap.ui.define(["stipAdmin/stipAdmin/controller/Home.controller"],function(t){"use strict";QUnit.module("Home Controller");QUnit.test("I should test the Home controller",function(o){var n=new t;n.onInit();o.ok(n)})});

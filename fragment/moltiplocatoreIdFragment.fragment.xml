@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idGateSelect" title="{i18n>Id}" class="sapUiPopupWithPadding" items="{filtermodel>/Filter/0/ID}"
+		search="_handleValueHelpSearch" confirm="_handleEmployeesconfirm" cancel="_handleValueHelpClose">
+		<StandardListItem title="{filtermodel>ID_GATE}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

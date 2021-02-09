@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="No Products Found"
+		title="Select Product"
+		search=".onSearchNome"
+		confirm=".onDialogSelectNome"
+		cancel=".onDialogClose"
+		items="{path : 'oGruppoModel>/'}">
+		<StandardListItem
+			title="{oGruppoModel>DESCR_CURVA}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

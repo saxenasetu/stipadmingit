@@ -1,0 +1,108 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.createGate">
+	<App>
+		<pages>
+			<Page title="Create Moltiplicatore">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>CreaMoltiplicatore}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:SimpleForm>
+					<VBox>
+						<Label text="Descrizione" width="100%" id="moltiDecs"/>
+						<Input xmlns="sap.m" id="gateDesc"/>
+						<Label width="100%" id="label1"/>
+						<HBox>
+							<Label text="{i18n>Id}" design="Bold" width="50px"/>
+							<Input value="{createGateModel>/0/max_id}" width="100px" id="gateId" editable="false" />
+							<Label width="100px" id="label3"/>
+							<Label text="Curva" width="100px" id="label4" design="Bold"/>
+							<Select id="idCurva" items="{createGateModel>/0/CURVE}" width="200px">
+								<core:Item key="{createGateModel>ID_CURVA}" text="{createGateModel>DESCR_CURVA}"/>
+							</Select>
+							<!--<Label width="100px"/>
+							<CheckBox xmlns="sap.m" text="Visibile a PCO" selected="false" id="box0" width="100px"/>-->
+							<Label width="100px"/>
+							<Label width="100px" text="Pers" design="Bold"/>
+							<Select xmlns="sap.m" id="gatePers" selectedKey="SI" width="200px">
+								<items>
+									<core:Item xmlns:core="sap.ui.core" key="item-key-1" text="SI"/>
+									<core:Item xmlns:core="sap.ui.core" key="item-key-1" text="NO"/>
+								</items>
+							</Select>
+						</HBox>
+					</VBox>
+					</f:SimpleForm>
+					<!--	<Label width="100%" id="label5"/>
+					
+					<Label text="Assegnatario" width="100%" id="label0_1592083165582"/>
+					<Input xmlns="sap.m" id="input0_1592083182933"/>
+					<Label width="100%" id="label1_1592083204308"/>
+					<Label text="Risultato" width="5%" id="label2_1592083212197"/>
+					<Select xmlns="sap.m" id="select0_1592083231378">
+						<items>
+							<core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Risultato 1 " id="item0_1592083231378"/>
+							<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Risultato 2" id="item1_1592083231378"/>
+						</items>
+					</Select>
+					<Label width="10%" id="label3_1592083237938"/>
+					<Label text="Risultato simulato" width="10%" id="label4_1592083246160"/>
+					<Select xmlns="sap.m" id="select0_1592083294973">
+						<items>
+							<core:Item xmlns:core="sap.ui.core" key="item-key-1" text="Risultato 1 " id="item0_1592083294973"/>
+							<core:Item xmlns:core="sap.ui.core" key="item-key-2" text="Risultato 2" id="item1_1592083294973"/>
+						</items>
+					</Select>
+					<Label text="Label" width="100%" id="label0_1592083321538"/>
+					<Table id="tbl" items="">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="ID "/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="Descrizione Pista"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="Gruppo"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Input xmlns="sap.m" id="input0_1587665506070"/>
+									<Input xmlns="sap.m" id="input0_1587665506071"/>
+									<Input xmlns="sap.m" id="input0_1587665506072"/>
+								</cells>
+								<cells>
+									<Input xmlns="sap.m" value="932" id="input0_1587665506073"/>
+									<Input xmlns="sap.m" value="Mobile  € di competenza" id="input0_1587665506074"/>
+									<Input xmlns="sap.m" value="IQ consumer sales" id="input0_1587665506075"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table> -->
+					<Label width="100px"/>
+					<Label width="100px"/>
+				</content>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button xmlns="sap.m" width="200px" text="Salva" id="Salva" press="saveMoltiplocatore"/>
+					<Button xmlns="sap.m" width="200px" text="Annulla" id="button1" press="cancel"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

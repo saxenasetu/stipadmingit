@@ -1,0 +1,154 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="Aggiungi KPI" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentWidth="850px" contentHeight="500px">
+		<content>
+			<HBox fitContainer="true" alignItems="Stretch">
+				<VBox>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="Id" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Descrizione" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="KPI" wrapping="true"/>
+							</Column>
+							<Column width = "7rem">
+								<Label text="Gruppo di Appartenenza" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Mese Inizio Validita" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Mese Fine Validita" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Curva di valorizzazione" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Pers" wrapping="true"/>
+							</Column>
+							<Column>
+								<Label text="Tipo KPI" wrapping="true"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id="idFilter"/>
+							<Input id="descNewPiste"/>
+							<ComboBox id="Piste">
+								<core:Item xmlns:core="sap.ui.core" key="" text=""/>
+								<core:Item xmlns:core="sap.ui.core" key="Key2" text="Piste con Moltiplicatore"/>
+								<core:Item xmlns:core="sap.ui.core" key="Key3" text="Piste con Moltiplicatore Personale"/>
+								<core:Item xmlns:core="sap.ui.core" key="Key4" text="Piste con Moltiplicatore non Valorizzato"/>
+								<core:Item xmlns:core="sap.ui.core" key="Key5" text="Piste con sottopiste"/>
+								<core:Item xmlns:core="sap.ui.core" key="Key7" text="Piste Valorizzate"/>
+								<core:Item xmlns:core="sap.ui.core" key="Key8" text="Piste non Valorizzate"/>
+								<core:Item xmlns:core="sap.ui.core" key="Key9" text="Piste con Curva discreta"/>
+							</ComboBox>
+							<!--<ComboBox id="Gruppo" items="{path : 'newModel>/1/Filter_Model/GRUPPI'}">
+								<core:Item key="{newModel>id}" text="{newModel>desc}"/>
+							</ComboBox>-->
+							<ComboBox id="Gruppo" items="{path: 'maxPayoutModel>/6/GRUPPOPISTA',sorter: {path: 'DESCR_GRUPPOPISTA',ascending: true}}">
+								<core:Item key="{maxPayoutModel>ID_GRUPPOPISTA}" text="{maxPayoutModel>DESCR_GRUPPOPISTA}"/>
+							</ComboBox>
+							<!--<ComboBox id="sDate" items="{path : 'newModel>/1/Filter_Model/PISTE'}">
+								<core:Item key="{newModel>key}" text="{newModel>date}"/>
+							</ComboBox>
+							<ComboBox id="eDate" items="{path : 'newModel>/1/Filter_Model/PISTE'}">
+								<core:Item key="{newModel>key}" text="{newModel>date}"/>
+							</ComboBox>-->
+							<ComboBox id="sDate" items="{maxPayoutModel>/3/Month}">
+								<core:Item key="{maxPayoutModel>month}" text="{maxPayoutModel>month}"/>
+							</ComboBox>
+							<ComboBox id="eDate" items="{maxPayoutModel>/3/Month}">
+								<core:Item key="{maxPayoutModel>month}" text="{maxPayoutModel>month}"/>
+							</ComboBox>
+							<!--<ComboBox id="curva" items="{path : 'newModel>/1/Filter_Model/CURVA'}">
+								<core:Item key="{newModel>id}" text="{newModel>desc}"/>
+							</ComboBox>-->
+							<ComboBox id="curva" items="{maxPayoutModel>/0/CURVE}">
+								<core:Item key="{maxPayoutModel>ID_CURVA}" text="{maxPayoutModel>DESCR_CURVA}"/>
+							</ComboBox>
+							<ComboBox id="pers">
+								<core:Item key="" text="-"/>
+								<core:Item key="S" text="Si"/>
+								<core:Item key="N" text="No"/>
+							</ComboBox>
+							<ComboBox id="tipo">
+								<core:Item key="" text="-"/>
+								<core:Item key="T" text="Quarter"/>
+								<core:Item key="S" text="Half Yearly"/>
+								<core:Item key="A" text="Annualy"/>
+							</ComboBox>
+						</ColumnListItem>
+					</Table>
+					<Toolbar>
+						<Label class="stipAgguingiPisteSpace"/>
+						<Button text="Ricerca" press="AgguingiTableSearch"/>
+						<!--<Button text="Ricerca" press="onSearch"/>-->
+						<Button text="Resetta" press="AgguingiTableClear"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+					<!--<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">-->
+						<!--<Table id="tbl" items="{path : 'newModel>/0/Piste',sorter: {path: 'DESCR_GRUPPOPISTA',ascending: true}}">-->
+							<Table id="tbl" items="{path : 'newModel>/0/Agguingi',sorter: {path: 'ID_GRUPPOPISTA',ascending: true}}" growing = "true">
+							<columns>
+								<Column>
+									<Label text="Id" wrapping="true"/>
+								</Column>
+								<Column  width = "6rem">
+									<Label text="Descrizione" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Gruppo" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Mese Inizio" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Mese Fine" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Tipo" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Curva" wrapping="true"/>
+								</Column>
+								<Column  width = "7rem">
+									<Label text="Moltiplicatore" wrapping="true"/>
+								</Column>
+								<Column  width = "7rem">
+									<Label text="Moltiplicatore 2" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="P." wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="N." wrapping="true"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Link text="{newModel>ID_PISTAVIEW}" press=".selectPiste($event,${path:'newModel>ID_PISTE'})"/>
+								<Text text="{newModel>DESCR_PISTA}" wrapping="true"/>
+								<Text text="{newModel>DESCR_GRUPPOPISTA}" wrapping="true"/>
+								<Text text="{newModel>MESE_INIZIO}" wrapping="true"/>
+								<Text text="{newModel>MESE_FINE}" wrapping="true"/>
+								<Text text="{newModel>TIPO_PISTA}" wrapping="true"/>
+								<Text text="{newModel>DESCR_CURVA}" wrapping="true"/>
+								<Text text="{newModel>DESCR_GATE1}" wrapping="true"/>
+								<Text text="{newModel>DESCR_GATE2}" wrapping="true"/>
+								<Text text="{newModel>SN_PERSONALIZZABILE}" wrapping="true"/>
+								<Text text="{newModel>N_SOTTOPISTE}" wrapping="true"/>
+							</ColumnListItem>
+						</Table>
+					<!--</ScrollContainer>-->
+				</VBox>
+			</HBox>
+		</content>
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

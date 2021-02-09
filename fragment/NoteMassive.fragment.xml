@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog id="NoteMassive" verticalScrolling="false" title="{i18n>TitleNoteMassive}" contentHeight="15em" contentWidth="24em">
+		<content>
+			<VBox alignItems="Center" justifyContent="Center" height="100%">
+				<TextArea id="textNoteMassive" height="13em" width="22em"/>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="{i18n>SaveNote}" type="Emphasized" press="onSaveNote"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Annulla}" type="Emphasized" press="onCloseNote"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

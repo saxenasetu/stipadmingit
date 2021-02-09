@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="FilterDialogGate"  confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem text="Id Moltiplicatore" key="ID_GATE" items="{MoltiplicatoreResultTableModel>/Main}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{MoltiplicatoreResultTableModel>ID_GATE}" key="ID_GATE"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Descrizione" key="DESCR_GATE" multiSelect="true" items="{MoltiplicatoreResultTableModel>/desc}">
+				<items>
+					<ViewSettingsItem text="{MoltiplicatoreResultTableModel>}" key="DESCR_GATE"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Curva" key="DESCR_CURVA" multiSelect="true" items="{MoltiplicatoreResultTableModel>/Filter/0/CURVE}">
+				<items>
+					<ViewSettingsItem text="{MoltiplicatoreResultTableModel>DESCR_CURVA}" key="DESCR_CURVA"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Personalizzabile" key="SN_PERSONALIZZABILE" multiSelect="true"  items="{MoltiplicatoreResultTableModel>/Filter/0/Pers}">
+				<items>
+					<ViewSettingsItem text="{MoltiplicatoreResultTableModel>pers}" key="SN_PERSONALIZZABILE"/>
+				<!--	<ViewSettingsItem text="Si" key="SN_PERSONALIZZABILE"/>
+					<ViewSettingsItem text="No" key="SN_PERSONALIZZABILE"/>-->
+				</items>
+			</ViewSettingsFilterItem>
+			<!--<ViewSettingsFilterItem text="Vis.PCO" key="SN_VISIBILEPCO" multiSelect="false">
+				<items>
+					<ViewSettingsItem text="-" key="SN_VISIBILEPCO"/>
+					<ViewSettingsItem text="Si" key="SN_VISIBILEPCO"/>
+					<ViewSettingsItem text="No" key="SN_VISIBILEPCO"/>
+				</items>
+			</ViewSettingsFilterItem>-->
+			<ViewSettingsFilterItem text="Identificativo Assegnatario" key="ASSEGNATARIO" multiSelect="true" items="{MoltiplicatoreResultTableModel>/Filter/0/ASSEGNATARIO}">
+				<items>
+					<ViewSettingsItem text="{MoltiplicatoreResultTableModel>ASSEGNATARIO}" key="ASSEGNATARIO"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

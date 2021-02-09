@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog class="stipAdminPersonDialog" horizontalScrolling="true" verticalScrolling="true" draggable="true" contentHeight="500px">
+		<content>
+			<Label class="stipAdminSpace"/>
+			<VBox alignItems="Center">
+			
+				<Label text="{i18n>NomeTemplate}"  design="Bold"/>
+				<Input id="txtNome" width="15rem" maxLength = "50"></Input>
+		
+				<Label text="{i18n>Descrizione}"  design="Bold"/>
+				<Input id="desc" width="15rem" maxLength = "255"></Input>
+			
+				<Label text="{i18n>TipoTemplate}"  design="Bold"/>
+				<Select id="tipoTemplate" items="{path: 'LetterModel>/0/Filter'}">
+					<core:Item key="{LetterModel>ID_TIPOTEMPLATE}" text="{LetterModel>TIPOTEMPLATE}"/>
+				</Select>
+			
+				<Label text="{i18n>Gestionale}"  design="Bold"/>
+				<Select id="gestionali">
+					<core:Item key="N" text="No"/>
+					<core:Item key="S" text="Si"/>
+				</Select>
+			
+				<Label text="{i18n>Dismesso}"  design="Bold"/>
+				<Select id="dismesso">
+					<core:Item key="N" text="No"/>
+					<core:Item key="S" text="Si"/>
+				</Select>
+		
+				<Label text="{i18n>Modificabile}"  design="Bold"/>
+				<Select id="modificabile">
+					<core:Item key="N" text="No"/>
+					<core:Item key="S" text="Si"/>
+				</Select>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text="{i18n>SaveLetter}" type="Emphasized" press="_saveLettera"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

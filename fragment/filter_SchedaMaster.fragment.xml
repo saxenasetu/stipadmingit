@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="FilterDialogSchedaMaster" confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Id}" key="ID_SCHEDAMASTER" items="{FilterSchedaMasterModel>/0/ID_SCHEDAMASTER}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="ID_SCHEDAMASTER"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Desc}" key="DESCR_SCHEDA" items="{FilterSchedaMasterModel>/1/DESCR_SCHEDA}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="DESCR_SCHEDA"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Max_Payout}" key="MAXPERCPAYOUT" items="{FilterSchedaMasterModel>/2/MAXPERCPAYOUT}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="MAXPERCPAYOUT"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Gruppo}" key="DESCR_GRUPPOSCHEDA" items="{FilterSchedaMasterModel>/3/DESCR_GRUPPOSCHEDA}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="DESCR_GRUPPOSCHEDA"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Note}" key="NOTE" items="{FilterSchedaMasterModel>/4/NOTE}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="NOTE"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Congelata}" key="SN_CONGELATA"  items="{FilterSchedaMasterModel>/5/SN_CONGELATA}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="SN_CONGELATA"/>
+				</items>
+			
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Curve}" key="DESCR_CURVA" items="{FilterSchedaMasterModel>/6/DESCR_CURVA}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="DESCR_CURVA"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>Pista}" key="DESCR_PISTA" items="{FilterSchedaMasterModel>/7/DESCR_PISTA}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="DESCR_PISTA"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<!--<ViewSettingsFilterItem text="{i18n>Peso}" key="PESO_PERCENTUALE" items="{FilterSchedaMasterModel>/8/PESO_PERCENTUALE}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="PESO_PERCENTUALE"/>
+				</items>
+			</ViewSettingsFilterItem>-->
+			<ViewSettingsFilterItem text="{i18n>Scheda_KPI}" key="ID_PISTA" items="{FilterSchedaMasterModel>/9/ID_PISTA}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{FilterSchedaMasterModel>}" key="ID_PISTA"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

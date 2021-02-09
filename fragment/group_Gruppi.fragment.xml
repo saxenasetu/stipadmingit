@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="group">
+		<groupItems>
+			<ViewSettingsFilterItem text="ID" key="ID" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Descrizione" key="DESC" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Tipo Gruppo" key="TIPO_GRUPPO" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Template Lettere" key="TEMPLATE_LETTERE" multiSelect="false"/>
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

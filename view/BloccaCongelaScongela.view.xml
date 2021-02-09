@@ -1,0 +1,146 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+	controllerName="stipAdmin.stipAdmin.controller.BloccaCongelaScongela" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>CongelaScongelaPisteeSchedeMaster}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Text id="idtxtfiscalyear"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="{i18n>CongelaScongelaPisteeSchedeMaster}"></Text>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+							<Button text="{i18n>back}" type="Emphasized" press="handleBack"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Label class="stipAdminSpace"/>
+					<VBox alignItems="Center">
+						<HBox>
+							<Label class="stipAdminSpace"/>
+							<VBox>
+								<Label text="{i18n>ID}" design="Bold"/>
+								<Input id="txtID" width="6rem"></Input>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox >
+								<Label text="{i18n>Descrizione}" design="Bold"/>
+								<Input id= "desc" width="8rem"></Input>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>Gruppo}" labelFor="input-b" design="Bold"/>
+								<Select id = "gruppo" items="{path: 'BloccaSchedaModel>/Filter/0/GRUPPO',sorter: {path: 'DESCR_GRUPPOSCHEDA',ascending: true}}" forceSelection="false">
+									<core:Item key="{BloccaSchedaModel>ID_GRUPPOSCHEDA}" text="{BloccaSchedaModel>DESCR_GRUPPOSCHEDA}"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>Note}" design="Bold"/>
+								<Input id  = "note" width="14rem"></Input>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox >
+								<Label text="{i18n>Congelata}" design="Bold"/>
+								<Select width="10rem" id="cong" change="onFlagChange" forceSelection="false">
+									<core:Item key="S" text="Si"/>
+									<core:Item key="N" text="No"/>
+								</Select>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox>
+								<Label text="{i18n>Scheda_KPI}" labelFor="input-b" design="Bold"/>
+								<Input id="kpiId" width="6rem"></Input>
+							</VBox>
+							<Label class="stipAdminSpacePerson1"/>
+							<VBox >
+								<Label text="{i18n>Pista}" design="Bold"/>
+								<Input id="txtPista" width="8rem"></Input>
+							</VBox>
+							<Label class="stipAdminSpace"/>
+						</HBox>
+						<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Avvio}" type="Emphasized" press="onAvvio"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>CongelaSelezionati}" type="Emphasized" press="onCongelaSelezionati"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>ScongelaSelezionati}" type="Emphasized" press="onScongelaSelezionati"/>
+						</HBox>
+					</VBox>
+					<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+					<Table id="tbl" class="stipAdmin" items="{BloccaSchedaModel>/Main}"
+					sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+						<headerToolbar>
+							<Toolbar>
+								<Title id="titlePersonList"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns >
+							<Column minScreenWidth="Tablet" width="auto"  demandPopin="true">
+								<CheckBox/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="auto"  demandPopin="true">
+								<Label design="Bold" text="{i18n>ID}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="auto"  demandPopin="true">
+								<Label design="Bold" text="{i18n>Descrizione}"/>
+							</Column>
+							<Column minScreenWidth="Tablet"  demandPopin="true">
+								<Label design="Bold" text="{i18n>Gruppo}"/>
+							</Column>
+							<Column minScreenWidth="Tablet"  demandPopin="true">
+								<Label design="Bold" text="{i18n>Note}"/>
+							</Column>
+							<Column minScreenWidth="Tablet"  demandPopin="true">
+								<Label design="Bold" text="{i18n>C}"/>
+							</Column>
+							<Column minScreenWidth="Tablet"  demandPopin="true">
+								<Label design="Bold" text=""/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text="{i18n>KPI}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text=""/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label design="Bold" text=""/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active" press="onPress">
+								<cells>
+									<CheckBox/>
+									<Text text="{BloccaSchedaModel>ID_SCHEDAMASTER}"/>
+									<Text text="{BloccaSchedaModel>DESCR_SCHEDA}"/>
+									<Text text="{BloccaSchedaModel>DESCR_GRUPPOSCHEDA}"/>
+									<Text text="{BloccaSchedaModel>NOTE}"/>
+									<Text text="{BloccaSchedaModel>SN_CONGELATA}"/>
+									<Text text="{BloccaSchedaModel>PESO_PERCENTUALE}%"/>
+									<Text text="{BloccaSchedaModel>ID_PISTAVIEW}"/>
+									<Text text="{BloccaSchedaModel>DESCR_CURVA}"/>
+									<Text text="{BloccaSchedaModel>DESCR_PISTA}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns/>
+						<items/>
+					</Table>
+					</ScrollContainer>
+					<Bar design="SubHeader">
+							<contentMiddle>
+								<Button press="_prev" icon="sap-icon://close-command-field" visible="false" id="prev"/>
+								<Button press="_next" icon="sap-icon://open-command-field" visible="false" id="next"/>
+							</contentMiddle>
+						</Bar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

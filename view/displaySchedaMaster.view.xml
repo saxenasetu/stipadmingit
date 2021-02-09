@@ -1,0 +1,83 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form" controllerName="stipAdmin.stipAdmin.controller.displaySchedaMaster">
+	<App>
+		<pages>
+			<Page title="{i18n>DisplaySchedaMaster}" titleAlignment="Center">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>DisplaySchedaMaster}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox class="sapUiSmallMargin" items="">
+						<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+							labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+							singleContainerFullSize="false">
+							<f:content >
+								<Label design="Bold" text="{i18n>Id}"/>
+								<Input id="name" class="grayBackground" value="{displaySchedaModel>/ID_SCHEDAMASTER}" editable="false" width="10rem"/>
+								<Label design="Bold" text="{i18n>Desc}"/>
+								<Input value="{displaySchedaModel>/DESCR_SCHEDA}" class="grayBackground" editable="false"/>
+								<Label design="Bold" text="{i18n>Max_Payout}"/>
+								<Input value="{displaySchedaModel>/MAXPERCPAYOUT}" class="grayBackground" editable="false"/>
+								<Label/>
+								<Label design="Bold" text="{i18n>GruppoSchedeMaster}"/>
+								<Select xmlns="sap.m" id="select0" enabled="false" class="grayBackground">
+									<items>
+										<core:Item xmlns:core="sap.ui.core" key="{displaySchedaModel>/DESCR_GRUPPOSCHEDA}" text="{displaySchedaModel>/DESCR_GRUPPOSCHEDA}"/>
+									</items>
+								</Select>
+								<Label design="Bold" text="{i18n>Congelata}"/>
+								<Select xmlns="sap.m" enabled="false" class="grayBackground">
+									<items>
+										<core:Item xmlns:core="sap.ui.core" key="{displaySchedaModel>/SN_CONGELATA}" text="{displaySchedaModel>/SN_CONGELATA}"/>
+									</items>
+								</Select>
+								<Label/>
+								<Label design="Bold" text="{i18n>Note}" width="100%"/>
+								<TextArea class="grayBackground" editable="false" value="{displaySchedaModel>/NOTE}" xmlns="sap.m" rows="4" id="area0" cols="45"/>
+								<Label/>
+								<!--- table section starts-->
+								<ScrollContainer width="100%" height="30%" vertical="true" horizontal="true" focusable="true">
+									<Table id="tbl" items="{displaySchedaModel>/PISTE}">
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Label textAlign="Center" design="Bold" text="{i18n>Scheda_KPI}"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Label textAlign="Center" design="Bold" text="{i18n>Peso_Percentuale}"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Label textAlign="Center" design="Bold" text="{i18n>Pista}"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Input xmlns="sap.m" class="grayBackground" editable="false" value="{displaySchedaModel>ID_PISTA}" textAlign="Center"/>
+													<Input xmlns="sap.m" class="grayBackground" editable="false" value="{displaySchedaModel>PESO_PERCENTUALE}" textAlign="Center"/>
+													<Input xmlns="sap.m" class="grayBackground" editable="false" value="{displaySchedaModel>DESCR_PISTA}" textAlign="Center"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</ScrollContainer>
+								<!--- table section ends-->
+								<Label/>
+								<HBox>
+									<Label width="10rem"/>
+									<Button xmlns="sap.m" text="{i18n>CANCEL}" textAlign="Center" width="10rem" press="cancel"/>
+								</HBox>
+							</f:content>
+						</f:SimpleForm>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

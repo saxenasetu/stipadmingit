@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true" verticalScrolling="true"
+		draggable="true" contentWidth="450px" contentHeight="400px">
+		<content>
+			<HBox fitContainer="true" alignItems="Stretch">
+				<VBox>
+					<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+						<Table id="tblFilter1" items="{SchedaPersonaleModel>/0/Filter/2/POSIZIONE}" growing="true" growingTriggerText = "{i18n>VediAltro}">
+							<columns>
+								<Column>
+									<Label text="{i18n>PosizioneCode}" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="{i18n>Posizione}" wrapping="true"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Text text="{SchedaPersonaleModel>POSITIONCODE}"/>
+								<Link text="{SchedaPersonaleModel>POSITIONDESCRIPTION}" wrapping="true"
+									press=".PosSelect($event,${path: 'SchedaPersonaleModel>POSITIONDESCRIPTION'})"/>
+							</ColumnListItem>
+						</Table>
+						<Table id="tblFilter2" items="{SchedaPersonaleModel>/0/Filter/3/ROLE}" growing="true" growingTriggerText = "{i18n>VediAltro}">
+							<columns>
+								<Column>
+									<Label text="Id" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Ruolo" wrapping="true"/>
+								</Column>
+								<Column>
+									<Label text="Banda" wrapping="true"/>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Text text="{SchedaPersonaleModel>JOBCODE_ID}"/>
+								<Link text="{SchedaPersonaleModel>RUOLO_PROF}" wrapping="true" 	press=".RoleFilterSelect($event,${path: 'SchedaPersonaleModel>RUOLO_PROF'})"/>
+								<Text text="{SchedaPersonaleModel>GRADE}" wrapping="true"/>
+							</ColumnListItem>
+						</Table>
+					</ScrollContainer>
+				</VBox>
+			</HBox>
+		</content>
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="posRoleFragmentClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

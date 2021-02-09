@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ViewSettingsDialog confirm="sort">
+		<sortItems selectedIndex = "-1">
+			<ViewSettingsItem text="Id" key="ID_PISTAVIEW"/>
+			<ViewSettingsItem text="Descrizione" key="DESCR_PISTA"/>
+			<ViewSettingsItem text="Gruppo" key="DESCR_GRUPPOPISTA"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

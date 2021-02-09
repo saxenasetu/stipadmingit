@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idPeriodoSelect" title="{i18n>Id}" class="sapUiPopupWithPadding" items="{periodiIdFragModel>/}"
+		search="_handleValueHelpSearch" confirm="_handleEmployeesconfirm" cancel="_handleValueHelpClose">
+		<StandardListItem title="{periodiIdFragModel>ID_PERIODO}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

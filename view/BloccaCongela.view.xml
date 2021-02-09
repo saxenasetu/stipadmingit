@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.BloccaCongela" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>BloccaCongela}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Text id="idtxtfiscalyear"/>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+							<Button text="{i18n>back}" type="Emphasized" press="handleBack"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox id="vbx1" class="stipAdminBloccaCongelaVBox">
+						<HBox alignItems="Center">
+							<Label text="{i18n>BloccaCongela}"/>
+							<Label class="stipAdminSpace"/>
+							<Select id="selBloccaCongela" width="15rem" change="onFlagChange" forceSelection="false">
+								<!--<core:Item key="1" text="{i18n>CongelaScongelaPisteeSchedeMaster}"/>-->
+								<core:Item key="2" text="{i18n>BloccaPiste}"/>
+								<core:Item key="3" text="{i18n>BloccaSchedeMaster}"/>
+								<core:Item key="4" text="{i18n>BloccaSchedePersonali}"/>
+							</Select>
+						</HBox>
+						<Label class="stipAdminSpace"/>
+						<Label class="stipAdminSpace"/>
+						<HBox class="stipAdminBloccaCongelaHBox" alignItems="Center">
+							<Button width="5.25rem" text="{i18n>ok}" type="Emphasized" press="onOK"></Button>
+							<Label class="stipAdminSpace"/>
+							<Label class="stipAdminSpace"/>
+							<Label class="stipAdminSpace"/>
+							<Button width="5.25rem" text="{i18n>CANCEL}" type="Emphasized" press="onHomePage"></Button>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,121 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="stipAdmin.stipAdmin.controller.Curve_Copy"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Shell id="shell">
+		<App>
+			<pages>
+				<Page title="Curve" titleAlignment="Center">
+					<customHeader>
+						<Bar>
+							
+							<contentMiddle>
+								<Title text="Aggiungi da periodo precedente"/>
+							</contentMiddle>
+							<contentRight>
+								<Text id="fy"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<l:VerticalLayout width="100%">
+							<fb:FilterBar id="filterbar" considerGroupTitle="false" reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true"
+								showClearOnFB="true" clear="clear">
+								<fb:filterGroupItems>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="A" label="Fiscal Year" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select xmlns="sap.m" id="fy0" items="{path : 'curveResultTableModel>/0/Filter/',sorter: {path: 'DESCR_PERIODO', descending: true}}" >
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="{curveResultTableModel>ID_PERIODO}" text="{curveResultTableModel>DESCR_PERIODO}"/>
+												</items>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="Descrizione" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Input id="desc"/>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="__$INTERNAL$" name="C" label="Tipo curva" partOfCurrentVariant="true" visibleInFilterBar="true">
+										<fb:control>
+											<Select xmlns="sap.m" id="select0">
+												<items>
+													<core:Item xmlns:core="sap.ui.core" key="" text=""/>
+													<core:Item xmlns:core="sap.ui.core" key="1" text="Lineare"/>
+													<core:Item xmlns:core="sap.ui.core" key="2" text="Discreta"/>
+													<core:Item xmlns:core="sap.ui.core" key="0" text="Descrittiva"/>
+													<core:Item xmlns:core="sap.ui.core" key="3" text="Discreta/Rapporto Percentuale"/>
+													<core:Item xmlns:core="sap.ui.core" key="4" text="Lineare/Consuntivo"/>
+													<!--<core:Item xmlns:core="sap.ui.core" key="5" text="Lineare/Pdecimale"/>-->
+												</items>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+							
+						</l:VerticalLayout>
+						<Table id="curveResultTable" class="stipAdmin" items="{curveResultTableModel>/0/Main}" growing="true" growingThreshold="20"  growingTriggerText = "{i18n>VediAltro}">
+							<headerToolbar>
+								<Toolbar>
+									<Title id = "title"/>
+									<ToolbarSpacer/>
+									<SearchField id="idSearchBox" width="15rem" search="onTableSearch"/>
+									<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+									<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+									<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
+									
+								</Toolbar>
+							</headerToolbar>
+							<infoToolbar>
+								<OverflowToolbar id="vsdFilterBar" visible="false">
+									<Text id="vsdFilterLabel"/>
+								</OverflowToolbar>
+							</infoToolbar>
+							<columns>
+								<Column width = "4rem">
+									<CheckBox select = "allSelect"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="Descrizione"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="Tipo curva"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="Moltiplicatore"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="Numero Punti"/>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Label design="Bold" text="Fiscal Year"/>
+								</Column>
+								
+							</columns>
+							<items>
+								<ColumnListItem type="Active" press="onPress">
+									<cells>
+										<CheckBox select = ".curveSelect($event,${path:'curveResultTableModel>ID_CURVA'})" selected = "{curveResultTableModel>selected}" enabled = "{curveResultTableModel>enabled}"/>
+										<Text text="{curveResultTableModel>DESCR_CURVA}"/>
+										<Text text="{path:'curveResultTableModel>TIPO_CURVA', formatter: 'stipAdmin.stipAdmin.util.Formatter.convertIdTipoToDesc'}"/>
+										<Text text="{curveResultTableModel>SN_GATE}"/>
+										<Link text="{curveResultTableModel>NUMERO_PUNTI}" press="displayCurveFn"/>
+										<Text text="{curveResultTableModel>DESCR_PERIODO}"/>
+									
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+					
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Button text = "Copia" press = "CopyCurve" id = "btn1"/>
+							
+							<Button text = "Annulla" press = "cancel" />
+						</Toolbar>
+					
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

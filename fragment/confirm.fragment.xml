@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog id = "confirmTitle" title="" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true"
+		horizontalScrolling="true" verticalScrolling="true" draggable="true" contentHeight="350px" contentWidth="600px">
+		<HBox fitContainer="true" alignItems="Stretch">
+			<VBox>
+				<Table id = "tab1">
+					<columns>
+						<Column></Column>
+					</columns>
+					<ColumnListItem>
+						<Label text="Numero Matricole che Veranno Elaborate: {SchedaPersonaleModel>/3/Length/length}"/>
+					</ColumnListItem>
+				</Table>
+				<Table>
+					<columns>
+						<Column>
+							<Label text="Log Error/ Warning"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<TextArea id = "warn" value="" rows="8" cols="8" width="100%" editable = "false"/>
+					</ColumnListItem>
+				</Table>
+				<Toolbar>
+					<Button id = "ass" text="Associa"/>
+					<Label class="stip2Space"/>
+					<Button id = "cont" text="Continua" enabled = "false"/>
+					<Label class="stip2Space"/>
+					<Button id = "interrupt" text="Interrompi"  enabled = "false"/>
+					<Label class="stip2Space"/>
+					<Button text="Chiudi" press="chiudi"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</VBox>
+		</HBox>
+	</Dialog>
+</core:FragmentDefinition>

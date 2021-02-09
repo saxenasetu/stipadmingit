@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="group">
+		<groupItems>
+			<ViewSettingsItem text="Id Moltiplicatore" key="ID_GATE"/>
+			<ViewSettingsItem text="Descrizione" key="DESCR_GATE"/>
+			<ViewSettingsItem text="Curva" key="DESCR_CURVA"/>
+			<ViewSettingsItem text="Personalizzabile" key="SN_PERSONALIZZABILE"/>
+			<!--<ViewSettingsItem text="Vis.PCO" key="SN_VISIBILEPCO"/>-->
+			<ViewSettingsItem text="Identificativo Assegnatario" key="ASSEGNATARIO"/>
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

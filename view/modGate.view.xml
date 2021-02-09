@@ -1,0 +1,134 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.modGate">
+	<App>
+		<pages>
+			<Page title="Modifica Moltiplicatore">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>ModificaMoltiplicatore}"/>
+						</contentMiddle>
+					
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					
+					</Bar>
+				</customHeader>
+			
+				<content>
+					<!--<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+						emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">-->
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Desc}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id = "descGate" value="{MoltiplicatoreResultTableModel>/DESCR_GATE}"/>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Id}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>Curva}" />
+							</Column>
+							<Column>
+								<Button icon ="sap-icon://detail-view" press = "displayCurve" tooltip = "Display Curva"/>
+							</Column>
+							<!--<Column>
+								<Label text="{i18n>PCO}"/>
+							</Column>-->
+							<Column>
+								<Label text="{i18n>Pers}"/>
+							</Column>
+						</columns>
+						<!--	Descrizione, curva, visibile a PCO, pers, Assegnatario, Risultato, Risultato simulato-->
+						<ColumnListItem>
+							<Input value="{MoltiplicatoreResultTableModel>/ID_GATE}" id="input1" width="40%" editable="false"/>
+							<Select id="curve" items="{path: 'MoltiplicatoreResultTableModel>/CURVE'}" change = "curveChange">
+								<core:Item key="{MoltiplicatoreResultTableModel>id}" text="{MoltiplicatoreResultTableModel>desc}"/>
+							</Select>
+							<Text text = ""/>
+							<!--<CheckBox xmlns="sap.m" id="box0"/>-->
+							<!--<Input value="{MoltiplicatoreResultTableModel>/SN_PERSONALIZZABILE}" />-->
+							<Select id="pers" enabled="false">
+								<core:Item key="S" text="Si"/>
+								<core:Item key="N" text="No"/>
+							</Select>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Assegnatario}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input id = "asseg" value="{MoltiplicatoreResultTableModel>/ASSEGNATARIO}"/>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label text="{i18n>Risultato}"/>
+							</Column>
+							<Column>
+								<Label text="{i18n>RisultatoSimulato}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Select id="risultato"  change = "risultatoChange" items="{path: 'MoltiplicatoreResultTableModel>/RISULTATO'}">
+								<core:Item key="{MoltiplicatoreResultTableModel>Risultato}" text="{MoltiplicatoreResultTableModel>Risultato}"/>
+							</Select>
+							<Select id="risultato_sim"  change = "risultatoSimChange" items="{path: 'MoltiplicatoreResultTableModel>/RISULTATO'}">
+								<core:Item key="{MoltiplicatoreResultTableModel>Risultato_sim}" text="{MoltiplicatoreResultTableModel>Risultato_sim}"/>
+							</Select>
+						
+						</ColumnListItem>
+					</Table>
+					<Table id="tbl" items="{path: 'MoltiplicatoreResultTableModel>/PISTE_DATA'}">
+						<headerToolbar>
+							<Toolbar>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="{i18n>Scheda_KPI} "/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="{i18n>DescrizionePistaKPI}"/>
+							</Column>
+							<!--<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="Gruppo Id"/>
+							</Column>-->
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Label required="true" text="{i18n>DescrizioneGruppoKPI}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<Input value="{MoltiplicatoreResultTableModel>pisteid}" editable="false"/>
+								<Input value="{MoltiplicatoreResultTableModel>desc}" editable="false"/>
+								<!--<Input value="{MoltiplicatoreResultTableModel>gruppiid}" editable="false"/>-->
+								<Input value="{MoltiplicatoreResultTableModel>gruppi_desc}" editable="false"/>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Toolbar>
+						<Button xmlns="sap.m" id="save" text="{i18n>SAVE}" width="200px" press="save"/>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" text="{i18n>CANCEL}" width="200px" press="cancel"/>
+						<ToolbarSpacer/>
+						<Button xmlns="sap.m" id="del" text="{i18n>DELETE}" width="200px" press="deleteGate"/>
+					</Toolbar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

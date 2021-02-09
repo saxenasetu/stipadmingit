@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="{i18n>edittemplate}" titleAlignment="Center" showHeader="true" horizontalScrolling="true" verticalScrolling="true"
+		draggable="true" contentHeight="700px" contentWidth="800px">
+		<VBox>
+			<HBox>
+			<Label class="stipCreateFragSpace" ></Label>
+			<Label text = "{i18n>AgguingiToken}"></Label>
+			</HBox>
+			<HBox>
+				<Label class="stipCreateFragSpace" ></Label>
+				<Select id="variables" change="_onpressVariables" visible="true" items="{ path: 'SchedaPersonaleModel>/4/Tags',sorter: {path: 'ORDERTAG',ascending: true}}" forceSelection="false">
+					<core:Item key="{SchedaPersonaleModel>TAG}" text="{SchedaPersonaleModel>TAG}"/>
+				</Select>
+			</HBox>
+		</VBox>
+		<l:VerticalLayout id="idVerticalLayout" class="sapUiContentPadding" width="100%"></l:VerticalLayout>
+		<beginButton>
+			<Button text="{i18n>SAVE}" press="saveTemplateLetter"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>CANCEL}" press="closeTemplateLetter"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

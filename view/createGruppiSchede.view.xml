@@ -1,0 +1,39 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.createGruppiSchede">
+	<App>
+		<pages>
+			<Page title="">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>CreaGruppiScheda}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+						emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+						<Label text="{i18n>Id}" id="label0"/>
+						<Input value="{GruppiSchedaTableModel>/ID_GRUPPOSCHEDA}" id="input0" editable="false"/>
+						<Label text="{i18n>Desc}" width="100%" id="label2"/>
+						<Input value="{GruppiSchedaTableModel>/DESCR_GRUPPOSCHEDA}" id="desc"/>
+						<Label text="{i18n>TemplateLettere}"/>
+						<!--<Input value="{GruppiSchedaTableMode>/TEMPLATE_LETTERE}" />-->
+						<Select items = "{ path: 'GruppiSchedaTableModel>/template_letter'}" id = "letter" change = "letter_select">
+							<core:Item key = "{GruppiSchedaTableModel>id}" text = "{GruppiSchedaTableModel>desc}"/>
+						</Select>
+					</f:SimpleForm>
+				</content>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button xmlns="sap.m" text="{i18n>SAVE}" id="Salva" press="Salva"/>
+					<Button xmlns="sap.m" text="{i18n>CANCEL}" press="cancel"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	
+<!--	<Dialog id="helloDialog" title="Tree Table">
+		<beginButton>
+			<Button text="{i18n>dialogSelectButtonText}" press="onSelectDialog"/>
+		</beginButton>
+		<Tree id="Tree" items="{path:'nodeModel>/nodeRoot'}" width="100%" itemPress="oncellClick">
+			<StandardTreeItem icon="sap-icon://folder" title="{nodeModel>text}" type="Active"/>
+		</Tree>
+		<endButton>
+			<Button text="{i18n>dialogCancelButtonText}" press="onCancelDialog"/>
+		</endButton>
+	</Dialog>-->
+	
+	
+	<Dialog title="{i18n>Dipartimento}" class="stipPersonDialog"  showHeader="true" 
+		verticalScrolling="true" draggable="true" contentWidth="400px" >
+
+		<content>
+		<!--	<ScrollContainer vertical="true" focusable="true">-->
+				<Tree id="Tree" width="400px" items="{path:'nodeModel>/'}">
+					<StandardTreeItem icon="sap-icon://folder" title="{nodeModel>name}" type="Active" press="oncellClick"/>
+				</Tree>
+			<!--</ScrollContainer>-->
+			<CheckBox text="Includi livelli sottostanti"/>
+		</content>
+		<endButton>
+			<Button text="{i18n>dialogCancelButtonText}" type="Emphasized" press="onCancelDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

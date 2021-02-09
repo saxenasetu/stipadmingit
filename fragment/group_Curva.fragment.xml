@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="group">
+		<groupItems>
+			<ViewSettingsFilterItem text="Descrizione" key="DESCR_CURVA" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Tipo Curva" key="ID_TIPO_CURVA" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Numero Punti" key="NUMERO_PUNTI" multiSelect="false"/>
+			<ViewSettingsFilterItem text="KPI" key="PISTE" multiSelect="false"/>
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

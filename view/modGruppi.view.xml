@@ -1,0 +1,39 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="stipAdmin.stipAdmin.controller.modGruppi">
+	<App>
+		<pages>
+			<Page title="Title">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>ModificaGruppoPiste}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:SimpleForm layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+						emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+						<Label text="{i18n>IdGruppoPiste}"/>
+						<Input value="{GruppiPisteModel>/0/ID}" editable="false"/>
+						<Label text="{i18n>Desc}"/>
+						<Input value="{GruppiPisteModel>/0/DESC}"/>
+						<Label text=""/>
+						<Text id="delLabel" width="100%"/>
+					</f:SimpleForm>
+				</content>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button xmlns="sap.m" width="200px" text="{i18n>SAVE}" press="salva"/>
+					<ToolbarSpacer/>
+					<Button xmlns="sap.m" width="200px" text="{i18n>CANCEL}" id="button1" press="cancel"/>
+					<ToolbarSpacer/>
+					<Button text="{i18n>DELETE}" width="200px" id="Del" press="deleteGruppi" visible="false"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

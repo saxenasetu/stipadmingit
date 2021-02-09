@@ -1,0 +1,101 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	xmlns:ui="sap.ui.table">
+	<Popover showHeader="false" contentWidth="1500px" contentHeight="250px" placement="Right" ariaLabelledBy="master-title">
+		<NavContainer id="navCon">
+			<Page id="master" class="sapUiResponsivePadding--header" title="Piste Details">
+				<Table>
+					<columns>
+						<Column>
+							<Label text="{i18n>Id}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Desc}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Gruppo}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Mese_Inizio}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Mese_Fine}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Tipo}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Curva}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Gate1}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Gate2}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>nPers}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Additivo}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Inizio_Assegn}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Fine_Assegn}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Identificativo_Assegnatario}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>N}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Min}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Max}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Target}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Consunt}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Ragg_Obiett}"/>
+						</Column>
+						<Column>
+							<Label text="{i18n>Ragg_Stip}"/>
+						</Column>
+					</columns>
+					<ColumnListItem>
+						<Text text="{newModel>/Id_PistaView}"/>
+						<Text text="{newModel>/Descr_Pista}"/>
+						<Text text="{newModel>/Id_GruppoPista}"/>
+						<Text text="{newModel>/Pista_Vale_Dal}"/>
+						<Text text="{newModel>/Pista_Vale_Al}"/>
+						<Text text="{newModel>/ID_Tipo_Curva}"/>
+						<Text text="{newModel>/ID_Gate}"/>
+						<Text text="{newModel>/ID_Gate2}"/>
+						<Text text="{newModel>/SN_Personalizzabile}"/>
+						<Text text="{newModel>/descr_additivo}"/>
+						<Text text="{newModel>/Pista_Vale_Dal}"/>
+						<Text text="{newModel>/Pista_Vale_Al}"/>
+						<Text text="{newModel>/Cognome}"/>
+						<Text text="{newModel>/N_Sottopiste}"/>
+						<Text text="{newModel>/obiettivo_inferiore}"/>
+						<Text text="{newModel>/obiettivo_superiore}"/>
+						<Text text="{newModel>/Obiettivo}"/>
+						<Text text="{newModel>/Consuntivo}"/>
+						<Text text="{newModel>/Perc_Ragg_Obiettivo}"/>
+						<Text text="{newModel>/Perc_Ragg_MBO}"/>
+						<Text text="{newModel>/Perc_Ragg_MBO}"/>
+					</ColumnListItem>
+				</Table>
+				<Button text="Ok Proceedi" press="assign_scheda" class="c1"/>
+				<Button text="Annulla" press="cancel"/>
+			</Page>
+		</NavContainer>
+	</Popover>
+</core:FragmentDefinition>

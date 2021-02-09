@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog title="Scelta Tipo Scheda" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentHeight="300px">
+		
+			<VBox>
+				<Button text="Scheda Personale" type="Emphasized" press="scheda_master_frag"/>
+				<Button text="Scheda Gestionale" type="Emphasized" press="onCloseDialog"/>
+				<Button text="Solo Lettera Assegnazione" type="Emphasized" press="onCloseDialog"/>
+				<Button text="Solo Lettera Consuntivazione" type="Emphasized" press="onCloseDialog"/>
+			</VBox>
+			<endButton>
+				<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseDialog"/>
+			</endButton>
+		</Dialog>
+	</core:FragmentDefinition>

@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Popover showHeader="false" contentWidth="400px" contentHeight="1000px" placement="Right" ariaLabelledBy="master-title">
+		<NavContainer id="navCon">
+			<Page id="master" class="sapUiResponsivePadding--header" title="Inserimento Nuova Lettere di Assegnazione">
+				<VBox>
+					<Table headerText="Flusso Del Package">
+						<columns>
+							<Column>
+								
+							</Column>
+							<Column>
+								
+							</Column>
+							
+						</columns>
+						<ColumnListItem>
+							<RadioButtonGroup id = "delPckg" selectedIndex = "-1">
+								<RadioButton text="Standard"/>
+								<RadioButton text="Cartaceo"/>
+							</RadioButtonGroup>
+						</ColumnListItem>
+						
+					</Table>
+					
+					<Table headerText="Lettera de Assegnazione">
+						<columns>
+							<Column>
+							<Text text = "Avete la possibilita nella combo sottostante di selezionare il template manuale eventualmente da associare per le gestione particolari"/>	
+							</Column>
+							<Column>
+							<Text text = ""/>	
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Text text = "Template Manuale"/>
+						
+							<Select id="template">
+								<core:Item key="" text="-"/>
+								<core:Item key="sample1" text="sample1"/>
+								<core:Item key="sample2" text="sample2"/>
+								<core:Item key="sample3" text="sample3"/>
+							</Select>
+						</ColumnListItem>
+						
+					</Table>
+					</VBox>
+					
+					
+					<Button text="Ok Proceedi" press="assign_scheda" class = "c1"/>
+					<Button text="Annulla" press="cancel"/>
+				
+			</Page>
+		</NavContainer>
+	</Popover>
+</core:FragmentDefinition>

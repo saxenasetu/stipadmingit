@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="group">
+		<groupItems>
+			<ViewSettingsFilterItem text="{i18n>Ruolo1}" key="RUOLO_PROF" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>Qualifica}" key="QUALIFICA" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>Grade1}" key="BAND" multiSelect="false"/>
+			<!--			<ViewSettingsFilterItem text="{i18n>RespHR}" key="HR_MANAGER" multiSelect="false"/>
+-->
+			<ViewSettingsFilterItem text="{i18n>RespDiretto}" key="MATRICOLAMANAGER" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>cambi}" key="cambi" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>RAL3006}" key="RALQ1" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>RAL3009}" key="RALSEMESTRALE" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>RAL3112}" key="RALQ3" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>RAL3103}" key="RALANNUALE" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>TargetBonusaprile2019}" key="targetBonusYear" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>datavalidita1}" key="dataValidata1" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>TargetBonus1}" key="targetBonus1" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>datavalidita2}" key="dataValidata2" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>TargetBonus2}" key="targetBonus2" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>datavalidita3}" key="dataValidata3" multiSelect="false"/>
+			<ViewSettingsFilterItem text="{i18n>TargetBonus3}" key="targetBonus3" multiSelect="false"/>
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

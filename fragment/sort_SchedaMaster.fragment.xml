@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ViewSettingsDialog confirm="sort">
+		<sortItems selectedIndex = "-1">
+		<!--	<ViewSettingsItem text="{i18n>Id}" key="ID_SCHEDAMASTER"/>
+			<ViewSettingsItem text="{i18n>Desc}" key="DESCR_SCHEDA"/>
+			<ViewSettingsItem text="{i18n>Max_Payout}" key="MAXPERCPAYOUT"/>
+			<ViewSettingsItem text="{i18n>Peso}" key="PESO_PERCENTUALE"/>
+			<ViewSettingsItem text="{i18n>IDPista}" key="ID_PISTA"/>-->
+			                               <ViewSettingsItem text="{i18n>Id}" key="ID_SCHEDAMASTER;1"/>
+                                           <ViewSettingsItem text="{i18n>Desc}" key="DESCR_SCHEDA;2"/>
+                                           <ViewSettingsItem text="{i18n>Max_Payout}" key="MAXPERCPAYOUT;3"/>
+                                       <!--    <ViewSettingsItem text="{i18n>Peso}" key="PESO_PERCENTUALE;7"/>
+                                           <ViewSettingsItem text="{i18n>IDPista}" key="ID_PISTA;8"/>-->
+
+		<!--	<ViewSettingsItem text="{i18n>Note}" key="NOTE"/>
+			<ViewSettingsItem text="{i18n>Congelata}" key="SN_CONGELATA"/>
+			<ViewSettingsItem text="{i18n>Template}" key="DESC_TEMPLATELETTERA"/>-->
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

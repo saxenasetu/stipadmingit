@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="FilterDialogCurve" confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem items="{curveResultTableModel>/desc}" text="Descrizione" key="DESCR_CURVA" multiSelect="true">
+				<items>
+					<ViewSettingsItem key="DESCR_CURVA" text=" "/>
+					<ViewSettingsItem key="DESCR_CURVA" text="{curveResultTableModel>DESCR_CURVA}"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="Tipo Curva" key="ID_TIPO_CURVA" multiSelect="true" items="{curveResultTableModel>/tipo}">
+				<items>
+					<ViewSettingsItem text="{curveResultTableModel>}" key="ID_TIPO_CURVA"/>
+					<!--<ViewSettingsItem text="Lineare" key="ID_TIPO_CURVA"/>
+					<ViewSettingsItem text="Discreta" key="ID_TIPO_CURVA"/>
+					<ViewSettingsItem text="Descrittiva" key="ID_TIPO_CURVA"/>
+					<ViewSettingsItem text="Discreta/Rapporto Percentuale" key="ID_TIPO_CURVA"/>
+					<ViewSettingsItem text="Lineare/Consuntivo" key="ID_TIPO_CURVA"/>
+					<ViewSettingsItem text="Lineare/Pdecimale" key="ID_TIPO_CURVA"/>-->
+				</items>
+			</ViewSettingsFilterItem>
+		<!--	<ViewSettingsFilterItem text="Piste/ Sotto Piste" key="PISTE" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="" key="PISTE"/>
+					<ViewSettingsItem text="Più di 1" key="PISTE"/>
+					<ViewSettingsItem text=" Meno di 1" key="PISTE"/>
+				</items>
+			</ViewSettingsFilterItem>-->
+			<ViewSettingsFilterItem text="Moltiplicatore" key="SN_GATE" items="{curveResultTableModel>/mul}" multiSelect="true">
+				<items>
+				<!--	<ViewSettingsItem text="" key="SN_GATE"/>
+					<ViewSettingsItem text="S" key="SN_GATE"/>-->
+					<ViewSettingsItem text="{curveResultTableModel>}" key="SN_GATE"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,19 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"	xmlns:viz="sap.viz.ui5.controls" 
+	controllerName="stipAdmin.stipAdmin.controller.columnChartExample" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="createChartExample">
+			<l:Grid defaultSpan="L12">
+                <l:content>
+                    <viz:VizFrame xmlns="sap.viz" id="idcolumn" uiConfig="{applicationSet:'fiori'}"  width="100%"></viz:VizFrame>
+                    <Text width="100%" class="zErrorMessage" id="idErrorMessageScrap" text="NoDataFound" visible="false"></Text>
+                </l:content>
+            </l:Grid>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
+
+ 
+
+

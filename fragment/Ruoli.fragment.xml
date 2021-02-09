@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog contentWidth="750px" contentHeight="600px" resizable="true" draggable="true">
+		<VBox class="sapUiSmallMarginBeginEnd">
+			<HBox justifyContent="SpaceBetween">
+				<SearchField id="idRuoloSearch" placeholder="{i18n>Ruolo}"/>
+				<SearchField id="idGradeSearch" placeholder="{i18n>Grade}"/>
+			</HBox>
+		</VBox>
+		<VBox class="sapUiSmallMarginBeginEnd">
+			<HBox justifyContent="SpaceBetween">
+				<Button text="{i18n>NessSele}" icon="sap-icon://multiselect-none" press="onRuoliSelect"/>
+				<Button text="{i18n>RuoliRicerca}" icon="sap-icon://search" press="onRuoliSearch"/>
+				<Button text="{i18n>Reset}" icon="sap-icon://reset" press="onRuoliReset"/>
+			</HBox>
+		</VBox>
+		<Table id="idRuoliSearchTable" mode="SingleSelectMaster" items="{ path: 'GesConRuoloModel>/', sorter: { path: 'JOBCODE_ID' } }"   noDataText="{i18n>nodata}" inset="false" growing="true" growingThreshold="200"
+	selectionChange ="onSelRuoliRecord" growingTriggerText = "{i18n>VediAltro}">
+			<columns>
+				<Column hAlign="Center">
+					<Text text="{i18n>id}"/>
+				</Column>
+				<Column hAlign="Begin">
+					<Text text="{i18n>GesConRuolo}"/>
+				</Column>
+				<Column hAlign="Center">
+					<Text text="{i18n>GesConFragGrade}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>			
+						<Text text="{GesConRuoloModel>JOBCODE_ID}" textAlign="Begin"/>
+						<Text text="{GesConRuoloModel>RUOLO_PROF}" textAlign="Begin"/>
+						<Text text="{GesConRuoloModel>GRADE}" textAlign="Center"/>
+					</cells>
+				</ColumnListItem>
+			</items>					
+		</Table>
+		<endButton>
+			<Button press = "onRuoliSelect" text = "{i18n>CANCEL}"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

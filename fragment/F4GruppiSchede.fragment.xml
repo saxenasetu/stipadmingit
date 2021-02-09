@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="Nessun Gruppo Scheda trovato"
+		title="Selezione Gruppo Scheda"
+		search=".onSearchGruppiScheda"
+		confirm=".onDialogSelectGruppiScheda"
+		cancel=".onDialogClose"
+		items="{path : 'oGruppoModel>/'}">
+		<StandardListItem
+			title="{oGruppoModel>DESCR_GRUPPOSCHEDA}"
+			description="{oGruppoModel>ID_GRUPPOSCHEDA}"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

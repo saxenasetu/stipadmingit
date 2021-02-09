@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog title="{i18n>Discreta}" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentHeight="195px" contentWidth="200px">
+		<content>
+			<ScrollContainer vertical="true" horizontal="true" focusable="true">
+			<Table mode="None" id="tblCurva2Dialog" class="stipAdmin" items="{Curva2Dialog>/}" growing="true" growingTriggerText = "{i18n>VediAltro}">
+				<columns>
+					<Column minScreenWidth="Tablet" width="auto" demandPopin="true">
+						<Label design="Bold" text="{i18n>Performance}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" width="auto" demandPopin="true">
+						<Label design="Bold" text="{i18n>MBO}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="onPressCurva2Dialog">
+						<cells>
+							<Text text="{Curva2Dialog>S_GRADINO}"/>
+							<Text text="{Curva2Dialog>PERC_MBO}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+				<columns/>
+				<items/>
+			</Table>
+				</ScrollContainer>
+		</content>
+		<!--<beginButton>
+				
+		</beginButton>-->
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,284 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="stipAdmin.stipAdmin.controller.EffettuaSimulata"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>EffettuaConsuntivazioneSim}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Text id="idtxtfiscalyear" text="{oJsonYear>/year}"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="{i18n>EffettuaConsuntivazioneSim}"></Title>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<ScrollContainer width="auto" vertical="true" horizontal="true" focusable="true">
+						<!--Begin of Table1 -->
+						<Table id="tbl1" class="stipAdmin" items="{tblModel1>/}">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="{i18n>EffettuaConsuntivazioneSim}"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column id="col11" minScreenWidth="Tablet" width="2rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Count}"/>
+								</Column>
+								<Column id="col21" minScreenWidth="Tablet" width="17rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>AvviaElaborazione}"/>
+								</Column>
+								<Column id="col31" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataConsuntivazione}"/>
+								</Column>
+								<Column visible="false" id="col41" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataLettera}"/>
+								</Column>
+								<Column  visible="false" id="col51" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataPagamento}"/>
+								</Column>
+								<Column id="col61" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>TotaleMatricoleConsuntivate}"/>
+								</Column>
+								<Column id="col71" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>UtenteUltimaModifica}"/>
+								</Column>
+								<Column id="col81" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Dataultimamodifica}"/>
+								</Column>
+								<Column id="col91" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Ins}"/>
+								</Column>
+								<Column id="col101" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Mod}"/>
+								</Column>
+								<Column id="col111" minScreenWidth="Tablet" width="25rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Note}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+										<Text text="{tblModel1>NRCONSUNTIVAZIONE}"/>
+										<Button text="{tblModel1>AvviaElaborazione}" enabled="{tblModel1>rowButton}" width="15rem" type="Emphasized" press="onPressRowBtn1"></Button>
+										<Text text="{tblModel1>DATA_CONSUNTIVAZIONE}"/>
+										<DatePicker visible="false" value="{tblModel1>DATALETTERA}" id="dtLettera1" change="change1" enabled="{tblModel1>rowButton}" displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" class="sapUiSmallMarginBottom"/>
+										<DatePicker visible="false" value="{tblModel1>DATAPAGAMENTO}" id="dtPagamento1" change="change1" enabled="{tblModel1>rowButton}" displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" class="sapUiSmallMarginBottom"/>
+										<Text text="{tblModel1>TOTALEMATRICOLE}"/>
+										<Text text="{tblModel1>UTENTE_ULTIMA_MODIFICA}"/>
+										<Text text="{tblModel1>DATA_UM}"/>
+										<Text text="{tblModel1>RIGHE_NUOVE}"/>
+										<Text text="{tblModel1>RIGHE_MODIFICATE}"/>
+										<Text width="25rem" text="{tblModel1>NOTE}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns/>
+							<items/>
+						</Table>
+						<Button type="Emphasized" class="CongelaButton" text="{i18n>CongelaConsuntivazione}" visible="{oModelBtn>/VisibilityBtn1}"
+							press="onPressBtn1"/>
+						<Label id="labelSpace1"></Label>
+						<!--End of Table1 -->
+						<!--Begin of Table2 -->
+						<Table id="tbl2" class="stipAdmin" items="{tblModel2>/}">
+							<columns>
+								<Column id="col12" minScreenWidth="Tablet" width="2rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Count}" visible='false'/>
+								</Column>
+								<Column id="col22" minScreenWidth="Tablet" width="17rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>AvviaElaborazione}" visible='false'/>
+								</Column>
+								<Column id="col32" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataConsuntivazione}" visible='false'/>
+								</Column>
+								<Column visible="false" id="col42" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataLettera}" visible='false'/>
+								</Column>
+								<Column visible="false" id="col52" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataPagamento}" visible='false'/>
+								</Column>
+								<Column id="col62" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>TotaleMatricoleConsuntivate}" visible='false'/>
+								</Column>
+								<Column id="col72" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>UtenteUltimaModifica}" visible='false'/>
+								</Column>
+								<Column id="col82" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Dataultimamodifica}" visible='false'/>
+								</Column>
+								<Column id="col92" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Ins}" visible='false'/>
+								</Column>
+								<Column id="col102" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Mod}" visible='false'/>
+								</Column>
+								<Column id="col112" minScreenWidth="Tablet" width="25rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Note}" visible='false'/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{tblModel2>NRCONSUNTIVAZIONE}"/>
+										<Button text="{tblModel2>AvviaElaborazione}" enabled="{tblModel2>rowButton}" width="15rem" type="Emphasized" press="onPressRowBtn2"></Button>
+										<Text text="{tblModel2>DATA_CONSUNTIVAZIONE}"/>
+										<DatePicker visible="false" value="{tblModel2>DATALETTERA}" id="dtLettera2" change="change2" enabled="{tblModel2>rowButton}" displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" class="sapUiSmallMarginBottom"/>
+										<DatePicker visible="false" value="{tblModel2>DATAPAGAMENTO}" id="dtPagamento2" change="change2" enabled="{tblModel2>rowButton}" displayFormat="dd/MM/yyyy"
+											valueFormat="dd/MM/yyyy" class="sapUiSmallMarginBottom"/>
+										<Text text="{tblModel2>TOTALEMATRICOLE}"/>
+										<Text text="{tblModel2>UTENTE_ULTIMA_MODIFICA}"/>
+										<Text text="{tblModel2>DATA_UM}"/>
+										<Text text="{tblModel2>RIGHE_NUOVE}"/>
+										<Text text="{tblModel2>RIGHE_MODIFICATE}"/>
+										<Text width="25rem" text="{tblModel2>NOTE}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns/>
+							<items/>
+						</Table>
+						<Button type="Emphasized" class="CongelaButton" text="{i18n>CongelaConsuntivazione}" visible="{oModelBtn>/VisibilityBtn2}"
+							press="onPressBtn2"/>
+						<Label id="labelSpace2"></Label>
+						<!-- End of Table 2 -->
+						<!-- Begin of Table 3 -->
+						<Table id="tbl3" class="stipAdmin" items="{tblModel3>/}">
+							<columns>
+								<Column id="col13" minScreenWidth="Tablet" width="2rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Count}" visible='false'/>
+								</Column>
+								<Column id="col23" mergeFunctionName="getText" minScreenWidth="Tablet" width="17rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>AvviaElaborazione}" visible='false'/>
+								</Column>
+								<Column id="col33" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataConsuntivazione}" visible='false'/>
+								</Column>
+								<Column visible="false" id="col43" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataLettera}" visible='false'/>
+								</Column>
+								<Column visible="false" id="col53" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataPagamento}" visible='false'/>
+								</Column>
+								<Column id="col63" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>TotaleMatricoleConsuntivate}" visible='false'/>
+								</Column>
+								<Column id="col73" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>UtenteUltimaModifica}" visible='false'/>
+								</Column>
+								<Column id="col83" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Dataultimamodifica}" visible='false'/>
+								</Column>
+								<Column id="col93" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Ins}" visible='false'/>
+								</Column>
+								<Column id="col103" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Mod}" visible='false'/>
+								</Column>
+								<Column id="col113" minScreenWidth="Tablet" width="25rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Note}" visible='false'/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{tblModel3>NRCONSUNTIVAZIONE}"/>
+										<Button text="{tblModel3>AvviaElaborazione}" enabled="{tblModel3>rowButton}" width="15rem" type="Emphasized" press="onPressRowBtn3"></Button>
+										<Text text="{tblModel3>DATA_CONSUNTIVAZIONE}"/>
+										<DatePicker  visible="false" value="{tblModel3>DATALETTERA}" id="dtLettera3" change="change3" enabled="{tblModel3>rowButton}" displayFormat="dd/MM/yyyy"
+											class="sapUiSmallMarginBottom" valueFormat="dd/MM/yyyy"/>
+										<DatePicker  visible="false" value="{tblModel3>DATAPAGAMENTO}" id="dtPagamento3" change="change3" enabled="{tblModel3>rowButton}" displayFormat="dd/MM/yyyy"
+											class="sapUiSmallMarginBottom" valueFormat="dd/MM/yyyy"/>
+										<Text text="{tblModel3>TOTALEMATRICOLE}"/>
+										<Text text="{tblModel3>UTENTE_ULTIMA_MODIFICA}"/>
+										<Text text="{tblModel3>DATA_UM}"/>
+										<Text text="{EffettuaRealeTable>RIGHE_NUOVE}"/>
+										<Text text="{tblModel3>RIGHE_MODIFICATE}"/>
+										<Text width="25rem" text="{tblModel3>NOTE}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns/>
+							<items/>
+						</Table>
+						<Button type="Emphasized" class="CongelaButton" text="{i18n>CongelaConsuntivazione}" visible="{oModelBtn>/VisibilityBtn3}"
+							press="onPressBtn3"/>
+						<Label id="labelSpace3"></Label>
+						<!-- End of Table 3 -->
+						<!-- Begin of Table 4 -->
+						<Table id="tbl4" class="stipAdmin" items="{tblModel4>/}">
+							<columns>
+								<Column id="col14" minScreenWidth="Tablet" width="2rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Count}" visible='false'/>
+								</Column>
+								<Column id="col24" minScreenWidth="Tablet" width="17rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>AvviaElaborazione}" visible='false'/>
+								</Column>
+								<Column id="col34" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataConsuntivazione}" visible='false'/>
+								</Column>
+								<Column visible="false" id="col44" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataLettera}" visible='false'/>
+								</Column>
+								<Column visible="false" id="col54" minScreenWidth="Tablet" width="9rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>DataPagamento}" visible='false'/>
+								</Column>
+								<Column id="col64" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>TotaleMatricoleConsuntivate}" visible='false'/>
+								</Column>
+								<Column id="col74" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>UtenteUltimaModifica}" visible='false'/>
+								</Column>
+								<Column id="col84" minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Dataultimamodifica}" visible='false'/>
+								</Column>
+								<Column id="col94" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Ins}" visible='false'/>
+								</Column>
+								<Column id="col104" visible="false" minScreenWidth="Tablet" width="5rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Mod}" visible='false'/>
+								</Column>
+								<Column id="col114" minScreenWidth="Tablet" width="25rem" demandPopin="true">
+									<Label wrapping="true" text="{i18n>Note}" visible='false'/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{tblModel4>NRCONSUNTIVAZIONE}"/>
+										<Button text="{tblModel4>AvviaElaborazione}" enabled="{tblModel4>rowButton}" width="15rem" type="Emphasized" press="onPressRowBtn4"></Button>
+										<Text text="{tblModel4>DATA_CONSUNTIVAZIONE}"/>
+										<DatePicker visible="false" value="{tblModel4>DATALETTERA}" id="dtLettera4" change="change4" enabled="{tblModel4>rowButton}" displayFormat="dd/MM/yyyy"
+											class="sapUiSmallMarginBottom" valueFormat="dd/MM/yyyy"/>
+										<DatePicker visible="false" value="{tblModel4>DATAPAGAMENTO}" id="dtPagamento4" change="change4" enabled="{tblModel4>rowButton}" displayFormat="dd/MM/yyyy"
+											class="sapUiSmallMarginBottom" valueFormat="dd/MM/yyyy"/>
+										<Text text="{tblModel4>TOTALEMATRICOLE}"/>
+										<Text text="{tblModel4>UTENTE_ULTIMA_MODIFICA}"/>
+										<Text text="{tblModel4>DATA_UM}"/>
+										<Text text="{tblModel4>RIGHE_NUOVE}"/>
+										<Text text="{tblModel4>RIGHE_MODIFICATE}"/>
+										<Text width="25rem" text="{tblModel4>NOTE}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+							<columns/>
+							<items/>
+						</Table>
+						<Button type="Emphasized" class="CongelaButton" text="{i18n>CongelaConsuntivazione}" visible="{oModelBtn>/VisibilityBtn4}"
+							press="onPressBtn4"/>
+						<Label id="labelSpace4"></Label>
+						<Label id="labelSpace5"></Label>
+						<!--End of Table 4 -->
+					</ScrollContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

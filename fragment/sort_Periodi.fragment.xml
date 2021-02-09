@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ViewSettingsDialog confirm="sort">
+		<sortItems selectedIndex="-1">
+			<ViewSettingsItem text="{i18n>Id}" key="ID_PERIODO"/>
+			<ViewSettingsItem text="{i18n>Desc}" key="DESCR_PERIODO"/>
+			<ViewSettingsItem text="{i18n>DAL}" key="VALE_DAL"/>
+			<ViewSettingsItem text="{i18n>AI}" key="VALE_AL"/>
+			<!--<ViewSettingsItem text="{i18n>AI}" key="VALE_AL"/>
+			<ViewSettingsItem text="{i18n>AI}" key="VALE_AL"/>-->
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

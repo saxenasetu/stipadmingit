@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="FilterDialog" confirm="filter">
+		<filterItems>
+			<ViewSettingsFilterItem text="{i18n>Desc}" key='DESCR_PERIODO' items="{path: 'PeriodiTableModel>/',sorter: {path: 'DESCR_PERIODO',descending: true}}" multiSelect="true">
+				<items>
+					<ViewSettingsItem text="{PeriodiTableModel>DESCR_PERIODO}" key="DESCR_PERIODO"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>DAL}" key='VALE_DAL' multiSelect="true" items="{path: 'PeriodiTableModel>/',sorter: {path: 'VALE_DAL',descending: true}}">
+				<items>
+					<ViewSettingsItem text="{PeriodiTableModel>VALE_DAL}" key="VALE_DAL"/>
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem text="{i18n>AI}" key='VALE_AL' multiSelect="true" items="{path: 'PeriodiTableModel>/',sorter: {path: 'VALE_AL',descending: true}}">
+				<items>
+					<ViewSettingsItem text="{PeriodiTableModel>VALE_AL}" key="VALE_AL"/>
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,89 @@
+{
+	"pisteData": [{
+			"Id_PistaView": "1",
+			"Descr_Pista": "Piste 1 description",
+			"Id_GruppoPista": "oooooooooooo",
+			"Pista_Vale_Dal": "a",
+			"Pista_Vale_Al": "issiii",
+			"Pista_Vale_A1": "itttiii",
+			"ID_Tipo_Curva": "eeiiii",
+			"ID_Gate": "tiiii",
+			"ID_Gate2": "yiiii",
+			"SN_Personalizzabile": "hiiii",
+			"descr_additivo": "kiiii",
+			"Cognome Nome Matricola": "nniiii",
+			"N_Sottopiste": "iiii",
+			"obiettivo_inferiore": "99iiii",
+			"obiettivo_superiore": "jjiiii",
+			"Obiettivo": "rriiii",
+			"Consuntivo": "weriiii",
+			"Perc_Ragg_Obiettivo": "ffiiii",
+			"Perc_Ragg_MBO": "ttttt"
+
+		}, {
+			"Id_PistaView": "2",
+			"Descr_Pista": "iiii",
+			"Id_GruppoPista": "oooooooooooo",
+			"Pista_Vale_Dal": "a",
+			"Pista_Vale_Al": "issiii",
+			"Pista_Vale_A1": "itttiii",
+			"ID_Tipo_Curva": "eeiiii",
+			"ID_Gate": "tiiii",
+			"ID_Gate2": "yiiii",
+			"SN_Personalizzabile": "hiiii",
+			"descr_additivo": "kiiii",
+
+			"Cognome Nome Matricola": "nniiii",
+			"N_Sottopiste": "iiii",
+			"obiettivo_inferiore": "99iiii",
+			"obiettivo_superiore": "jjiiii",
+			"Obiettivo": "rriiii",
+			"Consuntivo": "weriiii",
+			"Perc_Ragg_Obiettivo": "ffiiii",
+			"Perc_Ragg_MBO": "ttttt"
+
+		}, {
+			"Id_PistaView": "3",
+			"Descr_Pista": "iiii",
+			"Id_GruppoPista": "oooooooooooo",
+			"Pista_Vale_Dal": "a",
+			"Pista_Vale_Al": "issiii",
+			"Pista_Vale_A1": "itttiii",
+			"ID_Tipo_Curva": "eeiiii",
+			"ID_Gate": "tiiii",
+			"ID_Gate2": "yiiii",
+			"SN_Personalizzabile": "hiiii",
+			"descr_additivo": "kiiii",
+			"Cognome Nome Matricola": "nniiii",
+			"N_Sottopiste": "iiii",
+			"obiettivo_inferiore": "99iiii",
+			"obiettivo_superiore": "jjiiii",
+			"Obiettivo": "rriiii",
+			"Consuntivo": "weriiii",
+			"Perc_Ragg_Obiettivo": "ffiiii",
+			"Perc_Ragg_MBO": "ttttt"
+
+		}
+
+	],
+	"sottopiste": [{
+		"peso": "100%",
+		"curva": "",
+		"gate": "",
+		"descrizone": ""
+	}],
+
+	"sottopiste2": [{
+		"peso": "",
+		"curva": "",
+		"gate": "",
+		"descrizone": ""
+		}],
+	"Obiettivo": [{
+		"obiettivo_inferiore": "",
+		"Consuntivo": "",
+		"obiettivo_superiore": "",
+		"Obiettivo2": ""
+	}]
+
+}

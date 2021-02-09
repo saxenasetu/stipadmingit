@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ViewSettingsDialog confirm="sort">
+		<sortItems selectedIndex="-1">
+			<ViewSettingsItem text="{i18n>sID}" key="SUPERID"/>
+			<ViewSettingsItem text="{i18n>Matricola}" key="MATRICOLA"/>
+			<ViewSettingsItem text="{i18n>RAL3006}" key="RALQ1"/>
+			<ViewSettingsItem text="{i18n>RAL3009}" key="RALSEMESTRALE"/>
+			<ViewSettingsItem text="{i18n>RAL3112}" key="RALQ3"/>
+			<ViewSettingsItem text="{i18n>RAL3103}" key="RALANNUALE"/>
+			<ViewSettingsItem text="{i18n>TargetBonusaprile2019}" key="targetBonusYear"/>
+			<ViewSettingsItem text="{i18n>datavalidita1}" key="dataValidata1"/>
+			<ViewSettingsItem text="{i18n>TargetBonus1}" key="targetBonus1"/>
+			<ViewSettingsItem text="{i18n>datavalidita2}" key="dataValidata2"/>
+			<ViewSettingsItem text="{i18n>TargetBonus2}" key="targetBonus2"/>
+			<ViewSettingsItem text="{i18n>datavalidita3}" key="dataValidata3"/>
+			<ViewSettingsItem text="{i18n>TargetBonus3}" key="targetBonus3"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

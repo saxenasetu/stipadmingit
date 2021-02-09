@@ -1,0 +1,78 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="stipAdmin.stipAdmin.controller.GestioneListclus" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:t="sap.ui.table">
+	<App>
+		<pages>
+			<Page title="{i18n>GestioneListedTitle}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+						<Bar>
+						<contentLeft>
+								<Button icon = "sap-icon://navigation-left-arrow" type="Emphasized" id="button11" press="handleBack"/>
+								<!--<Button xmlns="sap.m" text="Home Page" type="Emphasized" press="onHome"/>-->
+							</contentLeft>
+							<contentRight>
+								<Text id="idtxtfiscalyear"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+				<content>
+					
+					<!--<List id="lstNuovaLista" width="auto" class="sapFDynamicPageAlignContent" items="{GestioneModel>/}"
+						mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
+						updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+						<headerToolbar>
+							<OverflowToolbar >
+								<Title id="txtNumberCount"/>
+								<ToolbarSpacer/>
+								<Text id="idtxtfiscalyear"/>
+								<ToolbarSpacer/>
+								<SearchField id="searchField" tooltip="{i18n>lstSearchTooltip}" liveChange="onSearch" search="onSearch" width="auto">
+									<layoutData>
+										<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+									</layoutData>
+								</SearchField>
+								<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+							</OverflowToolbar>
+						</headerToolbar>
+						<items>
+							<ObjectListItem  type="Navigation" press="onSelectionChange" title="{GestioneModel>DescrizioneLista}" number="{GestioneModel>Count}">
+							</ObjectListItem>
+						
+						</items>
+					</List>-->
+					<Table items = "{GestioneModel>/}">
+						
+						<columns>
+							<Column minScreenWidth="Tablet" width="80%" demandPopin="true">
+								
+							</Column>
+							<Column minScreenWidth="Tablet" width="25%" demandPopin="true">
+							
+							</Column>
+							<Column minScreenWidth="Tablet" width="5%" demandPopin="true">
+								
+							</Column>
+							
+						</columns>
+						<items>
+							<ColumnListItem type="Active" press="onSelectionChange($event,${path: 'GestioneModel>ID'},${path:'GestioneModel>DescrizioneLista'},${path:'GestioneModel>Count'})">
+								<cells>
+									<Text text="{GestioneModel>DescrizioneLista}"/>
+									<Text text="{GestioneModel>Count}"/>
+									<Button icon="sap-icon://delete" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="{GestioneModel>del}" press = "deleteList($event,${path: 'GestioneModel>ID'})"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<columns/>
+						<items/>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button type="Emphasized" text="{i18n>NuovaLista}" press="handleNuovaLista" enabled="true"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

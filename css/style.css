@@ -1,0 +1,315 @@
+span.sapMBtnInner.sapMBtnDefault {
+    background-color: #e61e1e;
+    color: #ffffff;
+}
+
+span.sapMBtnInner.sapMBtnDefault:hover {
+    background-color: #e61e1e;
+    color: #ffffff;
+}
+
+.sapMBtnInner .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+.grayBackground {
+    background-color: #909090;
+}
+
+.grayFont {
+    color: #909090;
+}
+
+tr[data-mydata="G"] {
+    background: #e8e5e5 !important;
+}
+
+.lineThrough {
+    text-decoration: line-through;
+}
+
+.nolineThrough {
+    text-decoration: none;
+}
+
+.redBackground {
+    background-color: red;
+}
+
+.sapMBtnInner {
+    background-color: #e61e1e;
+    color: #ffffff;
+}
+
+span.sapMBtnInner.sapMBtnEmphasized {
+    background-color: #e61e1e;
+    color: #ffffff;
+}
+
+span.sapMBtnInner.sapMBtnEmphasized:hover {
+    background-color: #e61e1e;
+    color: #ffffff;
+}
+
+.schedaPersonaleFilterWidth .sapUiAFLayoutItem {
+    max-width: 20px;
+    height: 100px;
+}
+
+.schedaPersonaleFilterWidth1 {
+    max-width: 8rem;
+    margin-left: 15px;
+}
+
+.schedaPersonaleFilterWidth2 {
+    margin-left: 55px;
+}
+
+.redFontLable {
+    color: #FF0000 !important;
+    border-color: #FF0000 !important;
+}
+
+.textBold.sapMCb .sapMLabel {
+    font-size: 1.4em;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+}
+
+.redBackgroundSchedaPersoanle {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #FFFFFF !important;
+    background-color: #FF0000 !important;
+}
+
+.redBorderColorInput {
+    border: 1px solid #FF0000;
+}
+
+.modificaPisteBtn {
+    font-size: 0.8em;
+}
+
+.moltiUploadFont {
+    font-size: 0.7em;
+}
+/*
+.sapMBarTitleStart .sapMBarPH {
+    align-content: center;
+}
+.sapMIBar.sapMHeader-CTX {
+    background-color: #e61e1e;
+}
+.sapMIBar-CTX .sapMTitle {
+    color: #ffffff;
+    width: -webkit-fill-available;
+}*/
+.btn {
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+.c1 {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.stipAdminSpace {
+    width: 1rem;
+}
+
+.stip2Space {
+    width: 2rem;
+}
+
+.stipAdmin .sapMListTblCell {
+    border-left: 1px solid #ccc;
+}
+
+.stipAdminVBox.sapMFlexBoxAlignItemsStretch {
+    align-items: center;
+}
+
+.stipAdminHBoxPerson {
+    align-self: center;
+}
+
+.stipAdminHBoxPerson1 {
+    height: 0px !important;
+    margin-top: 20px;
+}
+
+.stipAdminChkLblPerson1 {
+    margin-bottom: 1rem;
+}
+
+.stipAdminChkLblPerson1.sapMCb .sapMLabel {
+    font-weight: bold;
+}
+
+.stipAdminSpacePerson1 {
+    width: 0.5rem;
+}
+
+.stipAdminSpacePerson2 {
+    width: 0rem;
+}
+
+.stipAdminPersonDialog.sapMDialog {
+    max-width: 64%;
+}
+
+.stipAdminBloccaCongelaVBox {
+    position: fixed !important;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stipAdminBloccaCongelaHBox {
+    position: fixed !important;
+    top: 100%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+}
+
+.stipAdminBloccaCongelatext1.sapMLnk {
+    color: Grey;
+    font-style: italic;
+}
+
+.stipAdminBloccaCongelatext .sapMLabel .sapMLabelTextWrapper {
+    color: Grey;
+    font-style: italic;
+}
+
+.stipAdminBloccaCongelatext1.sapMText {
+    color: Grey;
+    font-style: italic;
+}
+
+.stipAdminBloccaPisteVBox1 {
+    margin-top: 1.07rem;
+    margin-left: 0.5rem;
+}
+
+.stipAdminUploadPisteVBox {
+    margin-top: 1.07rem;
+}
+
+.stipAdminUploadPisteVBox1 {
+    margin-top: 1.07rem;
+}
+
+.stipAdminUploadPisteVBox2 {
+    margin-left: 2rem !important;
+    margin-top: 2rem !important;
+}
+
+.stipAdminUploadPisteVBox3 {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+}
+
+.StipCreatePisteTableInput1 {
+    margin-left: 2rem;
+}
+
+.StipCreatePisteTableText1 {
+    margin-right: 1rem;
+}
+.stipSpaceButton {
+    width: 13rem;
+}
+.stipAgguingiPisteSpace {
+    width: 20rem;
+}
+.stipCreateFragSpace{
+	 width: 300px;
+}
+
+.stip8Space {
+    width: 8rem;
+}
+
+.stipCreatePisteSpace {
+    width: 21rem;
+}
+
+.EffettuaConsuntivazioneRealemybtn {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.fs {
+    font-size: 1.5rem;
+}
+
+.StipAdminPisteTitleClass {
+    margin: .25rem 0rem .75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.EffettuaConsuntivazioneRealemybtn {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.CongelaButton {
+    margin-left: 36rem !important;
+}
+ 
+
+/*Gestione Consuntivazione START*/
+tr[data-mydata="1"]{
+  background: #e61e1e !important;
+}
+tr[data-mydata="3"]{
+  background: #6eefa4 !important;
+}
+/*Gestione Consuntivazione END */
+.background_grey{
+	width: 360px;
+	height: 50px;
+	padding-top: 18px;
+	background-color:#D3D3D3;
+}
+.title{
+	font-size: 16px;
+}
+
+div[id*="filterbar-adapt-filters-dialog-scrollCont"] > div > div > section > div> div:first-child {
+  display : none !important ;
+}
+
+
+div[id*="filterbar-adapt-filters-dialog-scrollCont"] > div > div > section > div> div:nth-child(2)>div > div > ul > li > div > div > header{
+  display : none !important ;
+}
+
+div[id*="filterbarPiste-adapt-filters-dialog-scrollCont"] > div > div > section > div> div:first-child {
+  display : none !important ;
+}
+
+
+div[id*="filterbarPiste-adapt-filters-dialog-scrollCont"] > div > div > section > div> div:nth-child(2)>div > div > ul > li > div > div > header{
+  display : none !important ;
+}
+
+div[id*="idsearchBarName-adapt-filters-dialog-scrollCont"] > div > div > section > div> div:first-child {
+  display : none !important ;
+}
+
+
+div[id*="idsearchBarName-adapt-filters-dialog-scrollCont"] > div > div > section > div> div:nth-child(2)>div > div > ul > li > div > div > header{
+  display : none !important ;
+}
+
+.sapMIBar-CTX .sapMBtnInner, .sapMBar .sapMBtnInner, .sapMHeader-CTX .sapMBtnInner, .sapMFooter-CTX .sapMBtnInner {
+background: #e61e1e;
+border-color: transparent;
+}

@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout">
+	<Dialog title="{i18n>AzioniBloccoSbloccoPiste}" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true" verticalScrolling="true"
+		draggable="true" contentHeight="320px">
+		<content>
+		   	<Label class="stipAdminSpace"/>
+					<VBox alignItems="Center">
+					   <HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Blocca}" type="Emphasized" press="onBlocca"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="{i18n>Sblocca}" type="Emphasized" press="onSblocca"/>
+						</HBox>
+					   <!--<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Blocca1Trimestre}" type="Emphasized" press="onBlocca1Trimestre"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="{i18n>Sblocca1Trimestre}" type="Emphasized" press="onSblocca1Trimestre"/>
+						</HBox>
+						 <HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Blocca2Trimestre}" type="Emphasized" press="onBlocca2Trimestre"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="{i18n>Sblocca2Trimestre}" type="Emphasized" press="onSblocca2Trimestre"/>
+						</HBox>
+						<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Blocca3Trimestre}" type="Emphasized" press="onBlocca3Trimestre"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="{i18n>Sblocca3Trimestre}" type="Emphasized" press="onSblocca3Trimestre"/>
+						</HBox>
+						<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Blocca4Trimestre}" type="Emphasized" press="onBlocca4Trimestre"/>
+							<Label class="stipAdminSpace"/>
+							<Button text="{i18n>Sblocca4Trimestre}" type="Emphasized" press="onSblocca4Trimestre"/>
+						</HBox>
+						<Label class="stipAdminSpace"/>-->
+						<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseDialog"/>
+						</HBox>
+					</VBox>
+		</content>
+
+	</Dialog>
+</core:FragmentDefinition>

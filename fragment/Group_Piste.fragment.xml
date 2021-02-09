@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="group">
+		<groupItems>
+			<ViewSettingsFilterItem text="Id" key="ID_PISTAVIEW" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Descrizione" key="DESCR_PISTA" multiSelect="false"/>
+			<ViewSettingsFilterItem text="Gruppo" key="DESCR_GRUPPOPISTA" multiSelect="false"/>
+		</groupItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<ViewSettingsDialog confirm="sort">
+		<sortItems selectedIndex="-1">
+			<ViewSettingsItem text="{i18n>sID}" key="SID;1"/>
+			<ViewSettingsItem text="{i18n>matricola}" key="MATRICOLA;2"/>
+			<ViewSettingsItem text="{i18n>Protocollo}" key="ID_PROTOCOLLO;8"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

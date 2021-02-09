@@ -1,0 +1,196 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+	controllerName="stipAdmin.stipAdmin.controller.BloccaSchedePersonali" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>BloccaSchedePersonali}" titleAlignment="Center" showNavButton="true" navButtonPress="handleBack">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Text id="idtxtfiscalyear"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text text="{i18n>BloccaSchedePersonali}"></Text>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+							<Button text="{i18n>back}" type="Emphasized" press="handleBack"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox alignItems="Center">
+						<HBox>
+							<Label class="stipAdminSpace"/>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Cognome} " wrapping="true" design="Bold"/>
+								<Input id="cognome"></Input>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Nome1}" wrapping="true" design="Bold"/>
+								<Input id="nome"></Input>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Dimessi}" wrapping="true" design="Bold"/>
+								<Select id="Dimessi"  forceSelection="false">
+									<core:Item key="S" text="Si"/>
+									<core:Item key="N" text="No"/>
+								</Select>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Scheda_KPI}" wrapping="true" design="Bold"/>
+								<Input id = "kpi"></Input>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>TipoPista}" wrapping="true" design="Bold"/>
+								<Select id="tipoKpi" change="onFlagChange" forceSelection="false">
+									<core:Item key="key11" text=""/>
+									<core:Item key="key22" text="1° Trim"/>
+									<core:Item key="key13" text="2° Trim"/>
+									<core:Item key="key24" text="3° Trim"/>
+									<core:Item key="key15" text="4° Trim"/>
+									<core:Item key="key26" text="1° Sem"/>
+									<core:Item key="key17" text="2° Sem"/>
+									<core:Item key="key28" text="Annuali"/>
+								</Select>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>ID}" wrapping="true" design="Bold"/>
+								<Input id = "idscheda"></Input>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>SchedaMaster}" wrapping="false" design="Bold"/>
+								<Input  id = "descscheda"></Input>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>SG}" wrapping="true" design="Bold"/>
+								<CheckBox id = "sg"/>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Gruppischede1}" wrapping="true" design="Bold"/>
+								<Select id="gruppo" items="{CongelaScongela>/0/Filter/1/Gruppi}" forceSelection="false" width="5rem">
+									<core:Item key="{CongelaScongela>ID_GRUPPOSCHEDA}" text="{CongelaScongela>DESCR_GRUPPOSCHEDA}"/>
+								</Select>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Resp.Diretto}" wrapping="true" design="Bold"/>
+								<Input id="dir"/>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>MeseInizio}" wrapping="true" design="Bold"/>
+								<Select id="sdate" forceSelection="false" items="{CongelaScongela>/0/Filter/0/Month}" width="5rem">
+									<core:Item key="{CongelaScongela>key}" text="{CongelaScongela>month}"/>
+								</Select>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>MeseFine}" wrapping="true" design="Bold"/>
+								<Select id="edate" items="{CongelaScongela>/0/Filter/0/Month}" forceSelection="false" width="5rem">
+									<core:Item key="{CongelaScongela>key}" text="{CongelaScongela>month}"/>
+								</Select>
+							</VBox>
+							<VBox class="stipAdminBloccaPisteVBox1">
+								<Label text="{i18n>Bloccate}" wrapping="true" design="Bold"/>
+								<Select id="sel71" change="onFlagChange" forceSelection="false">
+									<core:Item key="S" text="Si"/>
+									<core:Item key="N" text="No"/>
+								</Select>
+							</VBox>
+						</HBox>
+						<HBox class="stipAdminHBoxPerson">
+							<Button text="{i18n>Avvio}" type="Emphasized" press="onAvvio"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>BloccaSelezionati}" id="cong" type="Emphasized" press="onCongelaSelezionati"/>
+							<Label class="stipAdminSpacePerson1"/>
+							<Button text="{i18n>SbloccaSelezionati}" id="scong" type="Emphasized" press="onScongelaSelezionati"/>
+						</HBox>
+					</VBox>
+					<ScrollContainer width="100%" height="100%" vertical="true" horizontal="true" focusable="true">
+						<Table id="tbl" mode="None" class="stipAdmin" items="{CongelaScongela>/1/Main}"
+						sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" width="100rem">
+							<headerToolbar>
+								<OverflowToolbar>
+									<Title text="{i18n>BloccaSchedePersonali}" level="H2"/>
+									<ToolbarSpacer/>
+									<Button icon="sap-icon://action-settings" press="onPersoButtonPressed">
+										<layoutData>
+											<OverflowToolbarLayoutData priority="NeverOverflow"/>
+										</layoutData>
+									</Button>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<CheckBox select="selectCongAll"/>
+								</Column>
+								<!--<Column minScreenWidth="Tablet" width="6rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>D}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Data D}"/>
+								</Column>-->
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>sID}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Matricola}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Dipendenti}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="11rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>StatoDipendente}"/>
+								</Column>
+								
+								
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>ID}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>Descrizione}"/>
+								</Column>
+								<!--<Column minScreenWidth="Tablet" width="4rem" demandPopin="true"/>-->
+								<Column minScreenWidth="Tablet" width="7rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Mese_Inizio}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="7rem" demandPopin="true">
+									<Label design="Bold" wrapping="true" text="{i18n>Mese_Fine}"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
+									<Label design="Bold" text="{i18n>RespDiretto}" wrapping="true"/>
+								</Column>
+							</columns>
+							
+								<ColumnListItem>
+									<cells>
+										<CheckBox select=".selectCong($event,${path: 'CongelaScongela>ID_SCHEDAPERSONALE'})" text = "{CongelaScongela>Blocatta}"/>
+										<Text text="{CongelaScongela>SID}"/>
+										<Text text="{CongelaScongela>MATRICOLA}"/>
+										<Text text="{CongelaScongela>COGNOME} {CongelaScongela>NOME}"/>
+										<Text text="{CongelaScongela>SN_INATTIVO}"/>
+										<!--<Text text="{CongelaScongela>STATUS_DIPENDENTI}"/>-->
+										
+										
+										<Text text="{CongelaScongela>ID_SCHEDAMASTER}"/>
+										<Text text="{CongelaScongela>DESCR_SCHEDA}"/>
+										<!--<Button icon="sap-icon://inspection"/>-->
+										
+										<Text text="{CongelaScongela>INIZIO_ASSEGNAZIONE}"/>
+										<Text text="{CongelaScongela>FINE_ASSEGNAZIONE}"/>
+										<Text text="{CongelaScongela>RespDiretto}"/>
+									</cells>
+								</ColumnListItem>
+							
+						</Table>
+					</ScrollContainer>
+					<Bar design="SubHeader">
+						<contentMiddle>
+							<Button press="_prev" icon="sap-icon://close-command-field" visible="false" id="prev"/>
+							<Button press="_next" icon="sap-icon://open-command-field" visible="false" id="next"/>
+						</contentMiddle>
+					</Bar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

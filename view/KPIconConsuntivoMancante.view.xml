@@ -1,0 +1,181 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="stipAdmin.stipAdmin.controller.KPIconConsuntivoMancante" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true">
+	<App>
+		<pages>
+			<Page id="detail" title="KPI con Obiettivo mancante" backgroundDesign="Solid" class="sapUiStdPage">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Text text="KPI con Consuntivo mancante"/>
+						</contentLeft>
+						<contentMiddle>
+							<Text id="idtxtfiscalyearReport" class="fiscalYearAlign"/>
+						</contentMiddle>
+						<contentRight>
+							<Button text="{i18n>Tornaallalista}" type="Emphasized" press="onTornaallalista"></Button>
+							<Button text="{i18n>HomePage}" type="Emphasized" press="onHomePage"></Button>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<VBox id="vbx15" class="stipAdminVBox">
+						<l:Grid class="sapUiSmallMarginTop" hSpacing="1" defaultSpan="XL3 L3 M10 S12">
+							<l:content>
+								<HBox>
+									<VBox>
+										<Text width="7rem" text="Mese Inizio"/>
+										<ComboBox id="sel30a" change="onFlagChange" width="15rem" items="{ path: '/Months' }">
+											<core:Item key="{Month}" text="{Month}"/>
+										</ComboBox>
+									</VBox>
+									<VBox>
+										<Text width="7rem" text="Mese Fine"/>
+										<ComboBox id="sel30b" change="onFlagChange" width="15rem" items="{ path: '/Months' }">
+											<core:Item key="{Month}" text="{Month}"/>
+										</ComboBox>
+									</VBox>
+									<VBox>
+										<Text width="7rem" text="Gruppo KPI"/>
+										<Input id="sel31" class="sapUiSmallMarginBottom" width="15rem" valueHelpRequest=".onValueHelpRequest1" valueHelpOnly="true"
+											showValueHelp="true" placeholder="Seleziona Gruppo KPI" value="{modelGruppoSelected>/DESCR_GRUPPOPISTA}" type="Text"/>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="Mostra" type="Emphasized" press="onShow14"></Button>
+									</VBox>
+									<VBox>
+										<Text/>
+										<Button text="{i18n>Resetta}" type="Emphasized" press="onResetta15"></Button>
+									</VBox>
+								</HBox>
+							</l:content>
+						</l:Grid>
+					</VBox>
+					<Table id="tableHeader15" showNoData="false">
+						<columns>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+								<Text text="Id KPI" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+								<Text text="Descrizione" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Right" demandPopin="true">
+								<Text text="Gruppo KPI" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Nome" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Cognome" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Metricola" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Id SAP" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Inizio Scheda Personale" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Fine Scheda Personale" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Curva" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Obiettivo" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Consuntivo" visible="false" class="fontBoldClass"/>
+							</Column>
+							<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Stato persona" visible="false" class="fontBoldClass"/>
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer id="Scroll15" height="68%" width="100%" vertical="true">
+						<Table id="idTableReport15" items="{oModelReport4>/}" inset="false" growing="true" growingThreshold="1000" growingScrollToLoad="true"
+							mode="None">
+							<columns>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="Id KPI" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="3rem" vAlign="Middle" hAlign="Center" demandPopin="true">
+									<Text text="Descrizione" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Right" demandPopin="true">
+									<Text text="Gruppo KPI" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Right" demandPopin="true">
+									<Text text="Eventuale Assegnatario" class="fontBoldClass"/>
+								</Column>
+								<!--	<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Nome" class="fontBoldClass"/>
+							</Column> -->
+								<!--	<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="CogNome" class="fontBoldClass"/>
+							</Column> -->
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Matricola" class="fontBoldClass"/>
+								</Column>
+								<!--	<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+								<Text text="Id SAP" class="fontBoldClass"/>
+							</Column> -->
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Inizio Scheda Personale" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Fine Scheda Personale" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Curva" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Obiettivo" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Consuntivo" class="fontBoldClass"/>
+								</Column>
+								<Column minScreenWidth="Tablet" width="1rem" vAlign="Middle" hAlign="Left" demandPopin="true">
+									<Text text="Stato persona" class="fontBoldClass"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{oModelReport4>ID_PISTE}"/>
+										<Text text="{oModelReport4>DESCR_PISTA}"/>
+										<Text text="{oModelReport4>ID_GRUPPOPISTA}"/>
+										<!--	<Text text="{oModelReport4>FULLNAME}"/> -->
+										<Text text="{oModelReport4>EVENTUALE_ASSEGNATARIO}"/>
+										<!--	<Text text="{oModelReport4>Nome}"/> -->
+										<!--	<Text text="{oModelReport4>CogNome}"/> -->
+										<Text text="{oModelReport4>MATRICOLA}"/>
+										<!--		<Text text="{oModelReport4>ID SAP}"/> -->
+										<Text text="{oModelReport4>INIZIO_ASSEGNAZIONE}"/>
+										<Text text="{oModelReport4>FINE_ASSEGNAZIONE}"/>
+										<Text text="{oModelReport4>DESCR_CURVA}"/>
+										<Text text="{oModelReport4>OBIETTIVO}"/>
+										<Text text="{oModelReport4>CONSUNTIVO}"/>
+										<Text text="{oModelReport4>Stato persona}"/> 
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</content>
+				<footer>
+					<Bar design="Auto">
+						<contentLeft/>
+						<contentMiddle/>
+						<contentRight>
+							<Button id="idBtnNext" icon="sap-icon://download" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true"
+								press="onPressExport"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,125 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="stipAdmin.stipAdmin.controller.createSchedeMaster">
+	<App>
+		<pages>
+			<Page title="{i18n>CreaSchedaMaster}">
+				<customHeader>
+					<Bar>
+						<contentMiddle>
+							<Title text="{i18n>CreaSchedaMaster}"/>
+						</contentMiddle>
+						<contentRight>
+							<Text id="fy"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+					<Table>
+						<columns>
+							<Column width="10%">
+								<Label design="Bold" text="{i18n>Id}" id="label0"/>
+							</Column>
+							<Column width="90%">
+								<Label design="Bold" text="{i18n>Desc}" id="label2"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<!--<Input value="{newModel>/0/ID_SCHEDAMASTER}" id="id" editable="false" width="100px"/>-->
+							
+							<Input value="{maxPayoutModel>/4/newId}" id="id" editable="false" width="100px"/>
+							<Input xmlns="sap.m" id="desc" width="90%"/>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column>
+								<Label design="Bold" text="{i18n>Max_Payout}" id="label4"/>
+							</Column>
+						<!--	<Column>
+								<Label text="P4P"/>
+							</Column>-->
+							<Column>
+								<Label design="Bold" text="{i18n>GruppoSchedeMaster}"/>
+							</Column>
+							<Column>
+								<Label design="Bold" text="{i18n>Congelata}" id="label6"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<Input xmlns="sap.m" id="payout" value="200"/>
+						<!--	<Select id="p4p">
+								<core:Item key="" text=""/>
+								<core:Item key="S" text="Si"/>
+								<core:Item key="N" text="No"/>
+							</Select>-->
+							<!--<Select id="gruppo" items="{path : 'newModel>/0/Gruppi'}">
+								<core:Item key="" text=""/>
+								<core:Item key="{newModel>ID_GRUPPOSCHEDA}" text="{newModel>DESCR_GRUPPOSCHEDA}"/>
+							</Select>-->
+							<ComboBox id="gruppo" items="{maxPayoutModel>/1/GRUPPO}">
+								<core:Item key="{maxPayoutModel>ID_GRUPPOSCHEDA}" text="{maxPayoutModel>DESCR_GRUPPOSCHEDA}"/>
+							</ComboBox>
+							<Select id="congelata">
+								<core:Item key="N" text="Scheda non congelata"/>
+								<core:Item key="S" text="Scheda congelata"/>
+								
+							</Select>
+						</ColumnListItem>
+					</Table>
+					<Table>
+						<columns>
+							<Column width="100%">
+								<Label design="Bold" text="{i18n>Note}"/>
+							</Column>
+						</columns>
+						<ColumnListItem>
+							<TextArea width="100%" xmlns="sap.m" rows="4" id="note" cols="45"/>
+						</ColumnListItem>
+					</Table>
+					<Table id =  "PisteTable" items="{path : 'newModel>/1/PISTE'}">
+						<headerToolbar>
+							<Toolbar>
+								<Title  text="{i18n>PercentualeDescrizionePista}"/>
+								<ToolbarSpacer/>
+								<Button text="{i18n>Aggiungi_Pista}" type = "Emphasized" press="AggiungiPista"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column width="10%"/>
+							<Column width="80%"/>
+							<Column width="10%"/>
+						</columns>
+						<ColumnListItem>
+							<Input id="per_piste" value = "{newModel>PESO_PERCENTUALE}" change = "countPer"/>
+							<Input id="desc_piste" value = "{newModel>DESCR_PISTA}" editable = "false"/>
+							<Button icon = "sap-icon://decline" press = ".removeRow($event, ${path:'newModel>ID_PISTA'})"/>
+						</ColumnListItem>
+					</Table>
+					<!--<Table headerText="">
+						<columns>
+							<Column width="10%"/>
+							<Column width="10%"/>
+						</columns>
+						<ColumnListItem>
+							<Input id="per_fixed" width="10%" editable="false"/>
+							<Input id="desc2_fixed" width="10%" editable="false"/>
+						</ColumnListItem>
+					</Table>-->
+					<HBox>
+						<Label width = "50px"/>
+						<Input id="desc_fixed" value="{newModel>/2/PISTE_COUNT/rows}" width="20%" editable="false"/>
+						<Input id="per_fixed"  value="{newModel>/2/PISTE_COUNT/per}" width="40%" editable="false"/>
+						
+					</HBox>
+				</content>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<Button xmlns="sap.m" width="200px" text="{i18n>SAVE}" id="Salva" press="validation"/>
+					
+					<Button xmlns="sap.m" width="200px" text="{i18n>CANCEL}" id="button1" press="cancel"/>
+					<ToolbarSpacer/>
+				</Toolbar>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

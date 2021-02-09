@@ -1,0 +1,50 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<!--	<TableSelectDialog
+		noDataText="No Products Found"
+		title="Select Product"
+		search=".handleSearch"
+		confirm=".handleClose"
+		cancel=".handleClose"
+		items="{/Organization}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{OrgUnit}" />
+				<Text text="{Department}" />
+				<Text text="{Division}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="{i18n>OrganizationalUnit}" />
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="{i18n>Divisione}" />
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="{i18n>Divisione}" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>-->
+	<Dialog title="Ricerca Department" class="stipAdminPersonDialog" titleAlignment="Center" showHeader="true" horizontalScrolling="true"
+		verticalScrolling="true" draggable="true" contentWidth="350px" contentHeight="320px">
+		<content>
+			<ScrollContainer vertical="true" horizontal="true" focusable="true">
+				<Tree id="Tree" width="350px" items="{/Organization}">
+					<StandardTreeItem title="{text}" icon="{ref}" type="Active" press="onTreeSelect"/>
+				</Tree>
+			</ScrollContainer>
+			<CheckBox text="Includi livelli sottostanti"/>
+		</content>
+		
+		<endButton>
+			
+			<Button text="{i18n>CANCEL}" type="Emphasized" press="onCloseView"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
